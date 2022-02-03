@@ -1,0 +1,82 @@
+    *{
+        box-sizing: border-box;
+        font-family: sans-serif;
+
+    }
+    /* Charlotte Bookstore*/
+    .title{
+        font-family: 'Pacifico', cursive;
+        font-size: 60px;
+        text-shadow: 6px 6px 6px #aaa;
+        font-weight: 600;
+
+    }
+
+    li a{
+        font-size: medium;
+    }
+    nav + p{
+        font-size: xxx-large;
+    }
+
+
+    .navbar{
+        margin-bottom:0px;
+    }
+
+    .bg-img {
+        /* The image used */
+        background-image: url("./images/book.jpg");
+
+        min-height: 200px;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    /* Full-width input fields */
+    input[type=text], input[type=password], input[type=email] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    /* Set a style for the submit button */
+    .btn {
+        background-color: #04AA6D;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    .btn:hover {
+        opacity: 1;
+    }
+
+
+
+.footer{
+    /*position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-color: #21211a;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+}
