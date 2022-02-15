@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="src/main/webapp/pub/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/pub/css/style.css">
 
     <!-- Bootstrap CSS  / JS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
     <!-- Font Awesome for icons  -->
     <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -59,13 +60,13 @@
             <li class="nav-item dropdown" >
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-user"></i> My Account</a>
                 <ul class="dropdown-menu">
-                    <li><a href="login.html">Sign In</a></li>
+                    <li><a href="../login/login">Sign In</a></li>
                     <li><a href="#">Manage Account</a></li>
                     <li><a href="#">Order Status</a></li>
                     <li><a href="#">Wish List</a></li>
                     <li><a href="survey.html">Survey</a></li>
                     <div class="dropdown-divider"></div>
-                    <li><a href="sign-up.html">Sign Up</a></li>
+                    <li><a href="../registration/register">Sign Up</a></li>
 
                 </ul>
             </li>

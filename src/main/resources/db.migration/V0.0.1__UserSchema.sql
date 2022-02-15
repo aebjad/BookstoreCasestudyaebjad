@@ -10,6 +10,9 @@ CREATE TABLE `bookstore`.`users` (
                                      PRIMARY KEY (`id`),
                                      UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
+ALTER TABLE `bookstore`.`users`
+    ADD COLUMN `address` VARCHAR(100) NULL AFTER `state`;
+
 
 CREATE TABLE `bookstore`.`user_roles` (
                                           `id` INT NOT NULL AUTO_INCREMENT,

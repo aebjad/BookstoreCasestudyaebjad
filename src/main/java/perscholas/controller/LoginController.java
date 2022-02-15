@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+
+
     @RequestMapping(value =  "/login", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, HttpSession session) throws Exception {
         ModelAndView response = new ModelAndView();

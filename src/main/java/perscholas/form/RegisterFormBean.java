@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 import perscholas.validation.EmailUnique;
+import perscholas.validation.TwoFieldsAreEqual;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -14,25 +15,31 @@ import java.util.List;
 
 @Getter
 @Setter
+@TwoFieldsAreEqual(fieldOneName = "confirmPassword", fieldTwoName = "password", message = "Password and Confirm Password must be the same.")
 public class RegisterFormBean {
+
+    // this is a hidden data value and is only needed to distinguish an edit
+    private Integer id;
 
     @NotEmpty(message = "Email is required.")
     @Pattern(regexp = "^.+@.+$", message = "Invalid email format")
-    @EmailUnique(message = "Email must be unique")
+   // @EmailUnique(message = "Email must be unique")
     private String email;
 
-    @NotEmpty
-    @Length(min = 1, max = 5,
-            message = "First Name must be between 1 and 5 characters in length.")
+   // @NotEmpty(message = "First Name is required")
     private String firstName;
 
-    @NotEmpty(message = "Last Name is required.")
+   // @NotEmpty(message = "Last Name is required")
     private String lastName;
 
-   //    private Integer age;
-
+    @NotEmpty(message = "password is required")
     private String password;
     private String confirmPassword;
+
+    private String address;
+    private String city;
+    private String zipCode;
+    private String state;
 
     private List<String> errorMessages = new ArrayList<>();
 
@@ -44,7 +51,12 @@ public class RegisterFormBean {
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
                 ", confirmPassword='" + confirmPassword + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", state='" + state + '\'' +
+                ", errorMessages=" + errorMessages +
                 '}';
     }
-
 }
+
