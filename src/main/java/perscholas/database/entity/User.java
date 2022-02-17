@@ -49,10 +49,20 @@ public class User {
     @Column(name = "state")
     private String state;
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
 
 //	@OneToMany(mappedBy = "user")
 //	private List<UserRole> userRoles = new ArrayList<UserRole>();

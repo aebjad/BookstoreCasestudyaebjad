@@ -29,11 +29,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-       // User user = userDao.findByUsername(username);
+
         User user = userDao.findByEmail(email);
 
         if (user == null) {
-            throw new UsernameNotFoundException("Username '" + email + "' not found in database");
+            throw new UsernameNotFoundException("Email '" + email + "' not found in database");
         }
 
         List<UserRole> userRoles = userDao.getUserRoles(user.getId());

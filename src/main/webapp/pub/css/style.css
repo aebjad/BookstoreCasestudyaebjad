@@ -3,6 +3,7 @@
         font-family: sans-serif;
 
     }
+
     /* Charlotte Bookstore*/
     .title{
         font-family: 'Pacifico', cursive;
@@ -35,6 +36,35 @@
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
+    }
+
+    /*SignUp*/
+    .bg-img2 {
+        /* The image used */
+        background-image: url("../images/books.jpg");
+
+        min-height: 380px;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    /* Add styles to the form container signUp/login*/
+    .container2 {
+        position: absolute;
+        right: 0;
+        margin: 20px;
+        max-width: 500px;
+        padding: 16px;
+        background-color: white;
+    }
+
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 15px;
     }
 
     /* Full-width input fields */
@@ -72,6 +102,7 @@
     /*position: fixed;*/
     left: 0;
     bottom: 0;
+    height: 50px;
     width: 100%;
     color: white;
     background-color: #21211a;

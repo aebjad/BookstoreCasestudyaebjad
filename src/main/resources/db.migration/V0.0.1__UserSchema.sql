@@ -13,6 +13,11 @@ CREATE TABLE `bookstore`.`users` (
 ALTER TABLE `bookstore`.`users`
     ADD COLUMN `address` VARCHAR(100) NULL AFTER `state`;
 
+ALTER TABLE `bookstore`.`users`
+    ADD UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE;
+;
+
+
 
 CREATE TABLE `bookstore`.`user_roles` (
                                           `id` INT NOT NULL AUTO_INCREMENT,
@@ -39,6 +44,11 @@ CREATE TABLE `bookstore`.`books` (
                                       PRIMARY KEY (`id`),
                                       UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
+ALTER TABLE `bookstore`.`books`
+    CHANGE COLUMN `price` `price` DOUBLE NULL DEFAULT NULL ;
+
+ALTER TABLE `bookstore`.`books`
+    CHANGE COLUMN `url_image` `url_image` VARCHAR(1000) NULL DEFAULT NULL ;
 
 CREATE TABLE `bookstore`.`orders` (
                                       `id` INT NOT NULL AUTO_INCREMENT,

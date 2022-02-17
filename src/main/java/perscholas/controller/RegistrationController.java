@@ -50,7 +50,7 @@ public class RegistrationController {
     }
 
     // this method describes what happens when a user submits the form to the back end
-    // it handles the create logic for saving the user input to the database
+    // it handles the creation logic for saving the user input to the database
     @RequestMapping(value ="/registerSubmit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -92,8 +92,7 @@ public class RegistrationController {
             //        System.out.println(user);
             userDao.save(user);
 
-            if ( form.getId() == null ) {
-                // this is a create because the incoming id variable on the form is null
+               // this is a creation because the incoming id variable on the form is null
                 // so ... lets create a user role record for this user also
                 UserRole ur = new UserRole();
 
@@ -101,7 +100,7 @@ public class RegistrationController {
                 ur.setUserRole("USER");
 
                 userRoleDao.save(ur);
-            }
+
 
             //       response.setViewName("redirect:/login");
             response.setViewName("registration/register");
@@ -111,7 +110,35 @@ public class RegistrationController {
         return response;
     }
 
+    @RequestMapping(value ="/edit", method = RequestMethod.GET)
+    public ModelAndView register(@RequestParam(required = false) Integer id) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("registration/register");
+
+        if (id != null) {
+            // id has been passed to this form
+            User user = userDao.findById(id);
+
+            // populate the form bean with the data loaded from the database
+            RegisterFormBean form = new RegisterFormBean();
+            form.setEmail(user.getEmail());
+            form.setPassword(user.getPassword());
+            form.setFirstName(user.getFirstName());
+            form.setLastName(user.getLastName());
+            form.setAddress(user.getAddress());
+            form.setCity(user.getCity());
+            form.setZipCode(user.getZipCode());
+            form.setState(user.getState());
+            // since we loaded this from the database we know the id field
+            form.setId(user.getId());
+
+            response.addObject("formBeanKey", form);
+
+        }
+            return response;
+        }
+
+    }
 
 
 
-}

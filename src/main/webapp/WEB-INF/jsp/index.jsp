@@ -26,7 +26,7 @@
                 <div class="col mb-5">
                     <div class="card h-25">
                         <!-- Book image-->
-                        <img class="card-img-top" src="./images/b1.jpg" alt="Book..." />
+                        <img class="card-img-top" src="/pub/images/b1.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -47,7 +47,7 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="./images/b2.jpg" alt="Book..." />
+                        <img class="card-img-top" src="/pub/images/b2.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -77,7 +77,7 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="./images/b3.jpg" alt="Book..." />
+                        <img class="card-img-top" src="/pub/images/b3.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -98,7 +98,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="./images/b4.jpg" alt="Book..." />
+                        <img class="card-img-top" src="/pub/images/b4.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -127,7 +127,7 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="./images/b5.jpg" alt="Book..." />
+                        <img class="card-img-top" src="pub/images/b5.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -147,7 +147,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="./images/b6.jpg" alt="Book..." />
+                        <img class="card-img-top" src="pub/images/b6.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">

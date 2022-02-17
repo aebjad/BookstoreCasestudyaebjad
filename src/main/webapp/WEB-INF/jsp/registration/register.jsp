@@ -3,41 +3,14 @@
 
 
 <jsp:include page="../include/header.jsp" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<style>
-    /* Full-width input fields */
-    input[type=text], input[type=password], input[type=email] {
-        width: 100%;
-        padding: 15px;
-        margin: 5px 0 22px 0;
-        border: none;
-        background: #f1f1f1;
-    }
+<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
 
-    input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
-        background-color: #ddd;
-        outline: none;
-    }
-
-    /* Set a style for the submit button */
-    .btn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px 20px;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        opacity: 0.9;
-    }
-
-    .btn:hover {
-        opacity: 1;
-    }
-</style>
-
-<div class="bg-img2">
-    <form action="/user/profile" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
-        <input type="hidden" name="id" value="${formBeanKey.id}">
+<div style=" background-color: #21211a;">
+<div class="bg-img2" >
+    <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
+<%--        <input type="hidden" name="id" value="${formBeanKey.id}">--%>
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
@@ -129,13 +102,20 @@
         <input id="zipCode" type="text" name="zipCode"  pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
 
         <div class="container signin">
-            <p>Already have an account? <a href="login.html">Sign in</a>.</p>
+            <p>Already have an account? <a href="/login/login">Sign in</a>.</p>
         </div>
 
         <button type="submit" class="btn" id="myBtn" >Register</button>
     </form>
 </div>
 
+<div style="color: red">
+    <c:forEach  var="message" items="${formBeanKey.errorMessages}" varStatus="status">
+        <span style="color: red">${message}</span><br>
+
+    </c:forEach>
+</div>
+</div>
 <script>
     document.getElementById("suForm").addEventListener("onsubmit", myFunction);
 
@@ -143,3 +123,5 @@
         alert("Thank you for signing up");
     }
 </script>
+
+<jsp:include page="../include/footer.jsp" />
