@@ -1,5 +1,6 @@
 package perscholas.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@PreAuthorize("hasAuthority('ADMIN')")
+//@PreAuthorize("hasAuthority('ADMIN')")
 public class BookController {
 
     public static final Logger LOG = LoggerFactory.getLogger(BookController.class);
@@ -28,7 +29,7 @@ public class BookController {
     @Autowired
     private BookDAO bookDao;
 
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/newBook", method = RequestMethod.GET)
     public ModelAndView newBook() throws Exception {
         ModelAndView response = new ModelAndView();
@@ -40,6 +41,7 @@ public class BookController {
         return response;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/bookSubmit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView bookSubmit(@Valid BookFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -82,8 +84,8 @@ public class BookController {
     }
 
 
-//    @RequestMapping(value = "/bookList", method = RequestMethod.GET)
-//    public ModelAndView book() throws Exception {
+//    @RequestMapping(value = "/allBooksList", method = RequestMethod.GET)
+//    public ModelAndView allBooksList() throws Exception {
 //        ModelAndView response = new ModelAndView();
 //
 //        List<Book> books = bookDao.findAll();
@@ -93,7 +95,7 @@ public class BookController {
 //        return response;
 //    }
 
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value ="/edit", method = RequestMethod.GET)
     public ModelAndView edit(@RequestParam(required = false) Integer id) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -125,6 +127,7 @@ public class BookController {
 
     // this method describes what happens when an admin submits the form to the back end
     // it handles update logic for saving the book input to the database
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value ="/editBook", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView editBook(@Valid BookFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -139,7 +142,6 @@ public class BookController {
                 LOG.debug("error field = " + error.getField() + " message = " + error.getDefaultMessage());
 
             }
-            //   response.addObject("formError", errors);
             response.addObject("formBeanKey", form);
             response.setViewName("book/editBook");
         } else {
@@ -161,6 +163,23 @@ public class BookController {
 
 
     }
+
+        return response;
+    }
+
+    @RequestMapping(value ="/searchBookList", method = RequestMethod.GET)
+    public ModelAndView searchBookList(@RequestParam(required = false) String searchBooklist) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("book/searchBookList");
+        System.out.println("searchBooklist" + searchBooklist);
+        // Find book using book name, author name or any key case-insensitive
+        if(!StringUtils.isEmpty(searchBooklist)) {
+
+            List<Book> booksList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(searchBooklist, searchBooklist);
+            System.out.println(booksList);
+            response.addObject("booksList", booksList);
+            response.addObject("searchBooklist",searchBooklist);
+        }
 
         return response;
     }

@@ -25,7 +25,9 @@
             <br /><label for="quantityInStock">Quantity In Stock</label>
             <input id="quantityInStock" type="number" name="quantityInStock" min="0" value="${formBeanKey.quantityInStock}" placeholder="Quantity.."  />
 
-                <button type="submit" class="btn" id="myBtn" >Submit</button>
+                <button type="submit" class="btn" id="myBtn"  >Submit</button>
+<%--                <button id="cancel" name="cancel" class="btn btn-default" value="1">Cancel</button>--%>
+
         </form>
     </div>
 

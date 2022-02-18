@@ -5,9 +5,9 @@
     <header class="bg-dark py-5 bg-img" >
         <div class="container px-4 px-lg-5 my-5" >
             <div class="text-center text-white">
-                <form class="navbar-form navbar-center"  >
+                <form class="navbar-form navbar-center" action="/searchBookList"  >
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search by Title, Author or Keyword">
+                        <input type="text" name="searchBooklist" class="form-control" placeholder="Search by Title, Author or Keyword">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
