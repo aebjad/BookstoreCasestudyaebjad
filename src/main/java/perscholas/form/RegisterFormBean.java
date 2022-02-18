@@ -23,7 +23,7 @@ public class RegisterFormBean {
 
     @NotEmpty(message = "Email is required.")
     @Pattern(regexp = "^.+@.+$", message = "Invalid email format")
-   // @EmailUnique(message = "Email must be unique")
+    @EmailUnique(message = "Email must be unique")
     private String email;
 
    // @NotEmpty(message = "First Name is required")

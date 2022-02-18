@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import perscholas.database.dao.BookDAO;
 import perscholas.database.dao.UserDAO;
+import perscholas.database.entity.Book;
 import perscholas.database.entity.User;
 
 
@@ -23,6 +25,9 @@ import java.util.List;
 public class AdminController {
 
     public static final Logger LOG = LoggerFactory.getLogger(AdminController.class);
+
+    @Autowired
+    private BookDAO bookDao;
 
     @Autowired
     private UserDAO userDao;
@@ -47,6 +52,21 @@ public class AdminController {
             List<User> userList = userDao.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);
             response.addObject("userList", userList);
             response.addObject("search",search);
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value ="/bookList", method = RequestMethod.GET)
+    public ModelAndView bookList(@RequestParam(required = false) String booksearch) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("admin/booksList");
+
+        // Find book using book name, author name or any key case-insensitive
+        if(!StringUtils.isEmpty(booksearch)) {
+            List<Book> bookList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(booksearch, booksearch);
+            response.addObject("bookList", bookList);
+            response.addObject("booksearch",booksearch);
         }
 
         return response;

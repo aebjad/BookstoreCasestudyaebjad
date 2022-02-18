@@ -4,7 +4,7 @@
 <jsp:include page="../include/header.jsp" />
 
 
-    <table cellspacing="7" >
+    <table  class="table table-striped" >
         <tr>
 
             <td> First Name </td>
@@ -37,6 +37,15 @@
         </tr>
         </c:forEach>
     </table>
+
+<hr>
+
+<form method="GET" action="/admin/userList">
+    <label>Search for user</label>
+    <input type="text" name="search" value="${search}" placeholder="First name or last name">
+    <button type="submit">Search</button>
+</form>
+<hr>
 
 
 

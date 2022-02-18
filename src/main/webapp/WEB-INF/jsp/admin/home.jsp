@@ -10,14 +10,15 @@
 </form>
 <hr>
 
-<form method="GET" action="/bookList">
+<form method="GET" action="/admin/bookList">
     <label>Search for a book</label>
-    <input type="text" name="search" value="${search2}" placeholder="Book title or author's name">
+    <input type="text" name="booksearch" value="${booksearch}" placeholder="Book title or author's name">
     <button type="submit">Search</button>
 </form>
 <hr>
 
 <div><a href="/newBook"> Add new book </a></div>
+<hr>
 
 
 <jsp:include page="../include/footer.jsp" />

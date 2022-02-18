@@ -50,6 +50,8 @@ ALTER TABLE `bookstore`.`books`
 ALTER TABLE `bookstore`.`books`
     CHANGE COLUMN `url_image` `url_image` VARCHAR(1000) NULL DEFAULT NULL ;
 
+
+
 CREATE TABLE `bookstore`.`orders` (
                                       `id` INT NOT NULL AUTO_INCREMENT,
                                       `user_id` INT NOT NULL,

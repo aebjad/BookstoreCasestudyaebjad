@@ -10,7 +10,7 @@
 <div style=" background-color: #21211a;">
 <div class="bg-img2" >
     <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
-<%--        <input type="hidden" name="id" value="${formBeanKey.id}">--%>
+        <input type="hidden" name="id" value="${formBeanKey.id}">
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>

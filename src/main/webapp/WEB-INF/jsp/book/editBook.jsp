@@ -5,10 +5,10 @@
 
 <div style=" background-color: #21211a;">
     <div class="bg-img2" >
-        <form action="/bookSubmit" class="container2" id="bookForm" onsubmit="myFunction2()"  method="POST">
-            <%--        <input type="hidden" name="id" value="${formBeanKey.id}">--%>
-            <h1>Add New Book</h1>
-            <p>Please fill in this form to add new book</p>
+        <form action="/editBook" class="container2" id="editForm" onsubmit="myFunction3()"  method="POST">
+                    <input type="hidden" name="id" value="${formBeanKey.id}">
+            <h1>Edit Book</h1>
+            <p>Please fill in this form to edit the book information</p>
             <hr>
             <br /><label for="bookName">Book Name</label>
             <input id="bookName" type="text" name="bookName" value="${formBeanKey.bookName}" placeholder="book name.."  required/>
@@ -38,10 +38,10 @@
 </div>
 
 <script>
-    document.getElementById("bookForm").addEventListener("onsubmit", myFunction2);
+    document.getElementById("editForm").addEventListener("onsubmit", myFunction3);
 
-    function myFunction2() {
-        alert("The book has been added successfully");
+    function myFunction3() {
+        alert("The book has been updated successfully");
     }
 </script>
 
