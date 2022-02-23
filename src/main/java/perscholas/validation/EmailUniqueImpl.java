@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+//Implement a custom annotation
 public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String> {
 
     public static final Logger LOG = LoggerFactory.getLogger(EmailUniqueImpl.class);

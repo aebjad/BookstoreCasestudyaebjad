@@ -67,6 +67,10 @@ CREATE TABLE `bookstore`.`orders` (
                                               ON DELETE NO ACTION
                                               ON UPDATE NO ACTION);
 
+ALTER TABLE `bookstore`.`orders`
+    CHANGE COLUMN `order_date` `order_date` DATE NULL ;
+
+
 CREATE TABLE `bookstore`.`order_details` (
                                              `id` INT NOT NULL AUTO_INCREMENT,
                                              `order_id` INT NOT NULL,
@@ -86,5 +90,8 @@ CREATE TABLE `bookstore`.`order_details` (
                                                      REFERENCES `bookstore`.`books` (`id`)
                                                      ON DELETE NO ACTION
                                                      ON UPDATE NO ACTION);
+
+ALTER TABLE `bookstore`.`order_details`
+    RENAME TO  `bookstore`.`orders_books` ;
 
 

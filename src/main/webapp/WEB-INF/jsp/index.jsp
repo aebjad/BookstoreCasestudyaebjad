@@ -7,9 +7,9 @@
             <div class="text-center text-white">
                 <form class="navbar-form navbar-center" action="/searchBookList"  >
                     <div class="input-group">
-                        <input type="text" name="searchBooklist" class="form-control" placeholder="Search by Title, Author or Keyword">
+                        <input type="text" name="searchBooklist" class="form-control px-2" placeholder="Search by Title, Author or Keyword">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
+                            <button class="btn btn-default " type="submit">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
@@ -127,34 +127,76 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="pub/images/b5.jpg" alt="Book..." />
+                        <img class="card-img-top" src="/pub/images/moon.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">People of the book</h5>
+                                <h5 class="fw-bolder">I Love You to the Moon and Back</h5>
                                 <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$25.00</span>
-                                $20.00
+                                <span class="text-muted text-decoration-line-through">$10.00</span>
+                                $7.99
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/addToCart">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+<%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="/pub/images/animals.jpg" alt="Book..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">If Animals Kissed Goodnight</h5>
+                                <!-- Product price-->
+                                $7.99
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/addToCart">Add to cart</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+<%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="/pub/images/humble.jpg" alt="Book..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Humble Pie</h5>
+                                <!-- Product price-->
+                                11.25
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/addToCart">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="pub/images/b6.jpg" alt="Book..." />
+                        <img class="card-img-top" src="/pub/images/rawFood.jpg" alt="Book..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">Networked feminisms</h5>
+                                <h5 class="fw-bolder">Raw Food Detox Diet </h5>
                                 <!-- Product price-->
-                                $20.00
+                                $16.99
                             </div>
                         </div>
                         <!-- Product actions-->

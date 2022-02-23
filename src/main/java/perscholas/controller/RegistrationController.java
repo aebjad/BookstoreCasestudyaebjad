@@ -56,7 +56,7 @@ public class RegistrationController {
         ModelAndView response = new ModelAndView();
 
 
-        System.out.println(form);
+     //   System.out.println(form);
 
         if(errors.hasErrors()) {
             for (FieldError error : errors.getFieldErrors()) {
@@ -104,6 +104,7 @@ public class RegistrationController {
 
             //       response.setViewName("redirect:/login");
             response.setViewName("registration/register");
+          //  response.setViewName("/login/loginSecurityPost");
 
         }
 

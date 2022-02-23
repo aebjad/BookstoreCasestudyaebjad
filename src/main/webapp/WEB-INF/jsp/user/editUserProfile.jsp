@@ -7,25 +7,25 @@
 
 <link rel="stylesheet" type="text/css" href="/pub/css/style.css">
 
-<div style=" background-color: #21211a;">
+
+<%--<div style=" background-color: #21211a;">--%>
 <div class="bg-img2" >
-    <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
+    <form action="/updateUser" class="container2" id="peForm" onsubmit="myFunction()" method="POST">
         <input type="hidden" name="id" value="${formBeanKey.id}">
-        <h1>Sign Up</h1>
-        <p>Please fill in this form to create an account.</p>
+        <h1>Account Settings</h1>
         <hr>
         <br /><label for="fName">First Name</label>
-        <input id="fName" type="text" name="firstName" value="${formBeanKey.firstName}" placeholder="Your name.."  required/>
-        <!--      first name pattern      pattern="^[A-Z][a-z]+$"-->
-        <br /><label for="lname">Last Name</label>
-        <input id="lname" type="text" name="lastName"  value="${formBeanKey.lastName}" placeholder="Your Last name.."  required/>
-        <!--          last name pattren   pattern="^[A-Z][a-z]+$"-->
-        <br /><label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="Your Email.." value="${formBeanKey.email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"   required/>
-        <!--              pattern="^[A-Za-z0-9+_.-]+@(.+)[a-z]{2,4}$"-->
-        <br /><label for="pass">Password</label>
-        <input id="pass" type="password" name="password" placeholder="Your password.." required />
+        <input id="fName" type="text" name="firstName" value="${formBeanKey.firstName}" placeholder="Your name.."  />
 
+        <br /><label for="lname">Last Name</label>
+        <input id="lname" type="text" name="lastName"  value="${formBeanKey.lastName}" placeholder="Your Last name.." />
+
+        <br /><label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Your Email.." value="${formBeanKey.email}" disabled/>
+
+        <br /><label for="pass">Password</label>
+        <input id="pass" type="password" name="password"  placeholder="Your password.."  required/>
+<%--        value="${formBeanKey.password}"--%>
         <br /><label for="confirmPassword">Confirm Password</label>
         <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm your password.." required />
 
@@ -40,7 +40,7 @@
         <!--               <label for="state" class="col-sm-2 control-label">State</label> <div class="col-sm-10">  class="form-control-->
         <div>
             <select style="background-color: #f1f1f1" id="state" name="state" value="${formBeanKey.state}">
-                <option value="">N/A</option>
+                <option value="${formBeanKey.state}">N/A</option>
                 <option value="AK">Alaska</option>
                 <option value="AL">Alabama</option>
                 <option value="AR">Arkansas</option>
@@ -101,11 +101,11 @@
         <br /><label for="zipCode">Zip code</label>
         <input id="zipCode" type="text" name="zipCode" value="${formBeanKey.zipCode}"  pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
 
-        <div class="container signin">
-            <p>Already have an account? <a href="/login/login">Sign in</a>.</p>
-        </div>
 
-        <button type="submit" class="btn" id="myBtn" >Register</button>
+
+        <button type="submit" class="btn" id="myBtn2" >Save Changes</button><br />
+        <br /><button type="reset" class="btn" value="Reset">Cancel</button>
+
     </form>
 </div>
 
@@ -115,12 +115,12 @@
 
     </c:forEach>
 </div>
-</div>
+<%--</div>--%>
 <script>
-    document.getElementById("suForm").addEventListener("onsubmit", myFunction);
+    document.getElementById("peForm").addEventListener("onsubmit", myFunction);
 
     function myFunction() {
-        alert("Thank you for signing up");
+        alert("Your information has been updated");
     }
 </script>
 

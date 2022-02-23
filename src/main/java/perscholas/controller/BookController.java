@@ -171,16 +171,44 @@ public class BookController {
     public ModelAndView searchBookList(@RequestParam(required = false) String searchBooklist) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("book/searchBookList");
-        System.out.println("searchBooklist" + searchBooklist);
+      //  System.out.println("searchBooklist" + searchBooklist);
         // Find book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
 
             List<Book> booksList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(searchBooklist, searchBooklist);
-            System.out.println(booksList);
+      //      System.out.println(booksList);
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
         }
 
+        return response;
+    }
+
+    @RequestMapping(value ="/bookDetails", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView bookDetails(@RequestParam(required = false) Integer id) throws Exception {
+        ModelAndView response = new ModelAndView();
+
+        response.setViewName("book/bookDetails");
+
+        if( id != null){
+            // id has been passed to this form
+            Book book = bookDao.findById(id);
+            //    System.out.println("edit method :"+ book);
+
+            // populate the form bean with the data loaded from the database
+            BookFormBean form = new BookFormBean();
+            form.setBookName(book.getBookName());
+            form.setAuthor(book.getAuthor());
+            form.setPrice(book.getPrice());
+            form.setUrlImage(book.getUrlImage());
+            form.setQuantityInStock(book.getQuantityInStock());
+            // since we loaded this from the database we know the id field
+            form.setId(book.getId());
+
+            response.addObject("formBeanKey", form);
+
+
+        }
         return response;
     }
 }

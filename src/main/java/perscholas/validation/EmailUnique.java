@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
+//Create a custom annotation
 @Documented
 @Constraint(validatedBy = EmailUniqueImpl.class)
 @Target( { ElementType.METHOD, ElementType.FIELD })
