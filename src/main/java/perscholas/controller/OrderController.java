@@ -141,7 +141,7 @@ public class OrderController {
         return response;
     }
 
-//    @PreAuthorize("hasAuthority("USER")
+    @PreAuthorize("hasAuthority('USER')")
     @RequestMapping(value = "/userBag", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView userBag() throws Exception {
 

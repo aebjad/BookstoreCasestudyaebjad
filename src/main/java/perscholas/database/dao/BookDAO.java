@@ -22,8 +22,11 @@ public interface BookDAO extends JpaRepository<Book, Long> {
 
     public List<Book> findAll();
 
-    @Query(value ="Select * from book order by RAND() LIMIT 8", nativeQuery = true)
-    public List<Book> findAllRandom();
+//    @Query(value ="Select book.* from Book order by RAND LIMIT 8", nativeQuery = true)
+    @Query(value ="Select * from Book order by RAND() LIMIT 8", nativeQuery = true)
+//    @Query(value ="Select book.* from Book order by RANDOM() LIMIT 8", nativeQuery = true)
+//      @Query("select b from Book b ORDER BY RAND, LIMIT 8 )
+      public List<Book> findAllRandom();
 
 
 

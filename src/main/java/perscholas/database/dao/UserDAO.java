@@ -40,4 +40,6 @@ public interface UserDAO extends JpaRepository<User, Long> {
     List<UserRole> getUserRoles(Integer userId);
 
 
+
+
 }

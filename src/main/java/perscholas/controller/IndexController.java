@@ -22,8 +22,8 @@ public class IndexController {
         ModelAndView response = new ModelAndView();
         response.setViewName("index");
 
-        List<Book> booksList = bookDao.findAllRandom();
-        response.addObject("booksList", booksList);
+//        List<Book> booksList = bookDao.findAllRandom();
+//        response.addObject("booksList", booksList);
 
 
         return response;

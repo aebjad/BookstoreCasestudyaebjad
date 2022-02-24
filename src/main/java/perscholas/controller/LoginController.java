@@ -7,13 +7,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+//@RequestMapping("/user")
 public class LoginController {
 
 
     @RequestMapping(value =  "/login/login", method = RequestMethod.GET)
     public ModelAndView login() throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("login/login");
+        response.setViewName("/login/login");
 
         return response;
     }
