@@ -6,28 +6,85 @@
 
 <h1>My Cart</h1>
 <a href="/index" class="continue">Continue Shopping</a>
-</div>
+
 
 <hr>
+
+<%--<div class ="body-cart">--%>
+<%--<div class=”Cart-Container”>--%>
+<%--    <div class=”Header”>--%>
+<%--        <h3 class=”Heading”>Shopping Bag</h3>--%>
+<%--        <h5 class=”Action”>Remove all</h5>--%>
+<%--    </div>--%>
+
+<%--    <c:forEach var="booklist" items="${booksList}">--%>
+<%--    <div class=”Cart-Items”>--%>
+<%--        <div class=”image-box”>--%>
+<%--            <img src=”${booklist.book.urlImage}” height=”120px”  />--%>
+<%--        </div>--%>
+<%--        <div class=”about”>--%>
+<%--            <h1 class=”title”>${booklist.book.bookName}</h1>--%>
+<%--&lt;%&ndash;            <h3 class=”subtitle”>250ml</h3>&ndash;%&gt;--%>
+<%--&lt;%&ndash;            <img src=”images/veg.png” style={{ height=”30px” }}/>&ndash;%&gt;--%>
+<%--        </div>--%>
+<%--        <div class=”counter”></div>--%>
+<%--        <div class=”prices”></div>--%>
+<%--    </div>--%>
+
+<%--    <div class=”counter”>--%>
+<%--        <div class=”btn”>+</div>--%>
+<%--        <div class=”count”>${booklist.quantity}</div>--%>
+<%--        <div class=”btn”>-</div>--%>
+<%--    </div>--%>
+
+<%--    <div class=”prices”>--%>
+<%--        <div class=”amount”>${booklist.book.price}</div>--%>
+<%--        <div class=”save”><u>Save for later</u></div>--%>
+<%--        <div class=”remove”><u>Remove</u></div>--%>
+<%--    </div>--%>
+
+<%--</c:forEach>--%>
+
+<%--    <hr>--%>
+<%--    <div class=”checkout”>--%>
+<%--        <div class=”total”>--%>
+<%--            <div>--%>
+<%--                <div class=”Subtotal”>Sub-Total</div>--%>
+<%--                <div class=”items”>2 items</div>--%>
+<%--            </div>--%>
+<%--            <div class=”total-amount”>$6.18</div>--%>
+<%--        </div>--%>
+<%--        <button class=”button”>Checkout</button>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<%--</div>--%>
 
 <div class="container">
 
     <c:forEach  var="booklist" items="${booksList}">
         <div class="row" justify-content-center">
-        <div class="col-12 py-3">
-            <div class="card" style="width: 18rem;">
+<%--        <div class="col-12 py-3">--%>
+<%--            <div class="card" style="width: 18rem;">--%>
 <%--                <a href="/bookDetails?id=${book.id}">--%>
-
-                    <img class="card-img-top" src="${booklist.book.urlImage}" height="50" width="50" alt="Book image">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img class="card-img-top" src="${booklist.book.urlImage}"  alt="Book image">
                         <%--                 </c:if>--%>
 <%--                </a>--%>
+                </div>
+                <div class="col-md-8">
                 <div class="card-body">
                     <h5 class="card-title">${booklist.book.bookName}</h5>
-                    <h5 class="card-price">${booklist.book.price}</h5>
-                    <h5 class="card-price" ><input type="number" name="quantity" value="${booklist.quantity}"/></h5>
+                    <h5 class="card-price">$${booklist.book.price}</h5>
+                    <h5 class="card-price" ><input type="number" min="1" style="background-color: #dddddd"
+                                                   name="quantity" value="${booklist.quantity}"/></h5>
+                    <h5><button type="submit" class="btn">Remove</button></h5>
+                </div>
+                </div>
+
                 </div>
             </div>
-        </div>
        </div>
     </c:forEach>
 

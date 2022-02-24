@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-4">
 
-            <img src="${formBeanKey.urlImage}" alt="Book image" height="300px">
+            <img src="${formBeanKey.urlImage}" alt="Book image" style="width: 150px; height: 150px">
 
         </div>
         <div class="col-sm-4">

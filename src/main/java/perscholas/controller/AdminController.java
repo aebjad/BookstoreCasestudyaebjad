@@ -72,5 +72,24 @@ public class AdminController {
         return response;
     }
 
+    @RequestMapping(value = "/deleteBook", method = RequestMethod.GET)
+    public ModelAndView delete(@RequestParam Integer id) throws Exception {
+        ModelAndView response = new ModelAndView();
+
+        response.setViewName("admin/booksList");
+
+//        if(!StringUtils.isEmpty(booksearch) && id != null) {
+//
+//            List<Book> bookList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(booksearch, booksearch);
+//            response.addObject("bookList", bookList);
+//            response.addObject("booksearch", booksearch);
+
+            Book delete = bookDao.findById(id);
+            if (delete != null) {
+                bookDao.delete(delete);
+            }
+//        }
+        return response;
+    }
 
 }

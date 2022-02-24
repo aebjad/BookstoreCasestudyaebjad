@@ -50,6 +50,8 @@ ALTER TABLE `bookstore`.`books`
 ALTER TABLE `bookstore`.`books`
     CHANGE COLUMN `url_image` `url_image` VARCHAR(1000) NULL DEFAULT NULL ;
 
+ALTER TABLE `bookstore`.`books`
+    ADD COLUMN `category` VARCHAR(45) NULL AFTER `quantity_in_stock`;
 
 
 CREATE TABLE `bookstore`.`orders` (

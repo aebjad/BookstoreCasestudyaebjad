@@ -13,8 +13,12 @@
             <br /><label for="bookName">Book Name</label>
             <input id="bookName" type="text" name="bookName" value="${formBeanKey.bookName}" placeholder="book name.."  required/>
 
-            <br /><label for="author">author Name</label>
+
+                <br /><label for="author">author Name</label>
             <input id="author" type="text" name="author" value="${formBeanKey.author}" placeholder="Author name.."  />
+
+                <br /><label for="category">Category</label>
+                <input id="category" type="text" name="category" value="${formBeanKey.category}" placeholder="Author name.."  />
 
             <br /><label for="urlImage">Image URL</label>
             <input id="urlImage" type="text" name="urlImage" value="${formBeanKey.urlImage}" placeholder="image url.." />

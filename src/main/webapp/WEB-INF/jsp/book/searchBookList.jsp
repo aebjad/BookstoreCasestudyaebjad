@@ -29,7 +29,7 @@
          <div class="card" style="width: 18rem;">
              <a href="/bookDetails?id=${book.id}">
 <%--                 <c:if test="${not empty product.imageUrl}">    --%>
-            <img class="card-img-top" src="${book.urlImage}" alt="Book image">
+            <img class="card-img-top" src="${book.urlImage}" alt="Book image" >
 <%--                 </c:if>--%>
              </a>
             <div class="card-body">

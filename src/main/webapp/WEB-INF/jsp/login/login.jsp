@@ -8,6 +8,7 @@
    <div  style=" background-color: #21211a;">
     <div class="bg-img2" >
 
+<%--        form action="/login/loginSecurityPost" method="POST" should alwasy be like that--%>
     <form action="/login/loginSecurityPost" method="POST" class="container2">
 
         <h1 style="color:red">${errorMessage}</h1>
@@ -15,8 +16,10 @@
     <h1>Sign In</h1>
     <hr>
 
+<%--        name="username" &  name="password" should always be like that for login to proccess/security--%>
     <br /><label for="email">Email</label>
     <input id="email" type="email" name="username" placeholder="Your Email.."  required/>
+
 
     <br /><label for="pass">Password</label>
     <input id="pass" type="password" name="password" placeholder="Your password.." required />

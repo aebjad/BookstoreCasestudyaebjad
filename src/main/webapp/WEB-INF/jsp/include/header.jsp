@@ -48,18 +48,18 @@
                 <a class="nav-link" href="/searchBookList">Books</a>
             </li>
 
-<%--            <li class="nav-item dropdown">--%>
-<%--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                    Books--%>
-<%--                </a>--%>
-<%--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">--%>
-<%--                    <a class="dropdown-item" href="#">Kids</a>--%>
-<%--                    <a class="dropdown-item" href="#">Teens</a>--%>
-<%--                    <a class="dropdown-item" href="#">Adult</a>--%>
-<%--                    <div class="dropdown-divider"></div>--%>
-<%--                    <a class="dropdown-item" href="#">All Books</a>--%>
-<%--                </div>--%>
-<%--            </li>--%>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Books
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/searchBookCategory?searchBooklist=kid">Kids</a>
+                    <a class="dropdown-item" href="/searchBookCategory?searchBooklist=teen">Teens</a>
+                    <a class="dropdown-item" href="/searchBookCategory?searchBooklist=adult">Adult</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/searchBookCategory">All Books</a>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

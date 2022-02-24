@@ -167,16 +167,38 @@ public class BookController {
         return response;
     }
 
+    @RequestMapping(value ="/searchBookCategory", method = RequestMethod.GET)
+    public ModelAndView bookCategory(@RequestParam(required = false) String searchBooklist) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("book/searchBookList");
+      //  System.out.println("searchBooklist" + searchBooklist);
+        // Find book using book category case-insensitive
+        if(!StringUtils.isEmpty(searchBooklist)) {
+
+            List<Book> booksList = bookDao.findByCategoryContainingIgnoreCase(searchBooklist);
+            System.out.println(booksList);
+            response.addObject("booksList", booksList);
+            response.addObject("searchBooklist",searchBooklist);
+        }else{
+            List<Book> booksList = bookDao.findAll();
+            System.out.println(booksList);
+            response.addObject("booksList", booksList);
+            response.addObject("searchBooklist",searchBooklist);
+        }
+
+        return response;
+    }
+
     @RequestMapping(value ="/searchBookList", method = RequestMethod.GET)
     public ModelAndView searchBookList(@RequestParam(required = false) String searchBooklist) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("book/searchBookList");
-      //  System.out.println("searchBooklist" + searchBooklist);
+        //  System.out.println("searchBooklist" + searchBooklist);
         // Find book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
 
             List<Book> booksList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(searchBooklist, searchBooklist);
-      //      System.out.println(booksList);
+            //      System.out.println(booksList);
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
         }

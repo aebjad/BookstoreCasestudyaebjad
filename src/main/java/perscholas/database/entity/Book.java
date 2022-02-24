@@ -30,6 +30,9 @@ public class Book {
     @Column(name = "url_image")
     private String urlImage;
 
+    @Column(name = "category")
+    private String category;
+
     @Column(name = "price")
     private Double price;
 

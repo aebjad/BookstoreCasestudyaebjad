@@ -18,6 +18,15 @@ public interface BookDAO extends JpaRepository<Book, Long> {
 
     public List<Book> findByAuthor(@Param("author") String author);
 
+    public List<Book> findByCategoryContainingIgnoreCase(@Param("category") String category);
+
+    public List<Book> findAll();
+
+    @Query(value ="Select * from book order by RAND() LIMIT 8", nativeQuery = true)
+    public List<Book> findAllRandom();
+
+
+
    // public List<Book> findByBookNameAndAndAuthor(String bookName, String author);
     public List<Book> findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(String bookName, String author);
 
