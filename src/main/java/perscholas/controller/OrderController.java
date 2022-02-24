@@ -65,7 +65,7 @@ public class OrderController {
     //      6a ) increment the quantity on the order_product
     // 7) persist the order_product
 
-//    @PreAuthorize("hasAuthority('ADMIN', 'USER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/addToCart", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView addToCart(@RequestParam(required = true) Integer id) throws Exception {
 
@@ -141,4 +141,39 @@ public class OrderController {
         return response;
     }
 
-}
+//    @PreAuthorize("hasAuthority("USER")
+    @RequestMapping(value = "/userBag", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView userBag() throws Exception {
+
+        ModelAndView response = new ModelAndView();
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+        User user = userDao.findByEmail(currentPrincipalName);
+//        response.addObject("user", user);
+
+        Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
+//        response.addObject("order", order);
+
+        List<OrderBook> booksList = orderBookDao.findByOrder(order);
+        response.addObject("booksList", booksList);
+
+        response.setViewName("user/userBag");
+
+
+        return response;
+    }
+
+//    @RequestMapping(value = "/userBag", method = RequestMethod.GET)
+//    public ModelAndView userBag() throws Exception {
+//        ModelAndView response = new ModelAndView();
+//        response.setViewName("user/userBag");
+//
+//
+//        return response;
+//    }
+
+
+    }

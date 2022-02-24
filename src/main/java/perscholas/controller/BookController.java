@@ -191,7 +191,7 @@ public class BookController {
         response.setViewName("book/bookDetails");
 
         if( id != null){
-            // id has been passed to this form
+            // id has been passed to this form/method
             Book book = bookDao.findById(id);
             //    System.out.println("edit method :"+ book);
 

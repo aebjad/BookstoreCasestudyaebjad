@@ -2,14 +2,25 @@
 
     <jsp:include page="../include/header.jsp" />
 
-
-    <form method="GET" action="/searchBookList">
-        <label>Search for a book</label>
-        <input type="text" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">
-        <button type="submit">Search</button>
+    <div class="bg-dark py-5 bg-img" ></div>
+    </br><br/>
+    <h4>Search for a book</h4>
+    <form class="form-inline" method="GET" action="/searchBookList">
+        <div class="input-group">
+            <input type="text" class="form-control" size="50" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-danger">Search</button>
+            </div>
+        </div>
     </form>
-    <hr>
 
+<%--    <form method="GET" action="/searchBookList">--%>
+<%--        <label>Search for a book</label>--%>
+<%--        <input type="text" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">--%>
+<%--        <button type="submit">Search</button>--%>
+<%--    </form>--%>
+    <hr>
+<h3>Search Result:</h3>
   <div class="container">
    <div class="row" justify-content-center">
     <c:forEach  var="book" items="${booksList}">

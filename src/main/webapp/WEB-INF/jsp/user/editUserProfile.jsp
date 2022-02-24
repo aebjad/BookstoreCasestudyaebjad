@@ -104,7 +104,7 @@
 
 
         <button type="submit" class="btn" id="myBtn2" >Save Changes</button><br />
-        <br /><button type="reset" class="btn" value="Reset">Cancel</button>
+        <br /><button type="reset" class="btn" value="Reset" onclick="location.href ='/profile'">Cancel</button>
 
     </form>
 </div>

@@ -98,7 +98,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i> Bag</a>
+                <a class="nav-link" href="/userBag"><i class="fas fa-shopping-bag"></i> Bag</a>
             </li>
         </ul>
 
