@@ -18,7 +18,7 @@
             <input id="author" type="text" name="author" value="${formBeanKey.author}" placeholder="Author name.."  />
 
                 <br /><label for="category">Category</label>
-                <input id="category" type="text" name="category" value="${formBeanKey.category}" placeholder="Author name.."  />
+                <input id="category" type="text" name="category" value="${formBeanKey.category}" placeholder="Category.."  />
 
             <br /><label for="urlImage">Image URL</label>
             <input id="urlImage" type="text" name="urlImage" value="${formBeanKey.urlImage}" placeholder="image url.." />

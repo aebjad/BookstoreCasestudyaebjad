@@ -48,7 +48,8 @@
                 <div class="col mb-5">
                     <div class="card h-25">
                         <!-- Book image-->
-                        <img class="card-img-top" src="/pub/images/b1.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=9">
+                            <img class="card-img-top" src="/pub/images/b1.jpg" alt="Book..." /> </a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -69,7 +70,8 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/b2.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=8">
+                            <img class="card-img-top" src="/pub/images/b2.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -91,7 +93,8 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/b3.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=10">
+                            <img class="card-img-top" src="/pub/images/b3.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -112,7 +115,8 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/b4.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=14">
+                            <img class="card-img-top" src="/pub/images/b4.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -133,7 +137,8 @@
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/moon.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=5">
+                            <img class="card-img-top" src="/pub/images/moon.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -155,7 +160,8 @@
                         <!-- Sale badge-->
 <%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/animals.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=6">
+                            <img class="card-img-top" src="/pub/images/animals.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -176,7 +182,8 @@
                         <!-- Sale badge-->
 <%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/humble.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=13">
+                            <img class="card-img-top" src="/pub/images/humble.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -195,7 +202,8 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <img class="card-img-top" src="/pub/images/rawFood.jpg" alt="Book..." />
+                        <a href="/bookDetails?id=12">
+                            <img class="card-img-top" src="/pub/images/rawFood.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">

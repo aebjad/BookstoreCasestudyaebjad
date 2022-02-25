@@ -24,7 +24,7 @@
 </form>
 <hr>
 
-<div><a href="/newBook" class="btn btn-warning" role="button"> Add new book </a></div>
+<div><a href="/newBook" class=" btn-warning" role="button"> Add new book </a></div>
 
 
 

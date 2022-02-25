@@ -3,10 +3,11 @@
 <link rel="stylesheet" type="text/css" href="/pub/css/style.css">
 
 <!-- form submission must align with security config see .loginProcessingUrl in Security Config -->
-
+<div class="bg-dark py-5 bg-img" ></div>
+</br><br/>
 
 <div class="container px-4 px-lg-5 h-100">
-    <div background-image: url("../images/book.jpg")></div>
+<%--    <div background-image: url("/pub/images/book.jpg")></div>--%>
     <div class="col-lg-8 align-self-baseline">
         <p class="text-white-75 mb-5">
             <br /><label >Full Name: ${user.firstName}  ${user.lastName}</label>

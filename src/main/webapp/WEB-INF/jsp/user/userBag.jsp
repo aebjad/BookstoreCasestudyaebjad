@@ -2,13 +2,50 @@
 
 <jsp:include page="../include/header.jsp" />
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
 
-<h1>My Cart</h1>
-<a href="/index" class="continue">Continue Shopping</a>
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
+<div class="bg-dark py-5 bg-img" ></div>
+</br><br/>
+
+<h2>My Cart</h2>
+<a href="/searchBookCategory" class="continue">Continue Shopping</a>
 
 
 <hr>
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-8>
+    <c:forEach  var="book" items="${bookList}">
+<div class="row justify-content-center">
+    <div class="col-sm-4">
+
+        <img src="${book.book.urlImage}" alt="Book image" style="width: 70px; height: 70px">
+        <br/>$${book.book.price}
+    </div>
+    <div class="col-sm-4">
+        <br/>${book.book.bookName}
+<%--        <br/> Author: ${booksList.author}--%>
+        <h5  ><input type="number" min="1" style="background-color: #dddddd; width: 70px; border-radius: 10px"
+                     name="quantity" value="${book.quantity}"/></h5>
+<%--        <br/> List price: $${booksList.price}--%>
+<%--        <hr>--%>
+        <a href="/editBookQuantity?id=${book.id}" class="btn btn-danger" style="width: 70px" >Update</a>
+        <a href="/removeBookFromCart?id=${book.id}"  class="btn btn-danger" style="width: 70px">Remove</a>
+
+
+    </div>
+
+</div>
+    <hr>
+</c:forEach>
+</div>
+<div class="col-3>
+
+</div>
+</div>
+
+<jsp:include page="../include/footer.jsp" />
 
 <%--<div class ="body-cart">--%>
 <%--<div class=”Cart-Container”>--%>
@@ -59,39 +96,7 @@
 <%--</div>--%>
 <%--</div>--%>
 
-<div class="container">
 
-    <c:forEach  var="booklist" items="${booksList}">
-        <div class="row" justify-content-center">
-<%--        <div class="col-12 py-3">--%>
-<%--            <div class="card" style="width: 18rem;">--%>
-<%--                <a href="/bookDetails?id=${book.id}">--%>
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img class="card-img-top" src="${booklist.book.urlImage}"  alt="Book image">
-                        <%--                 </c:if>--%>
-<%--                </a>--%>
-                </div>
-                <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">${booklist.book.bookName}</h5>
-                    <h5 class="card-price">$${booklist.book.price}</h5>
-                    <h5 class="card-price" ><input type="number" min="1" style="background-color: #dddddd"
-                                                   name="quantity" value="${booklist.quantity}"/></h5>
-                    <h5><button type="submit" class="btn">Remove</button></h5>
-                </div>
-                </div>
-
-                </div>
-            </div>
-       </div>
-    </c:forEach>
-
-</div>
-
-
-<jsp:include page="../include/footer.jsp" />
 <%--<div class="cart">--%>
 <%--    <!--    <ul class="tableHead">--%>
 <%--          <li class="prodHeader">Product</li>--%>

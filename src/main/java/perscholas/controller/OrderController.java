@@ -157,8 +157,8 @@ public class OrderController {
         Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
 //        response.addObject("order", order);
 
-        List<OrderBook> booksList = orderBookDao.findByOrder(order);
-        response.addObject("booksList", booksList);
+        List<OrderBook> bookList = orderBookDao.findByOrder(order);
+        response.addObject("bookList", bookList);
 
         response.setViewName("user/userBag");
 

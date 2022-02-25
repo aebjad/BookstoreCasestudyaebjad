@@ -1,18 +1,20 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <jsp:include page="../include/header.jsp" />
 
+<div class="bg-dark py-5 bg-img" ></div>
+</br><br/>
 
-    <div class="row justify-content-center">
-        <br/><h1>${formBeanKey.bookName}</h1>
-    </div>
+<%--    <div class="row justify-content-center" style="padding-bottom: 20px; padding-left: 30px" >--%>
+<%--        <br/><h3 >Book Details:</h3>--%>
+<%--    </div>--%>
     <div class="row justify-content-center">
         <div class="col-sm-4">
-
-            <img src="${formBeanKey.urlImage}" alt="Book image" style="width: 150px; height: 150px">
+<%--            <br/><h2 >Book Details:</h2>--%>
+            <img src="${formBeanKey.urlImage}" class="img-rounded" alt="Book image" style="width: 150px; height: 150px">
 
         </div>
         <div class="col-sm-4">
-            <br/>${formBeanKey.bookName}
+            <br/><b>${formBeanKey.bookName}</b>
             <br/> Author: ${formBeanKey.author}
             <br/> List price: $${formBeanKey.price}
           <hr>

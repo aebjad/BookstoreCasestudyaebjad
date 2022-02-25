@@ -82,7 +82,7 @@
         outline: none;
     }
 
-    /* Set a style for the submit button */
+    /* Set a style for the register/ligin button */
     .btn {
         background-color: #04AA6D;
         color: white;
@@ -99,16 +99,17 @@
 
 
 
-.footer{
-    /*position: fixed;*/
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    color: white;
-    background-color: #21211a;
-    text-align: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+/*.footer{*/
+/*    !*position: fixed;*!*/
+/*    position: relative;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    height: 50px;*/
+/*    width: 100%;*/
+/*    color: white;*/
+/*    background-color: #21211a;*/
+/*    text-align: center;*/
+/*    padding-top: 2rem;*/
+/*    padding-bottom: 2rem;*/
 
-}
+/*}*/

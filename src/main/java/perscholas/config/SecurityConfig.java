@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // this line allows access to these URLs without the user logged in
                 // they are considered public URLs
-                .antMatchers("/pub/**", "/error/**", "/login/**","/register", "/book","/index","/search**").permitAll()
+                .antMatchers("/pub/**", "/error/**", "/login/**","/register", "/book**","/index","/search**").permitAll()
                 // these are URLs that the user must be authenticated for
                 .antMatchers("/**").authenticated()
                 //.antMatchers("/admin/**", "/user/**").authenticated()
