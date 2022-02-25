@@ -3,17 +3,19 @@
 
 <jsp:include page="../include/header.jsp" />
 
+<div class="bg-dark py-5 bg-img" ></div>
+</br><br/>
 
     <table  class="table table-striped" >
         <tr>
 
-            <td> First Name </td>
-            <td> Last Name </td>
-            <td> Email </td>
-            <td> Address </td>
-            <td> City </td>
-            <td> State </td>
-            <td> Zip Code </td>
+            <td><b> First Name </b></td>
+            <td><b> Last Name </b></td>
+            <td><b> Email </b></td>
+            <td><b> Address </b></td>
+            <td><b> City </b></td>
+            <td><b> State </b></td>
+            <td><b> Zip Code </b></td>
 
 <%--            <td>Edit</td>--%>
 <%--            <td>Delete</td>--%>
@@ -42,11 +44,17 @@
 
 <form method="GET" action="/admin/userList">
     <label>Search for user</label>
-    <input type="text" name="search" value="${search}" placeholder="First name or last name">
-    <button type="submit">Search</button>
+    <input type="text" name="search" style="width: 300px; border-radius: 30px" value="${search}" placeholder="First name or last name">
+    <button type="submit" class="btn btn-warning"  style="width: 100px">Search</button>
 </form>
-<hr>
+<br/>
+<div class="pt-5">
+    <h6 class="mb-0"><a  href="/home" class="text-body"><i
+            class="fas fa-long-arrow-alt-left me-2"></i>Back</a></h6>
+</div>
 
+<br/>
+<br/>
 
 
 <jsp:include page="../include/footer.jsp" />

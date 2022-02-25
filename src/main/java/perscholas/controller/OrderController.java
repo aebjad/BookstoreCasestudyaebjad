@@ -24,6 +24,7 @@ import perscholas.database.entity.OrderBook;
 import perscholas.database.entity.User;
 import perscholas.form.BookFormBean;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,12 +68,13 @@ public class OrderController {
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/addToCart", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView addToCart(@RequestParam(required = true) Integer id) throws Exception {
+    public ModelAndView addToCart(@RequestParam(required = true) Integer id, HttpServletRequest request) throws Exception {
 
         ModelAndView response = new ModelAndView();
+        String referrer = request.getHeader("referer");
+      //  System.out.println(referrer);
 
-
-            if (id != null) {
+        if (id != null) {
                 // This is a way to ask the security context for the logged-in user.
                 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
                 String currentPrincipalName = authentication.getName();
@@ -122,18 +124,21 @@ public class OrderController {
 //
 //                        orderDao.save(order);
                     }
-                    response.setViewName("redirect:/bookDetails?id=" + book.getId());
+                    //response.setViewName("redirect:/bookDetails?id=" + book.getId());
+                    response.setViewName("redirect:"+referrer);
 //                       setViewName("redirect:/bookDetails?id=1&error="Out of Stock");
 
                 }
                 else{
                     response.addObject("error","Sorry Out of Stock");
-                    response.setViewName("redirect:/bookDetails?id="+id);
+                //    response.setViewName("redirect:/bookDetails?id="+id);
+                    response.setViewName("redirect:"+referrer);
                 //    response.setViewName("redirect:/bookDetails?id="+id+"&error= \"Sorry Out of Stock\"");
                 }
             } else {
              //   response.addObject("formError", "Sorry Book not found");
-                response.setViewName("redirect:/bookDetails?error= \"Sorry Book not found\"");
+             //   response.setViewName("redirect:/bookDetails?error= \"Sorry Book not found\"");
+            response.setViewName("redirect:"+referrer);
             }
 
 //        }
@@ -160,20 +165,32 @@ public class OrderController {
         List<OrderBook> bookList = orderBookDao.findByOrder(order);
         response.addObject("bookList", bookList);
 
+        double total = 0;
+        double totalprice = 3.5;
+        for(int i = 0; i < bookList.size(); i++){
+                total += ( bookList.get(i).getQuantity() * bookList.get(i).getBook().getPrice());
+        }
+
+        total = Math.floor(total* 100) / (100); // allow 2 number of decimal places
+        totalprice += total;
+        response.addObject("total", total);
+        response.addObject("totalprice", totalprice);
+
+        //System.out.println(total);
         response.setViewName("user/userBag");
 
 
         return response;
     }
 
-//    @RequestMapping(value = "/userBag", method = RequestMethod.GET)
-//    public ModelAndView userBag() throws Exception {
-//        ModelAndView response = new ModelAndView();
-//        response.setViewName("user/userBag");
-//
-//
-//        return response;
-//    }
+    @RequestMapping(value = "/updateQuantity", method = RequestMethod.GET)
+    public ModelAndView updateQuantity() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/userBag");
+
+
+        return response;
+    }
 
 
     }

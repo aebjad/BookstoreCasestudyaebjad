@@ -9,7 +9,8 @@
     <div class="bg-img2" >
 
 <%--        form action="/login/loginSecurityPost" method="POST" should alwasy be like that--%>
-    <form action="/login/loginSecurityPost" method="POST" class="container2">
+    <form action="/login/loginSecurityPost" method="POST" class="container2"
+          style="border-radius: 5px">
 
         <h1 style="color:red">${errorMessage}</h1>
 
@@ -32,7 +33,7 @@
         <div class="container signin">
             <p>Don't have an account? <a href="/register">Sign up</a>.</p>
         </div>
-    <button type="submit" class="btn">Sign In</button>
+    <button type="submit" class="btn btn-warning">Sign In</button>
 
 
     </form>

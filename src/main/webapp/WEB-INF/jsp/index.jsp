@@ -55,6 +55,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">A Perfect Day</h5>
+                                <h6 class="fw-bolder">By Jennifer Yerkes</h6>
                                 <!-- Product price-->
                                 $15.00
                             </div>
@@ -75,8 +76,9 @@
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
-                                <!-- Product name-->
+                                <!-- Product name/author-->
                                 <h5 class="fw-bolder">Becoming</h5>
+                                <h6 class="fw-bolder">By Michelle Obama</h6>
                                 <!-- Product price-->
                                 <span class=" text-muted text-decoration-line-through">$20.00</span>
                                 $18.00
@@ -101,6 +103,7 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">
                                     I want to be an engineer</h5>
+                                <h6 class="fw-bolder">By Laura Driscoll</h6>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">$10.00</span>
                                 $5.00
@@ -122,6 +125,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">In the spirit of a dream</h5>
+                                <h6 class="fw-bolder">By Aida Salazar</h6>
                                 <!-- Product price-->
                                 $14.00
                             </div>
@@ -144,6 +148,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">I Love You to the Moon and Back</h5>
+                                <h6 class="fw-bolder">By Laura Driscoll</h6>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">$10.00</span>
                                 $7.99
@@ -167,6 +172,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">If Animals Kissed Goodnight</h5>
+                                <h6 class="fw-bolder">By Ann Whitford Paul, David Walker</h6>
                                 <!-- Product price-->
                                 $7.99
                             </div>
@@ -183,14 +189,16 @@
 <%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
                         <!-- Product image-->
                         <a href="/bookDetails?id=13">
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Out Of Stock</div>
                             <img class="card-img-top" src="/pub/images/humble.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Humble Pie</h5>
+                                <h6 class="fw-bolder">Gordon Ramsay</h6>
                                 <!-- Product price-->
-                                11.25
+                                $11.25
                             </div>
                         </div>
                         <!-- Product actions-->
@@ -209,6 +217,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Raw Food Detox Diet </h5>
+                                <h6 class="fw-bolder">Natalia Rose</h6>
                                 <!-- Product price-->
                                 $16.99
                             </div>

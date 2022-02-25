@@ -9,7 +9,7 @@
         <div class="input-group">
             <input type="text" class="form-control" size="50" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">
             <div class="input-group-btn">
-                <button type="submit" class="btn btn-danger">Search</button>
+                <button type="submit" class="btn btn-warning">Search</button>
             </div>
         </div>
     </form>
@@ -22,7 +22,7 @@
     <hr>
 <h3>Search Result:</h3>
   <div class="container">
-   <div class="row" justify-content-center">
+   <div class="row" justify-content-center>
     <c:forEach  var="book" items="${booksList}">
 
         <div class="col-3 py-3">
@@ -34,14 +34,16 @@
              </a>
             <div class="card-body">
                 <h5 class="card-title">${book.bookName}</h5>
-                <h5 class="card-price">${book.price}</h5>
-                <a href="/addToCart?id=${book.id}" class="btn btn-primary">Add to cart</a>
+                <h5 class="card-title">${book.author}</h5>
+                <h5 class="card-price">$${book.price}</h5>
+                <a href="/addToCart?id=${book.id}" class="btn btn-dark">Add to cart</a>
             </div>
          </div>
         </div>
         </c:forEach>
        </div>
     </div>
+    
 
     <div style="color: red">
          <span style="color: red">${error}</span><br>

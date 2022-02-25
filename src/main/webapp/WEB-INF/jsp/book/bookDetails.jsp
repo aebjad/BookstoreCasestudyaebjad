@@ -18,7 +18,7 @@
             <br/> Author: ${formBeanKey.author}
             <br/> List price: $${formBeanKey.price}
           <hr>
-            <a href="/addToCart?id=${formBeanKey.id}" class="btn btn-primary">Add to cart</a>
+            <a href="/addToCart?id=${formBeanKey.id}" class="btn btn-dark">Add to cart</a>
 
 
         </div>

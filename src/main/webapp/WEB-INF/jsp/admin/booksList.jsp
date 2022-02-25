@@ -3,20 +3,22 @@
 
 <jsp:include page="../include/header.jsp" />
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
+<%--<div class="bg-dark py-5 bg-img" ></div>--%>
+</br><br/>
 
     <table  class="table table-striped" >
         <tr>
 
-            <td> Book Name </td>
-            <td> Author Name </td>
-            <td> image url </td>
-            <td> Price </td>
-            <td> Quantity In Stock </td>
+            <td><b> Book Name </b> </td>
+            <td><b> Author Name </b></td>
+            <td><b> image url </b></td>
+            <td><b> Price </b></td>
+            <td><b> Quantity In Stock </b></td>
 
-            <td>Edit</td>
-            <td>Delete</td>
+            <td><b> Edit </b></td>
+            <td><b> Delete</b></td>
 
         </tr>
         <c:forEach  var="book" items="${bookList}">
@@ -41,8 +43,10 @@
 
     <form method="GET" action="/admin/bookList">
               <label>Search for a book</label>
-            <input type="text" name="booksearch" value="${booksearch}"  class="form-control" placeholder="Search by book title, author's name or keyword" >
-               <button type="submit" class="btn">Search</button>
+            <input type="text" name="booksearch" value="${booksearch}" style="width: 300px;
+                border-radius: 30px" class="form-control" placeholder="Search by book title, author's name or keyword" >
+               <button type="submit"  class="btn btn-warning"  style="width: 100px">Search</button>
+
 
     </form>
     <hr>
