@@ -62,7 +62,9 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class=" btn btn-dark" href="/addToCart?id=9">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class=" btn btn-dark"  href="/addToCart?id=9" onclick="myFunction()">Add to cart</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,7 +88,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark" href="/addToCart?id=8">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark" href="/addToCart?id=8" onclick="myFunction()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -111,7 +114,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark " href="/addToCart?id=10">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark " href="/addToCart?id=10" onclick="myFunction()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -132,7 +136,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark" href="/addToCart?id=14">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark" href="/addToCart?id=14" onclick="myFunction()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +161,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark" href="/addToCart?id=5">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark" href="/addToCart?id=5" onclick="myFunction()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -179,7 +185,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark" href="/addToCart?id=6">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark" href="/addToCart?id=6" onclick="myFunction()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -203,7 +210,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark" href="/addToCart?id=13">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark" id="out" href="" onclick="myFunction2()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -224,7 +232,8 @@
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-dark" href="/addToCart?id=12">Add to cart</a></div>
+                            <div class="text-center">
+                                <a class="btn btn-dark"  href="/addToCart?id=12" onclick="myFunction()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -232,6 +241,20 @@
         </div>
     </section>
 
+<script>
+    document.getElementById("out").addEventListener("click", myFunction2);
+
+    function myFunction2() {
+        alert("Sorry, out of stuck");
+    }
+
+<%--<script>--%>
+<%--    document.addEventListener("click", myFunction);--%>
+
+<%--    function myFunction() {--%>
+<%--        alert("Book successfully added to your bag");--%>
+<%--    }--%>
+<%--</script>--%>
 
 
     <jsp:include page="./include/footer.jsp" />

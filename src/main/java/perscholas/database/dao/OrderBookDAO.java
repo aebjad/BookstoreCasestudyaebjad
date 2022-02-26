@@ -20,6 +20,8 @@ public interface OrderBookDAO extends JpaRepository<OrderBook, Long> {
 
     public List<OrderBook> findByOrder(Order order);
 
+    public OrderBook findById(@Param("id") Integer id);
+
 //    @Query("select ob from OrderBook ob where ob.book = :book and ob.order =
 //    @Query("select ob from OrderBook ob where ob.order = :order")
 //     List<OrderBook> findByOrder(Order order);

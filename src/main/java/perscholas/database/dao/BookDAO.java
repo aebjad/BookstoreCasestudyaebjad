@@ -4,8 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import perscholas.database.entity.Book;
-import perscholas.database.entity.Order;
-import perscholas.database.entity.User;
+
 
 
 import java.util.List;

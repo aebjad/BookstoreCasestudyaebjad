@@ -19,11 +19,12 @@
 <%--                                        <h6 class="mb-0 text-muted">3 items</h6>--%>
                                     </div>
                                     <hr class="my-4">
-                        <form action="/updateQuantity" method="get">
+<%--                        <form action="/updateQuantity" method="get">--%>
                             <c:forEach  var="book" items="${bookList}">
 
-                                <input type="hidden" name="orderBookId" value="${book.id}">
-                                <input type="hidden" name="bookId" value="${book.book.id}">
+<%--                                <input type="hidden" name="orderBookId" value="${book.id}">--%>
+<%--                                <input type="hidden" name="bookId" value="${book.book.id}">--%>
+
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <img src="${book.book.urlImage}"class="img-fluid rounded-3"
@@ -33,19 +34,26 @@
                                             <h6 class="text-muted">${book.book.bookName}</h6>
 
                                         </div>
+
                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                          <form action="/lowerQuantity" method="get">
+                                              <input type="hidden" name="orderBookId" value="${book.id}">
                                             <button class="btn btn-link px-2"
                                                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                 <i class="fas fa-minus"></i>
                                             </button>
+                                          </form>
 
                                             <input id="form1" min="0" name="quantity" value="${book.quantity}" type="number"
                                                    class="form-control form-control-sm" />
-
-                                            <button class="btn btn-link px-2"
+<%--                                          <form action="/increaseQuantity?orderBookId=${book.id}" method="get">--%>
+                                            <form action="/increaseQuantity" method="get">
+                                              <input type="hidden" name="orderBookId" value="${book.id}">
+                                            <button class="btn btn-link px-2" href="/increaseQuantity?orderBookId=${book.id}"
                                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                 <i class="fas fa-plus"></i>
                                             </button>
+                                          </form>
                                         </div>
                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                             <h6 class="mb-0" >$ ${book.book.price}</h6>
@@ -57,7 +65,7 @@
 
                                     <hr class="my-4">
                             </c:forEach>
-                     </form>
+<%--                     </form>--%>
 
                                     <div class="pt-5">
                                         <h6 class="mb-0"><a  href="/searchBookCategory" class="text-body"><i

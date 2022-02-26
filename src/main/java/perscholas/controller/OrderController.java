@@ -172,7 +172,7 @@ public class OrderController {
         }
 
         total = Math.floor(total* 100) / (100); // allow 2 number of decimal places
-        totalprice += total;
+        totalprice += total; // total + tax + shipping
         response.addObject("total", total);
         response.addObject("totalprice", totalprice);
 
@@ -183,11 +183,64 @@ public class OrderController {
         return response;
     }
 
-    @RequestMapping(value = "/updateQuantity", method = RequestMethod.GET)
-    public ModelAndView updateQuantity() throws Exception {
+    @RequestMapping(value = "/lowerQuantity", method = RequestMethod.GET)
+    public ModelAndView lowerQuantity(@RequestParam(required = true) Integer orderBookId,
+                                      HttpServletRequest request) throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("user/userBag");
+        String referrer = request.getHeader("referer");
 
+        response.setViewName("redirect:"+ referrer);
+
+        OrderBook orderBook = orderBookDao.findById(orderBookId);
+        orderBook.setQuantity(orderBook.getQuantity()-1);
+        orderBookDao.save(orderBook);
+
+        return response;
+    }
+
+    @RequestMapping(value = "/increaseQuantity", method = RequestMethod.GET)
+    public ModelAndView increaseQuantity(@RequestParam(required = true) Integer orderBookId,
+                                         HttpServletRequest request) throws Exception {
+        ModelAndView response = new ModelAndView();
+        String referrer = request.getHeader("referer");
+
+        response.setViewName("redirect:"+ referrer);
+
+        OrderBook orderBook = orderBookDao.findById(orderBookId);
+        orderBook.setQuantity(orderBook.getQuantity()+1);
+        orderBookDao.save(orderBook);
+
+        return response;
+    }
+
+    @RequestMapping(value = "/orderHistory", method = RequestMethod.GET)
+    public ModelAndView orderHistory() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/orderHistory");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        Order order = orderDao.findByUserIdAndStatus(user.getId(), "shipped");
+
+        return response;
+    }
+
+    @RequestMapping(value = "/orderStatus", method = RequestMethod.GET)
+    public ModelAndView orderStatus() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/orderHistory");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        Order order = orderDao.findByUserIdAndStatus(user.getId(), "transit");
 
         return response;
     }

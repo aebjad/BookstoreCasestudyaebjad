@@ -16,7 +16,9 @@
 <%--            <br /><label > ${user.city}, ${user.state} ${user.zipCode}</label>--%>
 
         </p>
-        <a class="btn btn-primary btn-xl" href="/editUserProfile">Manage Account Setting</a>
+        <a class="btn btn-warning btn-xl" style="width: 200px" href="/editUserProfile">Manage Account Setting</a>
+
+        <a class="btn btn-dark btn-xl" style="width: 200px" href="/orderHistory">Purchases History</a>
     </div>
 </div>
 
