@@ -52,8 +52,7 @@ public class User {
 //            cascade = CascadeType.ALL)
 //    private Set<Order> orders;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<Order>();
 
 //    @Override

@@ -77,6 +77,8 @@ public class OrderController {
         if (id != null) {
                 // This is a way to ask the security context for the logged-in user.
                 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+            //get the address of the page that makes the request
                 String currentPrincipalName = authentication.getName();
 
                 User user = userDao.findByEmail(currentPrincipalName);
@@ -173,42 +175,95 @@ public class OrderController {
 
         total = Math.floor(total* 100) / (100); // allow 2 number of decimal places
         totalprice += total; // total + tax + shipping
+        totalprice = Math.floor(totalprice*100)/(100);
+
         response.addObject("total", total);
         response.addObject("totalprice", totalprice);
 
         //System.out.println(total);
         response.setViewName("user/userBag");
 
-
         return response;
     }
 
+    // decrease the quantity of the book in the cart by 1
     @RequestMapping(value = "/lowerQuantity", method = RequestMethod.GET)
     public ModelAndView lowerQuantity(@RequestParam(required = true) Integer orderBookId,
                                       HttpServletRequest request) throws Exception {
-        ModelAndView response = new ModelAndView();
-        String referrer = request.getHeader("referer");
 
+        ModelAndView response = new ModelAndView();
+
+        //get the address of the page that makes the request.
+        String referrer = request.getHeader("referer");
         response.setViewName("redirect:"+ referrer);
 
         OrderBook orderBook = orderBookDao.findById(orderBookId);
-        orderBook.setQuantity(orderBook.getQuantity()-1);
-        orderBookDao.save(orderBook);
-
+        if(orderBook != null) {
+            if(orderBook.getQuantity() > 1 ) {
+                orderBook.setQuantity(orderBook.getQuantity() - 1);
+                orderBookDao.save(orderBook);
+                //increase book quantity in stock by 1
+                Book book = orderBook.getBook();
+                book.setQuantityInStock(book.getQuantityInStock() + 1);
+                bookDao.save(book);
+            }
+//           else
+//                response.addObject("error", "Sorry, Out of Stuck");
+        }
         return response;
     }
 
+   // increase the quantity of the book in the cart by 1
     @RequestMapping(value = "/increaseQuantity", method = RequestMethod.GET)
     public ModelAndView increaseQuantity(@RequestParam(required = true) Integer orderBookId,
                                          HttpServletRequest request) throws Exception {
-        ModelAndView response = new ModelAndView();
-        String referrer = request.getHeader("referer");
 
+        ModelAndView response = new ModelAndView();
+
+        //get the address of the page that makes the request.
+        String referrer = request.getHeader("referer");
         response.setViewName("redirect:"+ referrer);
 
         OrderBook orderBook = orderBookDao.findById(orderBookId);
-        orderBook.setQuantity(orderBook.getQuantity()+1);
-        orderBookDao.save(orderBook);
+
+        if(orderBook != null) {
+
+            if(orderBook.getBook().getQuantityInStock() > 0) {
+                orderBook.setQuantity(orderBook.getQuantity() + 1);
+                orderBookDao.save(orderBook);
+                // decrease the book quantity in stock by 1
+                Book book = orderBook.getBook();
+                book.setQuantityInStock(book.getQuantityInStock() - 1);
+                bookDao.save(book);
+
+            } else
+            response.addObject("error", "Sorry, Out of Stuck");
+        }
+        return response;
+    }
+
+    //delete a book in the cart
+    @RequestMapping(value = "/deleteOrderBook", method = RequestMethod.GET)
+    public ModelAndView deleteOrderBook(@RequestParam(required = true) Integer orderBookId,
+                                         HttpServletRequest request) throws Exception {
+        ModelAndView response = new ModelAndView();
+
+        //get the address of the page that makes the request.
+        String referrer = request.getHeader("referer");
+        response.setViewName("redirect:"+ referrer);
+
+        if(orderBookId != null) {
+            OrderBook orderBook = orderBookDao.findById(orderBookId);
+            if (orderBook != null) {
+                //increase book quantity in stock
+                Book book = orderBook.getBook();
+                book.setQuantityInStock(book.getQuantityInStock() + orderBook.getQuantity());
+                bookDao.save(book);
+
+                orderBookDao.delete(orderBook);
+
+            }
+        }
 
         return response;
     }

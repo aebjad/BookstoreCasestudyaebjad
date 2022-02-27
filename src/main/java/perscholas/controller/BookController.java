@@ -84,16 +84,7 @@ public class BookController {
     }
 
 
-//    @RequestMapping(value = "/allBooksList", method = RequestMethod.GET)
-//    public ModelAndView allBooksList() throws Exception {
-//        ModelAndView response = new ModelAndView();
-//
-//        List<Book> books = bookDao.findAll();
-//        response.addObject("books", books);
-//
-//        response.setViewName("book/booksList");
-//        return response;
-//    }
+
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value ="/edit", method = RequestMethod.GET)
