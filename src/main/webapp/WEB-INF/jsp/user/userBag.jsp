@@ -49,8 +49,6 @@
 
                                           </form>
 
-
-
                                             <form action="/increaseQuantity" method="get">
                                               <input type="hidden" name="orderBookId" value="${book.id}">
                                             <button class="btn btn-link px-2"
@@ -98,8 +96,10 @@
                                         <h5>$ ${totalprice}</h5>
                                     </div>
 
-                                    <button type="button" class="btn btn-dark btn-block btn-lg"
-                                            data-mdb-ripple-color="dark">CHECKOUT</button>
+                                    <a href="/checkOut?orderId=${orderId}" class="btn btn-dark btn-block btn-lg"
+                                       data-mdb-ripple-color="dark"  role="button">CHECKOUT</a>
+<%--                                    <button type="button" class="btn btn-dark btn-block btn-lg"--%>
+<%--                                            data-mdb-ripple-color="dark">CHECKOUT</button>--%>
 
                                 </div>
                             </div>

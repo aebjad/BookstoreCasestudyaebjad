@@ -5,7 +5,7 @@
 
 <%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
-<%--<div class="bg-dark py-5 bg-img" ></div>--%>
+<div class="bg-dark py-5 bg-img" ></div>
 </br><br/>
 
     <table  class="table table-striped" >
@@ -15,7 +15,9 @@
             <td><b> Author Name </b></td>
             <td><b> image url </b></td>
             <td><b> Price </b></td>
-            <td><b> Quantity In Stock </b></td>
+            <td><b> Quantity  </b></td>
+            <td><b> Category </b></td>
+
 
             <td><b> Edit </b></td>
             <td><b> Delete</b></td>
@@ -30,8 +32,10 @@
             <td>  ${book.urlImage}  </td>
             <td>   ${book.price}  </td>
             <td>   ${book.quantityInStock} </td>
+            <td>   ${book.category}  </td>
 
-            <td><a href="/edit?id=${book.id}">Edit</a></td>
+
+            <td><a href="/admin/edit?id=${book.id}">Edit</a></td>
             <td><a href="/admin/deleteBook?id=${book.id}">Delete</a></td>
 
         </tr>
@@ -49,6 +53,11 @@
 
 
     </form>
+
+<div class="pt-5">
+    <h6 class="mb-0"><a  href="/admin/home" class="text-body"><i
+            class="fas fa-long-arrow-alt-left me-2"></i>Back to admin page</a></h6>
+</div>
     <hr>
 
 <jsp:include page="../include/footer.jsp" />

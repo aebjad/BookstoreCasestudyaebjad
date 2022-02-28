@@ -5,7 +5,7 @@
 
 <div style=" background-color: #21211a;">
     <div class="bg-img2" >
-        <form action="/bookSubmit" class="container2" id="bookForm" onsubmit="myFunction2()"  method="POST">
+        <form action="/admin/bookSubmit" class="container2" id="bookForm" onsubmit="myFunction2()"  method="POST">
             <%--        <input type="hidden" name="id" value="${formBeanKey.id}">--%>
             <h1>Add New Book</h1>
             <p>Please fill in this form to add new book</p>
@@ -15,12 +15,15 @@
 
 
                 <br /><label for="author">author Name</label>
-            <input id="author" type="text" name="author" value="${formBeanKey.author}" placeholder="Author name.."  />
+                <input id="author" type="text" name="author" value="${formBeanKey.author}" placeholder="Author name.."  />
 
                 <br /><label for="category">Category</label>
                 <input id="category" type="text" name="category" value="${formBeanKey.category}" placeholder="Category.."  />
 
-            <br /><label for="urlImage">Image URL</label>
+                <br /><label for="description">Description</label>
+                <input id="description" type="text" name="description" value="${formBeanKey.description}" placeholder="description.."  />
+
+                <br /><label for="urlImage">Image URL</label>
             <input id="urlImage" type="text" name="urlImage" value="${formBeanKey.urlImage}" placeholder="image url.." />
 
             <br /><label for="price">Price</label>

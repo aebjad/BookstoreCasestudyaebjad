@@ -7,21 +7,13 @@
 
 <div class="bg-dark py-5 bg-img" ></div>
 </br><br/>
-<%--<c:choose>--%>
-<%--    <c:when test="${status} = shipped">--%>
-<%--        <h1>Purchases History</h1>--%>
-<%--    </c:when>--%>
-<%--    <c:otherwise>--%>
-<%--        <h1>Order Status</h1>--%>
-<%--    </c:otherwise>--%>
-<%--</c:choose>--%>
 
 <table  class="table table-striped" >
     <tr>
 
         <td><b> Order # </b> </td>
         <td><b> Status </b> </td>
-        <td><b> Shipped Date </b></td>
+        <td><b> Order Date </b></td>
         <td><b> Book Name</b></td>
         <td><b> Quantity </b> </td>
 
@@ -32,7 +24,7 @@
 
             <td>  ${order.order_id}  </td>
             <td>  ${order.status}  </td>
-            <td>  ${order.shipped_date}  </td>
+            <td>  ${order.order_date}  </td>
             <td>  ${order.book_name}  </td>
             <td>  ${order.quantity}  </td>
 

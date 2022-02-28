@@ -5,8 +5,6 @@
 <jsp:include page="../include/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
-
 <div style=" background-color: #21211a;">
 <div class="bg-img2" >
     <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
@@ -105,7 +103,8 @@
             <p>Already have an account? <a href="/login/login">Sign in</a>.</p>
         </div>
 
-        <button type="submit" class="btn" id="myBtn" >Register</button>
+        <button type="submit" class="btn btn-warning" id="myBtn" style=" padding: 16px 20px;
+        border: none; cursor: pointer; width: 100%; opacity: 0.9;" >Register</button>
     </form>
 </div>
 

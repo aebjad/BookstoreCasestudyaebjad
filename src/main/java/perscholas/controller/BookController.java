@@ -29,134 +29,6 @@ public class BookController {
     @Autowired
     private BookDAO bookDao;
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/newBook", method = RequestMethod.GET)
-    public ModelAndView newBook() throws Exception {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("book/newBook");
-
-        BookFormBean form = new BookFormBean();
-        response.addObject("formBeanKey", form);
-
-        return response;
-    }
-
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/bookSubmit", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView bookSubmit(@Valid BookFormBean form, BindingResult errors) throws Exception {
-        ModelAndView response = new ModelAndView();
-
-//        System.out.println(form);
-
-        if(errors.hasErrors()) {
-            for (FieldError error : errors.getFieldErrors()) {
-                // add the error message to the errorMessages list in the form bean
-                form.getErrorMessages().add(error.getDefaultMessage());
-                System.out.println("error field = " + error.getField() + " message = " + error.getDefaultMessage());
-                LOG.debug("error field = " + error.getField() + " message = " + error.getDefaultMessage());
-
-            }
-            //   response.addObject("formError", errors);
-            response.addObject("formBeanKey", form);
-            response.setViewName("book/newBook");
-        }else{
-            //  // there are no errors on the form submission lets redirect to the add new book page
-            //    right here that you would save the new book to the database
-
-          //  if( form.getId() == null) {
-                // the id is not present in the form been, so we know it's adding a new book
-
-                Book book = new Book();
-
-                book.setBookName(form.getBookName());
-                book.setAuthor(form.getAuthor());
-                book.setPrice(form.getPrice());
-                book.setUrlImage(form.getUrlImage());
-                book.setQuantityInStock(form.getQuantityInStock());
-
-                bookDao.save(book);
-           // }
-            response.setViewName("book/newBook");
-
-        }
-
-            return response;
-    }
-
-
-
-
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value ="/edit", method = RequestMethod.GET)
-    public ModelAndView edit(@RequestParam(required = false) Integer id) throws Exception {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("book/editBook");
-
-        if( id != null){
-            // id has been passed to this form
-            Book book = bookDao.findById(id);
-        //    System.out.println("edit method :"+ book);
-
-            // populate the form bean with the data loaded from the database
-            BookFormBean form = new BookFormBean();
-            form.setBookName(book.getBookName());
-            form.setAuthor(book.getAuthor());
-            form.setPrice(book.getPrice());
-            form.setUrlImage(book.getUrlImage());
-            form.setQuantityInStock(book.getQuantityInStock());
-            // since we loaded this from the database we know the id field
-            form.setId(book.getId());
-
-            response.addObject("formBeanKey", form);
-
-
-        }
-        return response;
-    }
-
-
-
-    // this method describes what happens when an admin submits the form to the back end
-    // it handles update logic for saving the book input to the database
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value ="/editBook", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView editBook(@Valid BookFormBean form, BindingResult errors) throws Exception {
-        ModelAndView response = new ModelAndView();
-
-    //      System.out.println(form);
-
-        if (errors.hasErrors()) {
-            for (FieldError error : errors.getFieldErrors()) {
-                // add the error message to the errorMessages list in the form bean
-                form.getErrorMessages().add(error.getDefaultMessage());
-                System.out.println("error field = " + error.getField() + " message = " + error.getDefaultMessage());
-                LOG.debug("error field = " + error.getField() + " message = " + error.getDefaultMessage());
-
-            }
-            response.addObject("formBeanKey", form);
-            response.setViewName("book/editBook");
-        } else {
-            //  // there are no errors on the form submission lets
-            // update book details so we need to load the book from the database first
-            Book book = bookDao.findById(form.getId());
-       //     System.out.println("editBook method: " + book);
-
-            if(book != null) {
-                book.setBookName(form.getBookName());
-                book.setAuthor(form.getAuthor());
-                book.setUrlImage(form.getUrlImage());
-                book.setPrice(form.getPrice());
-                book.setQuantityInStock(form.getQuantityInStock());
-
-                bookDao.save(book);
-            }
-                response.setViewName("admin/home");
-
-
-    }
-
-        return response;
-    }
 
     @RequestMapping(value ="/searchBookCategory", method = RequestMethod.GET)
     public ModelAndView bookCategory(@RequestParam(required = false) String searchBooklist) throws Exception {
@@ -170,7 +42,7 @@ public class BookController {
             System.out.println(booksList);
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
-        }else{
+        }else{ // if no category seleceted, then retrieve all books
             List<Book> booksList = bookDao.findAll();
             System.out.println(booksList);
             response.addObject("booksList", booksList);
@@ -184,7 +56,7 @@ public class BookController {
     public ModelAndView searchBookList(@RequestParam(required = false) String searchBooklist) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("book/searchBookList");
-        //  System.out.println("searchBooklist" + searchBooklist);
+
         // Find book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
 
@@ -208,18 +80,20 @@ public class BookController {
             Book book = bookDao.findById(id);
             //    System.out.println("edit method :"+ book);
 
-            // populate the form bean with the data loaded from the database
-            BookFormBean form = new BookFormBean();
-            form.setBookName(book.getBookName());
-            form.setAuthor(book.getAuthor());
-            form.setPrice(book.getPrice());
-            form.setUrlImage(book.getUrlImage());
-            form.setQuantityInStock(book.getQuantityInStock());
-            // since we loaded this from the database we know the id field
-            form.setId(book.getId());
+            if(book != null) {
+                // populate the form bean with the data loaded from the database
+                BookFormBean form = new BookFormBean();
+                form.setBookName(book.getBookName());
+                form.setAuthor(book.getAuthor());
+                form.setPrice(book.getPrice());
+                form.setUrlImage(book.getUrlImage());
+                form.setQuantityInStock(book.getQuantityInStock());
+                form.setDescription(book.getDescription());
+                // since we loaded this from the database we know the id field
+                form.setId(book.getId());
 
-            response.addObject("formBeanKey", form);
-
+                response.addObject("formBeanKey", form);
+            }
 
         }
         return response;

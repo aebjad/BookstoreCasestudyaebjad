@@ -26,6 +26,8 @@
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
+<%--                <span style="color: red">${error}</span><br>--%>
+
 <%--                <c:forEach  var="book" items="${booksList}">--%>
 
 <%--                    <div class="col-3 py-3">--%>
@@ -48,22 +50,22 @@
                 <div class="col mb-5">
                     <div class="card h-25">
                         <!-- Book image-->
-                        <a href="/bookDetails?id=9">
-                            <img class="card-img-top" src="/pub/images/b1.jpg" alt="Book..." /> </a>
+                        <a href="/bookDetails?id=22">
+                            <img class="card-img-top" src="/pub/images/smile.jpg" alt="Book..." /> </a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">A Perfect Day</h5>
-                                <h6 class="fw-bolder">By Jennifer Yerkes</h6>
+                                <h5 class="fw-bolder">Smile</h5>
+                                <h6 class="fw-bolder">By Raina Telgemeier</h6>
                                 <!-- Product price-->
-                                $15.00
+                                $10.99
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class=" btn btn-dark"  href="/addToCart?id=9" onclick="myFunction()">Add to cart</a>
+                                <a class=" btn btn-dark"  href="/addToCart?id=22" onclick="myFunction()">Add to cart</a>
                             </div>
                         </div>
                     </div>

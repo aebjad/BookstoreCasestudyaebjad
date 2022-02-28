@@ -24,11 +24,12 @@ import perscholas.database.entity.OrderBook;
 import perscholas.database.entity.User;
 import perscholas.form.BookFormBean;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 
 @Controller
 //@PreAuthorize("hasAuthority('ADMIN')")
@@ -77,10 +78,7 @@ public class OrderController {
         if (id != null) {
                 // This is a way to ask the security context for the logged-in user.
                 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-            //get the address of the page that makes the request
                 String currentPrincipalName = authentication.getName();
-
                 User user = userDao.findByEmail(currentPrincipalName);
 
                 Book book = bookDao.findById(id);
@@ -89,43 +87,43 @@ public class OrderController {
 
                     // User can have more than one order but just one should be cart status
                     Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
-
                     //If the order does not exist then create a new order with status cart
                     // and add the user object to the order
-                    if (order == null) {
-                        order = new Order();
-                        order.setStatus("cart");
-                        order.setUser(user);
-                        orderDao.save(order);
-                    }
-                    // add the book to the order exist with cart status or to the new order that we just created
-                    if ("cart".equals(order.getStatus())) {
-                        // orderBook need to be query by orderId and bookId
-                        //if the book is in the orderBook we increment the quantity by 1
-                        OrderBook orderBook = orderBookDao.findByBookIdAndOrderId(book.getId(), order.getId());
-                        if (orderBook != null) {
-                            orderBook.setQuantity(orderBook.getQuantity() + 1);
-                            orderBookDao.save(orderBook);
+                        if (order == null) {
+                            order = new Order();
+                            order.setStatus("cart");
+                            order.setUser(user);
+                            orderDao.save(order);
+                        }
+                        // add the book to the order exist with cart status or to the new order that we just created
+                        if ("cart".equals(order.getStatus())) {
+                            // orderBook need to be query by orderId and bookId
+                            //if the book is in the orderBook we increment the quantity by 1
+                            OrderBook orderBook = orderBookDao.findByBookIdAndOrderId(book.getId(), order.getId());
+                            if (orderBook != null) {
+                                orderBook.setQuantity(orderBook.getQuantity() + 1);
+                                orderBookDao.save(orderBook);
 
-                        } else {
-                            // add a new  order-book object
-                            OrderBook newOrderBook = new OrderBook();
-                            newOrderBook.setOrder(order);
-                            newOrderBook.setBook(book);
-                            newOrderBook.setQuantity(1);
+                                // Decrease quantity in stock
+                                book.setQuantityInStock(book.getQuantityInStock() - 1);
+                                bookDao.save(book);
 
-                            orderBookDao.save(newOrderBook);
+                            } else {
+                                // add a new  order-book object
+                                OrderBook newOrderBook = new OrderBook();
+                                newOrderBook.setOrder(order);
+                                newOrderBook.setBook(book);
+                                newOrderBook.setQuantity(1);
+                                orderBookDao.save(newOrderBook);
+
+                                // Decrease quantity in stock
+                                book.setQuantityInStock(book.getQuantityInStock() - 1);
+                                bookDao.save(book);
+
+                            }
 
                         }
-
-                        // Don't need date for adding to the cart
-//                        Date now = new Date();
-////                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-////                    now = formatter.parse(String.valueOf(now));
-//                        order.setOrderDate(now);
-//
-//                        orderDao.save(order);
-                    }
+//                    }
                     //response.setViewName("redirect:/bookDetails?id=" + book.getId());
                     response.setViewName("redirect:"+referrer);
 //                       setViewName("redirect:/bookDetails?id=1&error="Out of Stock");
@@ -137,13 +135,11 @@ public class OrderController {
                     response.setViewName("redirect:"+referrer);
                 //    response.setViewName("redirect:/bookDetails?id="+id+"&error= \"Sorry Out of Stock\"");
                 }
-            } else {
+            } else
              //   response.addObject("formError", "Sorry Book not found");
              //   response.setViewName("redirect:/bookDetails?error= \"Sorry Book not found\"");
             response.setViewName("redirect:"+referrer);
-            }
 
-//        }
 
         return response;
     }
@@ -157,31 +153,33 @@ public class OrderController {
         // This is a way to ask the security context for the logged-in user.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
-
         User user = userDao.findByEmail(currentPrincipalName);
-//        response.addObject("user", user);
 
-        Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
-//        response.addObject("order", order);
+        if(user != null) {
+            Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
+           // System.out.println("bag order = "+orders);
+            if (order != null) {
 
-        List<OrderBook> bookList = orderBookDao.findByOrder(order);
-        response.addObject("bookList", bookList);
+                response.addObject("orderId", order.getId());
 
-        double total = 0;
-        double totalprice = 3.5;
-        for(int i = 0; i < bookList.size(); i++){
-                total += ( bookList.get(i).getQuantity() * bookList.get(i).getBook().getPrice());
+                List<OrderBook> bookList = orderBookDao.findByOrder(order);
+                response.addObject("bookList", bookList);
+
+                double total = 0;
+                double totalprice = 3.5;
+                for (int i = 0; i < bookList.size(); i++) {
+                    total += (bookList.get(i).getQuantity() * bookList.get(i).getBook().getPrice());
+                }
+
+                total = Math.floor(total * 100) / (100); // allow 2 number of decimal places
+                totalprice += total; // total + tax + shipping
+                totalprice = Math.floor(totalprice * 100) / (100);
+
+                response.addObject("total", total);
+                response.addObject("totalprice", totalprice);
+            }
         }
-
-        total = Math.floor(total* 100) / (100); // allow 2 number of decimal places
-        totalprice += total; // total + tax + shipping
-        totalprice = Math.floor(totalprice*100)/(100);
-
-        response.addObject("total", total);
-        response.addObject("totalprice", totalprice);
-
-        //System.out.println(total);
-        response.setViewName("user/userBag");
+           response.setViewName("user/userBag");
 
         return response;
     }
@@ -207,8 +205,7 @@ public class OrderController {
                 book.setQuantityInStock(book.getQuantityInStock() + 1);
                 bookDao.save(book);
             }
-//           else
-//                response.addObject("error", "Sorry, Out of Stuck");
+
         }
         return response;
     }
@@ -268,37 +265,62 @@ public class OrderController {
         return response;
     }
 
+    // Get all user's orders that have been shipped
     @RequestMapping(value = "/orderHistory", method = RequestMethod.GET)
-    public ModelAndView orderHistory() throws Exception {
+    public ModelAndView orderHistory(@RequestParam(required = false) Integer userId) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/orderHistory");
 
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
+        // query a list of orders from order table joining order_book to get the list of books name
+        List<Map<String, Object>> orders = orderDao.findOrdersHistory(userId, "shipped");
+        if(!orders.isEmpty()) {
+            response.addObject("orders", orders);
+            response.addObject("status", "shipped");
 
-        User user = userDao.findByEmail(currentPrincipalName);
-
-        Order order = orderDao.findByUserIdAndStatus(user.getId(), "shipped");
-
+        }
         return response;
     }
 
+
+    // Get all user's orders that are still in transit
     @RequestMapping(value = "/orderStatus", method = RequestMethod.GET)
     public ModelAndView orderStatus() throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("user/orderHistory");
+        response.setViewName("user/orderStatus");
 
         // This is a way to ask the security context for the logged-in user.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
-
         User user = userDao.findByEmail(currentPrincipalName);
 
-        Order order = orderDao.findByUserIdAndStatus(user.getId(), "transit");
+        List<Map<String, Object>> orders = orderDao.findOrderStatus(user.getId(), "transit");
+        response.addObject("orders", orders);
+//        response.addObject("status", "transit");
 
         return response;
     }
 
+    @RequestMapping(value = "/checkOut", method = RequestMethod.GET)
+    public ModelAndView checkOut(@RequestParam(required = false) Integer orderId) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("user/checkOut");
+
+        Order order = orderDao.findById(orderId);
+        order.setStatus("transit");
+        Date now = new Date();
+        order.setOrderDate(now);
+//        LocalDate now = LocalDate.now();
+//                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//                    now = formatter.parse(String.valueOf(now));
+
+        // setting the shipped date after 3 days,
+//        Date date = DateUtil.addDays(now, 3);
+
+       // order.setShippedDate(LocalDate.now().plusDays(3));
+
+        orderDao.save(order);
+
+        return response;
+    }
 
     }

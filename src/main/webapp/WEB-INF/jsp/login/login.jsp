@@ -1,6 +1,6 @@
 <jsp:include page="../include/header.jsp" />
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 <!-- form submission must align with security config see .loginProcessingUrl in Security Config -->
 
@@ -33,7 +33,8 @@
         <div class="container signin">
             <p>Don't have an account? <a href="/register">Sign up</a>.</p>
         </div>
-    <button type="submit" class="btn btn-warning">Sign In</button>
+    <button type="submit" class="btn btn-warning" style=" padding: 16px 20px;
+        border: none; cursor: pointer; width: 100%; opacity: 0.9;">Sign In</button>
 
 
     </form>

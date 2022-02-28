@@ -33,6 +33,9 @@ public class Book {
     @Column(name = "category")
     private String category;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "price")
     private Double price;
 

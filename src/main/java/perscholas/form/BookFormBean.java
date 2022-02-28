@@ -29,6 +29,8 @@ public class BookFormBean {
 
     private String category;
 
+    private String description;
+
     @Min(value=0, message="Quantity must be at least 0")
     private Integer quantityInStock;
 

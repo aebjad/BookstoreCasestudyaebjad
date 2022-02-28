@@ -9,10 +9,11 @@ import perscholas.database.entity.UserRole;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface OrderDAO extends JpaRepository<Order, Long> {
 
-    public Order findOrderById(@Param("id") Integer id);
+    public Order findById(@Param("id") Integer id);
 
     public List<Order> findByUserId(@Param("id") Integer id);
 
@@ -25,7 +26,27 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 
    public Order findByUserIdAndStatus(Integer id, String status);
 
-   // public List<Book> findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(String bookName, String author);
+
+    @Query(value ="select orders.id AS order_id, orders.status, orders.shipped_date, books.book_name, orders_books.quantity\n" +
+            "from orders inner join orders_books on orders.id = orders_books.order_id inner join books on orders_books.book_id = books.id\n" +
+            "where orders.user_id = :userId and orders.status = :status", nativeQuery = true)
+    public List<Map<String, Object>> findOrdersHistory(@Param("userId") Integer userId, @Param("status") String status);
+
+
+    @Query(value ="select orders.id AS order_id, orders.status, orders.order_date, books.book_name, orders_books.quantity\n" +
+            "from orders inner join orders_books on orders.id = orders_books.order_id inner join books on orders_books.book_id = books.id\n" +
+            "where orders.user_id = :userId and orders.status = :status", nativeQuery = true)
+    public List<Map<String, Object>> findOrderStatus(@Param("userId") Integer userId, @Param("status") String status);
+
+
+
+
+
+
+//    public List<Order> findByUserIdAndStatus(Integer id, String status);
+
+//    @Query("select o from Order o where o.user.id = :userId and o.status = :status" )
+//    public List<Order> findOrders(@Param("userId") Integer userId, @Param("status") String status);
 
    // @Query("select u from User u where u.username = :username")
 //    public User findByUsername(@Param("username") String uname);

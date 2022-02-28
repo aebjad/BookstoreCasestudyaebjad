@@ -54,7 +54,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/searchBookCategory?searchBooklist=kid">Kids</a>
-                    <a class="dropdown-item" href="/searchBookCategory?searchBooklist=teen">Teens</a>
+                    <a class="dropdown-item" href="/searchBookCategory?searchBooklist=teen">Teen/Tween</a>
                     <a class="dropdown-item" href="/searchBookCategory?searchBooklist=adult">Adult</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/searchBookCategory">All Books</a>
@@ -82,9 +82,9 @@
                     </sec:authorize>
 
                     <li><a href="/profile">Manage Account</a></li>
-                    <li><a href="#">Order Status</a></li>
+                    <li><a href="/orderStatus">Order Status</a></li>
 <%--                    <li><a href="#">Wish List</a></li>--%>
-                    <li><a href="/survey">Survey</a></li>
+<%--                    <li><a href="/survey">Survey</a></li>--%>
 
                     <div class="dropdown-divider"></div>
                     <sec:authorize access="!isAuthenticated()">

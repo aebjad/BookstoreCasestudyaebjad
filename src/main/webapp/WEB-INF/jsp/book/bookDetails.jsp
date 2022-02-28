@@ -15,8 +15,10 @@
         </div>
         <div class="col-sm-4">
             <br/><b>${formBeanKey.bookName}</b>
-            <br/> Author: ${formBeanKey.author}
-            <br/> List price: $${formBeanKey.price}
+            <br/> <b>Author:</b>      ${formBeanKey.author}
+            <br/><b> List price:</b> $${formBeanKey.price}
+            <br/><b> Description: </b><article>${formBeanKey.description}
+
           <hr>
             <a href="/addToCart?id=${formBeanKey.id}" class="btn btn-dark">Add to cart</a>
 

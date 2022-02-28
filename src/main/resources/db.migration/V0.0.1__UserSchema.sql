@@ -53,6 +53,10 @@ ALTER TABLE `bookstore`.`books`
 ALTER TABLE `bookstore`.`books`
     ADD COLUMN `category` VARCHAR(45) NULL AFTER `quantity_in_stock`;
 
+ALTER TABLE `bookstore`.`books`
+    ADD COLUMN `description` VARCHAR(1000) NULL AFTER `category`;
+
+
 
 CREATE TABLE `bookstore`.`orders` (
                                       `id` INT NOT NULL AUTO_INCREMENT,
