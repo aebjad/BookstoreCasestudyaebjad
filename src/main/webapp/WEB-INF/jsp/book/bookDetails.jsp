@@ -5,12 +5,12 @@
 </br><br/>
 
 <%--    <div class="row justify-content-center" style="padding-bottom: 20px; padding-left: 30px" >--%>
-<%--        <br/><h3 >Book Details:</h3>--%>
+<%--&lt;%&ndash;        <br/><h3 >Book Details:</h3>&ndash;%&gt; --%>
 <%--    </div>--%>
     <div class="row justify-content-center">
         <div class="col-sm-4">
 <%--            <br/><h2 >Book Details:</h2>--%>
-            <img src="${formBeanKey.urlImage}" class="img-rounded" alt="Book image" style="width: 150px; height: 150px">
+            <img src="${formBeanKey.urlImage}" class="img-rounded" alt="Book image" style="width: 300px; height: 350px">
 
         </div>
         <div class="col-sm-4">

@@ -92,8 +92,8 @@
                                     <hr class="my-4">
 
                                     <div class="d-flex justify-content-between mb-5">
-                                        <h5 class="text-uppercase">Total price</h5>
-                                        <h5>$ ${totalprice}</h5>
+                                        <h5 class="text-uppercase"><b>Total price</b></h5>
+                                        <h5><b>$ ${totalprice}</b></h5>
                                     </div>
 
                                     <a href="/checkOut?orderId=${orderId}" class="btn btn-dark btn-block btn-lg"

@@ -1,6 +1,5 @@
 <jsp:include page="../include/header.jsp" />
 
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 <!-- form submission must align with security config see .loginProcessingUrl in Security Config -->
 
@@ -20,7 +19,10 @@
 <%--        name="username" &  name="password" should always be like that for login to proccess/security--%>
     <br /><label for="email">Email</label>
     <input id="email" type="email" name="username" placeholder="Your Email.."  required/>
-
+<%--        <div class="form-outline mb-4">--%>
+<%--            <input type="email" name="username" id="form1Example1" class="form-control" />--%>
+<%--            <label class="form-label" for="form1Example1">Email address</label>--%>
+<%--        </div>--%>
 
     <br /><label for="pass">Password</label>
     <input id="pass" type="password" name="password" placeholder="Your password.." required />
