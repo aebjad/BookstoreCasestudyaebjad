@@ -1,7 +1,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <jsp:include page="../include/header.jsp" />
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 <div style=" background-color: #21211a;">
     <div class="bg-img2" >
@@ -32,7 +32,7 @@
             <br /><label for="quantityInStock">Quantity In Stock</label>
             <input id="quantityInStock" type="number" name="quantityInStock" min="0" value="${formBeanKey.quantityInStock}" placeholder="Quantity.."  />
 
-                <button type="submit" class="btn" id="myBtn"  >Submit</button>
+                <button type="submit" class="btn btn-warning" id="myBtn"  >Submit</button>
 <%--                <button id="cancel" name="cancel" class="btn btn-default" value="1">Cancel</button>--%>
 
         </form>

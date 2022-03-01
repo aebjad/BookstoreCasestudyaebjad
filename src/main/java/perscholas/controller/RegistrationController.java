@@ -56,8 +56,6 @@ public class RegistrationController {
         ModelAndView response = new ModelAndView();
 
 
-     //   System.out.println(form);
-
         if(errors.hasErrors()) {
             for (FieldError error : errors.getFieldErrors()) {
                 // add the error message to the errorMessages list in the form bean
@@ -72,7 +70,6 @@ public class RegistrationController {
         }else{
             //  // there are no errors on the form submission lets redirect to the login page
             //    right here that you would save the new user registration to the database
-
 
             User user = new User();;
 
@@ -111,35 +108,19 @@ public class RegistrationController {
         return response;
     }
 
-//    @RequestMapping(value ="/edit", method = RequestMethod.GET)
-//    public ModelAndView edit(@RequestParam(required = false) Integer id) throws Exception {
-//        ModelAndView response = new ModelAndView();
-//        response.setViewName("user/editUder");
-//
-//        if (id != null) {
-//            // id has been passed to this form
-//            User user = userDao.findById(id);
-//
-//            // populate the form bean with the data loaded from the database
-//            RegisterFormBean form = new RegisterFormBean();
-//            form.setEmail(user.getEmail());
-//            form.setPassword(user.getPassword());
-//            form.setFirstName(user.getFirstName());
-//            form.setLastName(user.getLastName());
-//            form.setAddress(user.getAddress());
-//            form.setCity(user.getCity());
-//            form.setZipCode(user.getZipCode());
-//            form.setState(user.getState());
-//            // since we loaded this from the database we know the id field
-//            form.setId(user.getId());
-//
-//            response.addObject("formBeanKey", form);
-//
-//        }
-//            return response;
-//        }
+    @RequestMapping(value ="/contactUs", method = {RequestMethod.POST, RequestMethod.GET})
+    public ModelAndView contactUs() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("contact/contactUs");
 
+//        RegisterFormBean form = new RegisterFormBean();
+//        response.addObject("formBeanKey", form);
+
+        return response;
     }
+
+
+}
 
 
 

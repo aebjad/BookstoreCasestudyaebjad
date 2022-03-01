@@ -1,6 +1,6 @@
 <jsp:include page="../include/header.jsp" />
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 
 <div class="bg-dark py-5 bg-img" ></div>
@@ -24,8 +24,8 @@
 
         </p>
         <div>
-        <a class="btn btn-dark" style="width: 200px" href="/editUserProfile">Manage Account Setting</a>
-            <br /><a class="btn btn-dark btn-xl" style="width: 200px" href="/orderHistory?userId=${user.id}">Purchases History</a>
+        <a class="btn btn-warning" style="width: 200px" href="/editUserProfile">Manage Account Setting</a>
+            <br /><a class="btn btn-warning btn-xl" style="width: 200px" href="/orderHistory?userId=${user.id}">Purchases History</a>
 
     </div>
 </div>

@@ -3,7 +3,7 @@
 
 <jsp:include page="../include/header.jsp" />
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 <div class="bg-dark py-5 bg-img" ></div>
 </br><br/>
@@ -16,6 +16,8 @@
 <%--    </c:otherwise>--%>
 <%--</c:choose>--%>
 
+
+<h2>Order History</h2>
 <table  class="table table-striped" >
     <tr>
 

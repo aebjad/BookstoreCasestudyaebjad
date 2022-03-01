@@ -8,6 +8,8 @@
 <div class="bg-dark py-5 bg-img" ></div>
 </br><br/>
 
+<h2>Order Status</h2>
+
 <table  class="table table-striped" >
     <tr>
 
@@ -23,7 +25,7 @@
         <tr>
 
             <td>  ${order.order_id}  </td>
-            <td>  ${order.status}  </td>
+            <td>  In Transit  </td>
             <td>  ${order.order_date}  </td>
             <td>  ${order.book_name}  </td>
             <td>  ${order.quantity}  </td>

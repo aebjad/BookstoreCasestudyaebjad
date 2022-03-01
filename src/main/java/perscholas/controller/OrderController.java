@@ -267,7 +267,7 @@ public class OrderController {
 
     // Get all user's orders that have been shipped
     @RequestMapping(value = "/orderHistory", method = RequestMethod.GET)
-    public ModelAndView orderHistory(@RequestParam(required = false) Integer userId) throws Exception {
+    public ModelAndView orderHistory(@RequestParam(required = true) Integer userId) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/orderHistory");
 
@@ -275,7 +275,7 @@ public class OrderController {
         List<Map<String, Object>> orders = orderDao.findOrdersHistory(userId, "shipped");
         if(!orders.isEmpty()) {
             response.addObject("orders", orders);
-            response.addObject("status", "shipped");
+//            response.addObject("status", "shipped");
 
         }
         return response;
@@ -284,16 +284,21 @@ public class OrderController {
 
     // Get all user's orders that are still in transit
     @RequestMapping(value = "/orderStatus", method = RequestMethod.GET)
-    public ModelAndView orderStatus() throws Exception {
+    public ModelAndView orderStatus(@RequestParam(required = false) Integer userId) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/orderStatus");
 
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
+        // when the user request the order status then get the user using security context
+        // if userId is not empty then the admin pass it to get the user order status
+        if(userId == null) {
+            // This is a way to ask the security context for the logged-in user.
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            String currentPrincipalName = authentication.getName();
+            User user = userDao.findByEmail(currentPrincipalName);
+            userId = user.getId();
+        }
 
-        List<Map<String, Object>> orders = orderDao.findOrderStatus(user.getId(), "transit");
+        List<Map<String, Object>> orders = orderDao.findOrderStatus(userId, "transit");
         response.addObject("orders", orders);
 //        response.addObject("status", "transit");
 

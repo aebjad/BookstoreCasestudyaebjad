@@ -61,6 +61,10 @@
             /*min-height: 500px;*/
         padding: 16px;
         background-color: white;
+        border-radius: 5px;
+        box-shadow: 5px 10px #888888;
+        box-sizing: border-box;
+        border: 3px solid burlywood;
     }
 
     hr {

@@ -16,9 +16,9 @@
             <td><b> City </b></td>
             <td><b> State </b></td>
             <td><b> Zip Code </b></td>
+            <td><b> Order History </b></td>
+            <td><b> Order Status </b></td>
 
-<%--            <td>Edit</td>--%>
-<%--            <td>Delete</td>--%>
 
         </tr>
         <c:forEach  var="user" items="${userList}">
@@ -32,9 +32,9 @@
             <td>   ${user.city} </td>
             <td>   ${user.state} </td>
             <td>  ${user.zipCode} </td>
-<%--            <td><a href="/edit?id=${user.id}">Edit</a></td>--%>
-<%--&lt;%&ndash;            <td><a href="/registration-url-path/deleteUser?id=${user.id}">Delete</a></td>&ndash;%&gt;--%>
+            <td><a href="/orderHistory?userId=${user.id}">View</a></td>
 <%--            <td><a href="/registration-url-path/deleteUser?id=${user.id}">Delete</a></td>--%>
+            <td><a href="/orderStatus?userId=${user.id}">View</a></td>
 
         </tr>
         </c:forEach>

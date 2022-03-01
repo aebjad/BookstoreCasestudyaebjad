@@ -5,7 +5,7 @@
 <jsp:include page="../include/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="stylesheet" type="text/css" href="/pub/css/style.css">
+<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 
 <%--<div style=" background-color: #21211a;">--%>
@@ -40,7 +40,7 @@
         <!--               <label for="state" class="col-sm-2 control-label">State</label> <div class="col-sm-10">  class="form-control-->
         <div>
             <select style="background-color: #f1f1f1" id="state" name="state" value="${formBeanKey.state}">
-                <option value="${formBeanKey.state}">N/A</option>
+                <option value="${formBeanKey.state}">${formBeanKey.state}</option>
                 <option value="AK">Alaska</option>
                 <option value="AL">Alabama</option>
                 <option value="AR">Arkansas</option>
@@ -103,8 +103,8 @@
 
 
 
-        <button type="submit" class="btn" id="myBtn2" >Save Changes</button><br />
-        <br /><button type="reset" class="btn" value="Reset" onclick="location.href ='/profile'">Cancel</button>
+        <button type="submit" class="btn btn-warning" id="myBtn2" >Save Changes</button><br />
+        <br /><button type="reset" class="btn btn-warning" value="Reset" onclick="location.href ='/profile'">Cancel</button>
 
     </form>
 </div>

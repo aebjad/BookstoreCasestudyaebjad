@@ -213,7 +213,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark" id="out" href="" onclick="myFunction2()">Add to cart</a></div>
+                                <a class="btn btn-dark" id="out" href="#" onclick="myFunction2()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
