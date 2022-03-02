@@ -178,6 +178,8 @@ public class AdminController {
             book.setPrice(form.getPrice());
             book.setUrlImage(form.getUrlImage());
             book.setQuantityInStock(form.getQuantityInStock());
+            book.setCategory(form.getCategory());
+            book.setDescription(form.getDescription());
 
             bookDao.save(book);
             // }

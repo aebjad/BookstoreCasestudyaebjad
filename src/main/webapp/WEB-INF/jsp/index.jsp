@@ -214,7 +214,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark" id="out" href="#" onclick="myFunction2()">Add to cart</a></div>
+                                <a class="btn btn-dark" id="out" href="" onclick="outOfStuck()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -245,19 +245,20 @@
     </section>
 
 <script>
-    document.getElementById("out").addEventListener("click", myFunction2);
+    document.getElementById("out").addEventListener("onclick", outOfStuck);
 
-    function myFunction2() {
+    function outOfStuck() {
         alert("Sorry, out of stuck");
     }
+</script>
 
-<%--<script>--%>
-<%--    document.addEventListener("click", myFunction);--%>
+<script>
+    document.getElementById("cart3").addEventListener("onclick", addToCart);
 
-<%--    function myFunction() {--%>
-<%--        alert("Book successfully added to your bag");--%>
-<%--    }--%>
-<%--</script>--%>
+    function addToCart() {
+        alert("The book has been added to your bag");
+    }
+</script>
 
 
     <jsp:include page="./include/footer.jsp" />

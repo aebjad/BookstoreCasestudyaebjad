@@ -38,7 +38,7 @@
             <br/><b> Description: </b><article>${formBeanKey.description}
 
           <hr>
-            <a href="/addToCart?id=${formBeanKey.id}" class="btn btn-dark">Add to cart</a>
+            <a id="cart" href="/addToCart?id=${formBeanKey.id}" class="btn btn-dark" onclick="addToCart()">Add to cart</a>
 
 
         </div>
@@ -55,5 +55,12 @@
     </c:forEach>
 </div>
 
+<script>
+    document.getElementById("cart").addEventListener("onclick", addToCart);
+
+    function addToCart() {
+        alert("The book has been added to your bag");
+    }
+</script>
 
 <jsp:include page="../include/footer.jsp" />

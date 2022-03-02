@@ -54,7 +54,7 @@ ALTER TABLE `bookstore`.`books`
     ADD COLUMN `category` VARCHAR(45) NULL AFTER `quantity_in_stock`;
 
 ALTER TABLE `bookstore`.`books`
-    ADD COLUMN `description` VARCHAR(1000) NULL AFTER `category`;
+    ADD COLUMN `description` VARCHAR(2000) NULL AFTER `category`;
 
 
 

@@ -54,7 +54,7 @@
                 <h5 class="card-title">${book.bookName}</h5>
                 <h5 class="card-title">${book.author}</h5>
                 <h5 class="card-price">$${book.price}</h5>
-                <a href="/addToCart?id=${book.id}" class="btn btn-dark" onclick="myFunction()">Add to cart</a>
+                <a id="cart2" href="/addToCart?id=${book.id}" class="btn btn-dark" onclick="addToCart()">Add to cart</a>
             </div>
          </div>
         </div>
@@ -67,12 +67,12 @@
          <span style="color: red">${error}</span><br>
     </div>
 
-<%--    <script>--%>
-<%--        document.getElementsByName("cart").addEventListener("click", myFunction);--%>
+    <script>
+        document.getElementById("cart2").addEventListener("onclick", addToCart);
 
-<%--        function myFunction() {--%>
-<%--            alert("Book successfully added to your bag");--%>
-<%--        }--%>
-<%--    </script>--%>
+        function addToCart() {
+            alert("The book has been added to your bag");
+        }
+    </script>
 
     <jsp:include page="../include/footer.jsp" />

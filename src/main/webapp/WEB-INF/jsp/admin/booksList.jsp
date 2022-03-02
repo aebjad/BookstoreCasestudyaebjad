@@ -7,6 +7,14 @@
 
 <div class="bg-dark py-5 bg-img" ></div>
 </br><br/>
+<form method="GET" action="/admin/bookList">
+    <label>Search for a book</label>
+    <input type="text" name="booksearch" value="${booksearch}"
+           style="width: 300px; border-radius: 10px; box-shadow: 5px 10px #888888;" placeholder="Title, author or key">
+
+    <button type="submit" class="btn btn-warning"  style="width: 100px" >Search</button>
+
+</form>
 
     <table  class="table table-striped" >
         <tr>
@@ -41,18 +49,6 @@
         </tr>
         </c:forEach>
     </table>
-
-<hr>
-
-
-    <form method="GET" action="/admin/bookList">
-              <label>Search for a book</label>
-            <input type="text" name="booksearch" value="${booksearch}" style="width: 300px;
-                border-radius: 30px" class="form-control" placeholder="Search by book title, author's name or keyword" >
-               <button type="submit"  class="btn btn-warning"  style="width: 100px">Search</button>
-
-
-    </form>
 
 <div class="pt-5">
     <h6 class="mb-0"><a  href="/admin/home" class="text-body"><i
