@@ -9,13 +9,14 @@
             <div class="text-center text-white">
                 <form class="navbar-form navbar-center" action="/searchBookList"  >
                     <div class="input-group">
-                        <input type="text" name="searchBooklist"  class="form-control px-2" placeholder="Search by Title, Author or Keyword">
+                        <input type="text" name="searchBooklist" size="50" class="form-control" placeholder="Search by Title, Author or Keyword">
                         <div class="input-group-btn">
-                            <button class="btn btn-warning " type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
+                            <button class="btn btn-warning" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>  Search
                             </button>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>

@@ -21,16 +21,18 @@ public interface BookDAO extends JpaRepository<Book, Long> {
 
     public List<Book> findAll();
 
+    public List<Book> findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(String bookName, String author);
+
 //    @Query(value ="Select book.* from Book order by RAND LIMIT 8", nativeQuery = true)
-    @Query(value ="Select * from Book order by RAND() LIMIT 8", nativeQuery = true)
+//    @Query(value ="Select * from Book order by RAND() LIMIT 8", nativeQuery = true)
 //    @Query(value ="Select book.* from Book order by RANDOM() LIMIT 8", nativeQuery = true)
 //      @Query("select b from Book b ORDER BY RAND, LIMIT 8 )
-      public List<Book> findAllRandom();
+//      public List<Book> findAllRandom();
 
 
 
    // public List<Book> findByBookNameAndAndAuthor(String bookName, String author);
-    public List<Book> findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(String bookName, String author);
+
 
 //    @Query(value = "Select recipes.* from recipes inner JOIN users_recipes on recipes.recipe_id = users_recipes.recipe_id where users_recipes.date=:date and users_recipes.user_id=:userId", nativeQuery = true)
 //    List<Recipe> findUserRecipesByDate(@Param("date")String date, @Param("userId")Integer userId);

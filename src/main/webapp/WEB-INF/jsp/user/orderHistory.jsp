@@ -5,7 +5,25 @@
 
 <%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
-<div class="bg-dark py-5 bg-img" ></div>
+<%--<div class="bg-dark py-5 bg-img" ></div>--%>
+<!-- Header-->
+<header class="bg-dark py-5 bg-img" >
+    <div class="container px-4 px-lg-5 my-5" >
+        <div class="text-center text-white">
+            <form class="navbar-form navbar-center" action="/searchBookList"  >
+                <div class="input-group">
+                    <input type="text" name="searchBooklist" size="50" class="form-control" placeholder="Search by Title, Author or Keyword">
+                    <div class="input-group-btn">
+                        <button class="btn btn-warning" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>  Search
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</header>
 </br><br/>
 <%--<c:choose>--%>
 <%--    <c:when test="${status} = shipped">--%>

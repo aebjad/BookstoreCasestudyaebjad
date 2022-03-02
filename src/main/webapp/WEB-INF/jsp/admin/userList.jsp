@@ -18,6 +18,7 @@
             <td><b> Zip Code </b></td>
             <td><b> Order History </b></td>
             <td><b> Order Status </b></td>
+            <td><b> Delete User </b></td>
 
 
         </tr>
@@ -33,8 +34,8 @@
             <td>   ${user.state} </td>
             <td>  ${user.zipCode} </td>
             <td><a href="/orderHistory?userId=${user.id}">View</a></td>
-<%--            <td><a href="/registration-url-path/deleteUser?id=${user.id}">Delete</a></td>--%>
             <td><a href="/orderStatus?userId=${user.id}">View</a></td>
+            <td><a href="/admin/deleteUser?userId=${user.id}">Delete</a></td>
 
         </tr>
         </c:forEach>

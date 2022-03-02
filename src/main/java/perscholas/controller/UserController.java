@@ -97,9 +97,10 @@ public class UserController {
 
                 String encryptedPassword = passwordEncoder.encode(form.getPassword());
                 user.setPassword(encryptedPassword);
-
+              //  if(passwordEncoder.matches(form.getPassword(), user.getPassword()))
                 userDao.save(user);
             }
+            response.addObject("user", user);
             response.setViewName("/user/profile");
 
 

@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import perscholas.database.dao.BookDAO;
 import perscholas.database.dao.UserDAO;
+import perscholas.database.dao.UserRoleDAO;
 import perscholas.database.entity.Book;
 import perscholas.database.entity.User;
+import perscholas.database.entity.UserRole;
 import perscholas.form.BookFormBean;
 
 
@@ -62,6 +64,18 @@ public class AdminController {
         return response;
     }
 
+    @RequestMapping(value ="/usersList", method = RequestMethod.GET)
+    public ModelAndView usersList() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("admin/userList");
+
+            List<User> userList = userDao.findAll();
+            response.addObject("userList", userList);
+
+
+        return response;
+    }
+
     @RequestMapping(value ="/bookList", method = RequestMethod.GET)
     public ModelAndView bookList(@RequestParam(required = false) String booksearch) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -100,7 +114,27 @@ public class AdminController {
         return response;
     }
 
-//    @PreAuthorize("hasAuthority('ADMIN')")
+//    @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+//    public ModelAndView deleteUser(@RequestParam Integer userId, HttpServletRequest request) throws Exception {
+//        ModelAndView response = new ModelAndView();
+////        System.out.println("User Id: "+userId);
+//        //get the address of the page that makes the request.
+//        String referrer = request.getHeader("referer");
+//        response.setViewName("redirect:"+ referrer);
+//
+//        if(userId != null) {
+//            User user = userDao.findById(userId);
+//            UserRole ur = UserRoleDAO.findByUser(user);
+//
+//            if (user != null) {
+//                userDao.delete(user);
+//            }
+//        }
+//
+//        return response;
+//    }
+
+    //    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/newBook", method = RequestMethod.GET)
     public ModelAndView newBook() throws Exception {
         ModelAndView response = new ModelAndView();

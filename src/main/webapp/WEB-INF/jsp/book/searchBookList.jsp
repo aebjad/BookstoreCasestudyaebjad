@@ -2,24 +2,42 @@
 
     <jsp:include page="../include/header.jsp" />
 
-    <div class="bg-dark py-5 bg-img" ></div>
-    </br><br/>
-    <h4>Search for a book</h4>
-    <form class="form-inline" method="GET" action="/searchBookList">
-        <div class="input-group">
-            <input type="text" class="form-control" size="50" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">
-            <div class="input-group-btn">
-                <button type="submit" class="btn btn-warning">Search</button>
+<%--    <div class="bg-dark py-5 bg-img" ></div>--%>
+    <!-- Header-->
+    <header class="bg-dark py-5 bg-img" >
+        <div class="container px-4 px-lg-5 my-5" >
+            <div class="text-center text-white">
+                <form class="navbar-form navbar-center" action="/searchBookList"  >
+                    <div class="input-group">
+                        <input type="text" name="searchBooklist" size="50" class="form-control" placeholder="Search by Title, Author or Keyword">
+                        <div class="input-group-btn">
+                            <button class="btn btn-warning" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>  Search
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
-    </form>
+    </header>
+    </br><br/>
+<%--    <h4>Search for a book</h4>--%>
+<%--    <form class="form-inline" method="GET" action="/searchBookList">--%>
+<%--        <div class="input-group">--%>
+<%--            <input type="text" class="form-control" size="50" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">--%>
+<%--            <div class="input-group-btn">--%>
+<%--                <button type="submit" class="btn btn-warning">Search</button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </form>--%>
 
 <%--    <form method="GET" action="/searchBookList">--%>
 <%--        <label>Search for a book</label>--%>
 <%--        <input type="text" name="searchBooklist" value="${searchBooklist}" placeholder="Title, author or keyword..">--%>
 <%--        <button type="submit">Search</button>--%>
 <%--    </form>--%>
-    <hr>
+<%--    <hr>--%>
 <h3>Search Result:</h3>
   <div class="container">
    <div class="row" justify-content-center>

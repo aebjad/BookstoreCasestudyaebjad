@@ -103,8 +103,6 @@
 			<version>20211205</version>
 		</dependency>
 
-
-
 		<!-- Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -114,7 +112,6 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 		</dependency>
-
 
 
 		<!--	database-->

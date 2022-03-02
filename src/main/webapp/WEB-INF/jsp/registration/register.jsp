@@ -12,29 +12,29 @@
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
-        <br /><label for="fName">First Name</label>
+<%--        <br /><label for="fName">First Name</label>--%>
         <input id="fName" type="text" name="firstName" value="${formBeanKey.firstName}" placeholder="Your name.."  required/>
         <!--      first name pattern      pattern="^[A-Z][a-z]+$"-->
-        <br /><label for="lname">Last Name</label>
+<%--        <br /><label for="lname">Last Name</label>--%>
         <input id="lname" type="text" name="lastName"  value="${formBeanKey.lastName}" placeholder="Your Last name.."  required/>
         <!--          last name pattren   pattern="^[A-Z][a-z]+$"-->
-        <br /><label for="email">Email</label>
+<%--        <br /><label for="email">Email</label>--%>
         <input id="email" type="email" name="email" placeholder="Your Email.." value="${formBeanKey.email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"   required/>
         <!--              pattern="^[A-Za-z0-9+_.-]+@(.+)[a-z]{2,4}$"-->
-        <br /><label for="pass">Password</label>
+<%--        <br /><label for="pass">Password</label>--%>
         <input id="pass" type="password" name="password" placeholder="Your password.." required />
 
-        <br /><label for="confirmPassword">Confirm Password</label>
+<%--        <br /><label for="confirmPassword">Confirm Password</label>--%>
         <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm your password.." required />
 
-        <br /><label for="address">Address</label>
+<%--        <br /><label for="address">Address</label>--%>
         <input id="address" type="text" name="address" value="${formBeanKey.address}" placeholder="Your address.."  />
 
-        <br /><label for="city">City</label>
+<%--        <br /><label for="city">City</label>--%>
         <input id="city" type="text" name="city"  value="${formBeanKey.city}" placeholder="Your city.."  />
 
         <!--            //<div class="form-group">-->
-        <br /><label for="state" class=" control-label">State</label>
+<%--        <br /><label for="state" class=" control-label">State</label>--%>
         <!--               <label for="state" class="col-sm-2 control-label">State</label> <div class="col-sm-10">  class="form-control-->
         <div>
             <select style="background-color: #f1f1f1" id="state" name="state" value="${formBeanKey.state}">
@@ -96,9 +96,10 @@
         <!--            </div>-->
 
 
-        <br /><label for="zipCode">Zip code</label>
-        <input id="zipCode" type="text" name="zipCode" value="${formBeanKey.zipCode}"  pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
+<%--        <br /><label for="zipCode">Zip code</label>--%>
 
+        <input id="zipCode" type="text" name="zipCode" value="${formBeanKey.zipCode}" placeholder="Zip Code" pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
+<%--<hr>--%>
         <div class="container signin">
             <p>Already have an account? <a href="/login/login">Sign in</a>.</p>
         </div>

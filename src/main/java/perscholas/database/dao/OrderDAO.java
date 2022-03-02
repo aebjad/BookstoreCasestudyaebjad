@@ -17,7 +17,6 @@ public interface OrderDAO extends JpaRepository<Order, Long> {
 
     public List<Order> findByUserId(@Param("id") Integer id);
 
-
     public List<Order> findByOrderDate(@Param("orderDate") Date orderDate);
 
     public List<Order> findByShippedDate(@Param("shippedDate") Date shippedDate);

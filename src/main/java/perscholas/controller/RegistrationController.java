@@ -17,6 +17,8 @@ import perscholas.database.entity.User;
 import perscholas.database.entity.UserRole;
 import perscholas.form.RegisterFormBean;
 
+//import marked from "marked";
+
 import javax.validation.Valid;
 
 @Controller
@@ -99,7 +101,7 @@ public class RegistrationController {
                 userRoleDao.save(ur);
 
 
-            //       response.setViewName("redirect:/login");
+      //             response.setViewName("redirect:/login/login");
             response.setViewName("registration/register");
           //  response.setViewName("/login/loginSecurityPost");
 
@@ -107,6 +109,16 @@ public class RegistrationController {
 
         return response;
     }
+
+    @RequestMapping(value ="/aboutUs", method =  RequestMethod.GET)
+    public ModelAndView aboutUs() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("contact/aboutUs");
+
+
+        return response;
+    }
+
 
     @RequestMapping(value ="/contactUs", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView contactUs() throws Exception {

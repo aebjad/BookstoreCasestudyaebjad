@@ -3,7 +3,25 @@
 <%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 
-<div class="bg-dark py-5 bg-img" ></div>
+<%--<div class="bg-dark py-5 bg-img" ></div>--%>
+<!-- Header-->
+<header class="bg-dark py-5 bg-img" >
+    <div class="container px-4 px-lg-5 my-5" >
+        <div class="text-center text-white">
+            <form class="navbar-form navbar-center" action="/searchBookList"  >
+                <div class="input-group">
+                    <input type="text" name="searchBooklist" size="50" class="form-control" placeholder="Search by Title, Author or Keyword">
+                    <div class="input-group-btn">
+                        <button class="btn btn-warning" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>  Search
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</header>
 </br><br/>
 
 <%--<div class="container px-4 px-lg-5 h-100">--%>
@@ -47,6 +65,7 @@
                             <div class="mt-3">
                                 <h4>${user.firstName}  ${user.lastName}</h4>
                                 <p class="text-secondary mb-1">${user.city}, ${user.state}</p>
+                                                                <br/>
 <%--                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>--%>
 <%--                                <button class="btn btn-primary">Follow</button>--%>
 <%--                                <button class="btn btn-outline-primary">Message</button>--%>
@@ -88,11 +107,11 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-sm-12">
-                                <a class="btn btn-warning" href="/editUserProfile">Account Setting</a>
+                            <div class="col-sm-6">
+                                <a class="btn btn-dark" href="/editUserProfile">Account Setting</a>
                             </div>
                             <br />
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <a class="btn btn-dark"   href="/orderHistory?userId=${user.id}">Purchases History</a>
                             </div>
                         </div>

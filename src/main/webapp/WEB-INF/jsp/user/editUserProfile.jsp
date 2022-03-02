@@ -5,10 +5,7 @@
 <jsp:include page="../include/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
-
-<%--<div style=" background-color: #21211a;">--%>
 <div class="bg-img2" >
     <form action="/updateUser" class="container2" id="peForm" onsubmit="myFunction()" method="POST">
         <input type="hidden" name="id" value="${formBeanKey.id}">
@@ -24,7 +21,7 @@
         <input id="email" type="email" name="email" placeholder="Your Email.." value="${formBeanKey.email}" disabled/>
 
         <br /><label for="pass">Password</label>
-        <input id="pass" type="password" name="password"  placeholder="Your password.."  required/>
+        <input id="pass" type="password" name="password"  placeholder="Confirm Your password.."  required/>
 <%--        value="${formBeanKey.password}"--%>
         <br /><label for="confirmPassword">Confirm Password</label>
         <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm your password.." required />

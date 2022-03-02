@@ -20,7 +20,8 @@ public class UserRole {
     @Column(name = "user_role")
     private String userRole;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
+//    @ManyToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL )
+    @ManyToOne(fetch = FetchType.LAZY )
     @JoinColumn(name = "user_id")
     private User user;
 
