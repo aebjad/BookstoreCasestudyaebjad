@@ -49,7 +49,7 @@
 
 
                 <div class="col mb-5">
-                    <div class="card h-25">
+                    <div class="card h-100">
                         <!-- Book image-->
                         <a href="/bookDetails?id=22">
                             <img class="card-img-top" src="/pub/images/smile.jpg" alt="Book..." /> </a>
@@ -58,7 +58,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Smile</h5>
-                                <h6 class="fw-bolder">By Raina Telgemeier</h6>
+                                <h6>By Raina Telgemeier</h6>
                                 <!-- Product price-->
                                 $10.99
                             </div>
@@ -66,7 +66,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class=" btn btn-dark"  href="/addToCart?id=22" onclick="myFunction()">Add to cart</a>
+                                <a class=" btn btn-dark active"  href="/addToCart?id=22" onclick="addToCart()">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                             <div class="text-center">
                                 <!-- Product name/author-->
                                 <h5 class="fw-bolder">Becoming</h5>
-                                <h6 class="fw-bolder">By Michelle Obama</h6>
+                                <h6>By Michelle Obama</h6>
                                 <!-- Product price-->
                                 <span class=" text-muted text-decoration-line-through">$20.00</span>
                                 $18.00
@@ -92,7 +92,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark" href="/addToCart?id=8" onclick="myFunction()">Add to cart</a></div>
+                                <a class="btn btn-dark active" href="/addToCart?id=8" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">
                                     I want to be an engineer</h5>
-                                <h6 class="fw-bolder">By Laura Driscoll</h6>
+                                <h6>By Laura Driscoll</h6>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">$10.00</span>
                                 $5.00
@@ -118,7 +118,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark " href="/addToCart?id=10" onclick="myFunction()">Add to cart</a></div>
+                                <a class="btn btn-dark active" href="/addToCart?id=10" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">In the spirit of a dream</h5>
-                                <h6 class="fw-bolder">By Aida Salazar</h6>
+                                <h6>By Aida Salazar</h6>
                                 <!-- Product price-->
                                 $14.00
                             </div>
@@ -140,7 +140,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark" href="/addToCart?id=14" onclick="myFunction()">Add to cart</a></div>
+                                <a class="btn btn-dark active" href="/addToCart?id=14" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">I Love You to the Moon and Back</h5>
-                                <h6 class="fw-bolder">By Laura Driscoll</h6>
+                                <h6>By Laura Driscoll</h6>
                                 <!-- Product price-->
                                 <span class="text-muted text-decoration-line-through">$10.00</span>
                                 $7.99
@@ -165,7 +165,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark" href="/addToCart?id=5" onclick="myFunction()">Add to cart</a></div>
+                                <a class="btn btn-dark active" href="/addToCart?id=5" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">If Animals Kissed Goodnight</h5>
-                                <h6 class="fw-bolder">By Ann Whitford Paul, David Walker</h6>
+                                <h6 >By Ann Whitford Paul, David Walker</h6>
                                 <!-- Product price-->
                                 $7.99
                             </div>
@@ -189,7 +189,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark" href="/addToCart?id=6" onclick="myFunction()">Add to cart</a></div>
+                                <a class="btn btn-dark active" href="/addToCart?id=6" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Humble Pie</h5>
-                                <h6 class="fw-bolder">Gordon Ramsay</h6>
+                                <h6>Gordon Ramsay</h6>
                                 <!-- Product price-->
                                 $11.25
                             </div>
@@ -228,7 +228,7 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <h5 class="fw-bolder">Raw Food Detox Diet </h5>
-                                <h6 class="fw-bolder">Natalia Rose</h6>
+                                <h6>Natalia Rose</h6>
                                 <!-- Product price-->
                                 $16.99
                             </div>
@@ -236,7 +236,7 @@
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark"  href="/addToCart?id=12" onclick="myFunction()">Add to cart</a></div>
+                                <a class="btn btn-dark active"  href="/addToCart?id=12" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
@@ -253,7 +253,7 @@
 </script>
 
 <script>
-    document.getElementById("cart3").addEventListener("onclick", addToCart);
+    document.getElementsByClassName("active").addEventListener("onclick", addToCart);
 
     function addToCart() {
         alert("The book has been added to your bag");

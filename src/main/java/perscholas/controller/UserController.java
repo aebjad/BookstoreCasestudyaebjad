@@ -84,7 +84,7 @@ public class UserController {
     public ModelAndView updateUser(@Valid EditFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
 
-            // update user information so we need to load the user from the database first
+            // update user information, we need to load the user from the database first
             User user = userDao.findById(form.getId());
 
             if(user != null) {

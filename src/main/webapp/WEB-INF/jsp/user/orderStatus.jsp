@@ -52,4 +52,5 @@
     </c:forEach>
 </table>
 
+
 <jsp:include page="../include/footer.jsp" />

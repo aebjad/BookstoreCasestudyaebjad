@@ -165,6 +165,13 @@ public class OrderController {
                 List<OrderBook> bookList = orderBookDao.findByOrder(order);
                 response.addObject("bookList", bookList);
 
+                // lambda
+                final int[] quantity = {0};
+                bookList.forEach( (n) -> {
+                    quantity[0] = quantity[0] +  n.getQuantity();
+                     });
+                response.addObject("quantity", quantity[0]);
+
                 double total = 0;
                 double totalprice = 3.5;
                 for (int i = 0; i < bookList.size(); i++) {

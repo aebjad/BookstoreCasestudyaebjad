@@ -46,9 +46,9 @@ public class BookDAOTests {
 
     @Test
     @Order(4)
-    @Rollback(value = true)
+   // @Rollback(value = true)
     public void deleteBookTest() {
-        Book book = bookDao.findById(30);
+        Book book = bookDao.findById(34);
         bookDao.delete(book);
         Optional<Book> optionalRecipe = Optional.ofNullable(bookDao.findById(book.getId()));
 
@@ -59,6 +59,12 @@ public class BookDAOTests {
 
         Assertions.assertThat(tempRecipe).isNull();
     }
+
+
+
+
+
+
 
 //    @Test
 //    @Order(4)

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import perscholas.database.dao.OrderDAO;
+import perscholas.database.entity.Book;
 import perscholas.database.entity.Order;
 
 
@@ -34,11 +35,29 @@ public class OrderDAOTests {
     @Test
   //    @Rollback(value = false)
     public void updateOrderTest() {
-        Order book = orderDao.findById(10);
+        Order book = orderDao.findById(12);
         book.setStatus("shipped");
         orderDao.save(book);
-        Assertions.assertThat(orderDao.findById(10).getStatus()).isEqualTo(book.getStatus());
+        Assertions.assertThat(orderDao.findById(12).getStatus()).isEqualTo(book.getStatus());
     }
+
+    @Test
+    // @Rollback(value = true)
+    public void deleteOrderTest() {
+        Order order = orderDao.findById(14);
+        orderDao.delete(order);
+        Optional<Order> optionalRecipe = Optional.ofNullable(orderDao.findById(order.getId()));
+
+        Order tempRecipe = null;
+        if (optionalRecipe.isPresent()) {
+            tempRecipe = optionalRecipe.get();
+        }
+
+        Assertions.assertThat(tempRecipe).isNull();
+    }
+
+
+
 
 
 

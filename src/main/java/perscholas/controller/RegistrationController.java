@@ -125,9 +125,6 @@ public class RegistrationController {
         ModelAndView response = new ModelAndView();
         response.setViewName("contact/contactUs");
 
-//        RegisterFormBean form = new RegisterFormBean();
-//        response.addObject("formBeanKey", form);
-
         return response;
     }
 

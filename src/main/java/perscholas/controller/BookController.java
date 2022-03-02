@@ -62,6 +62,7 @@ public class BookController {
 
             List<Book> booksList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(searchBooklist, searchBooklist);
             //      System.out.println(booksList);
+
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
         }

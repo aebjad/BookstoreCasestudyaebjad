@@ -3,8 +3,6 @@
 <jsp:include page="../include/header.jsp" />
 
 
-
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 <%--<div class="bg-dark py-5 bg-img" ></div>--%>
 
 <span style="color: red">${error}</span><br>
@@ -20,7 +18,7 @@
                                 <div class="p-5">
                                     <div class="d-flex justify-content-between align-items-center mb-5">
                                         <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
-<%--                                        <h6 class="mb-0 text-muted">3 items</h6>--%>
+
                                     </div>
                                     <hr class="my-4">
 
@@ -39,16 +37,17 @@
 
                                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                           <form action="/lowerQuantity" method="get">
+
                                               <input type="hidden" name="orderBookId" value="${book.id}">
+
                                             <button class="btn btn-link px-2"
                                                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                 <i class="fas fa-minus"></i>
                                             </button>
-                                              <input min="1" name="quantity" value="${book.quantity}"
-                                                     type="number" class="form-control form-control-sm" style="width: 60px" />
 
                                           </form>
-
+                                            <input min="1" name="quantity" value="${book.quantity}"
+                                                   type="number" class="form-control form-control-sm" style="width: 60px" />
                                             <form action="/increaseQuantity" method="get">
                                               <input type="hidden" name="orderBookId" value="${book.id}">
                                             <button class="btn btn-link px-2"
@@ -80,6 +79,7 @@
                             <div class="col-lg-4 bg-grey">
                                 <div class="p-5">
                                     <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                                    <h4 class="mb-0 text-muted">${quantity} items</h4>
                                     <hr class="my-4">
 
                                     <div class="d-flex justify-content-between mb-4">
