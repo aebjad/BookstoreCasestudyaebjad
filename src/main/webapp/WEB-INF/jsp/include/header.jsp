@@ -38,16 +38,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="margin-bottom:0px; margin-top: 0px">
     <p class="navbar-brand title" >Charlotte Bookstore</p>
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+
         <ul class="navbar-nav mr-auto" >
             <li class="nav-item">
                 <a class="nav-link " href="/index"> Home </a>
             </li>
-<%--            <li class="nav-item">--%>
-<%--                <a class="nav-link" href="/contactUs">Contact</a>--%>
-<%--            </li>--%>
+            <li class="nav-item">
+                <a class="nav-link" href="/contactUs"> Contact </a>
+            </li>
             <p>  </p>
             <li class="nav-item">
-                <a class="nav-link" href="/aboutUs">About US</a>
+                <a class="nav-link" href="/aboutUs"> About </a>
             </li>
             <p>  </p>
             <li class="nav-item dropdown">
@@ -59,7 +60,7 @@
                     <a class="dropdown-item" href="/searchBookCategory?searchBooklist=teen">Teen/Tween</a>
                     <a class="dropdown-item" href="/searchBookCategory?searchBooklist=adult">Adult</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/searchBookCategory">All Books</a>
+                    <a class="dropdown-item" href="/searchBookCategory"> All Books</a>
                 </div>
             </li>
         </ul>
@@ -72,7 +73,7 @@
                     <i class="fas fa-user"></i> My Account</a>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
-                    <i class="fas fa-user"></i> <sec:authentication property="principal.username" /></a>
+                    <i class="fas fa-user"></i> Hi, ${user.firstName}</a>
                 </sec:authorize>
                 <ul class="dropdown-menu">
                     <sec:authorize access="!isAuthenticated()">

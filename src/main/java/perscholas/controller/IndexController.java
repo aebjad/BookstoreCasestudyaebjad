@@ -1,12 +1,16 @@
 package perscholas.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import perscholas.database.dao.BookDAO;
+import perscholas.database.dao.UserDAO;
 import perscholas.database.entity.Book;
+import perscholas.database.entity.User;
 
 import java.util.List;
 
@@ -15,17 +19,20 @@ import java.util.List;
 public class IndexController {
 
     @Autowired
-    private BookDAO bookDao;
+    private  UserDAO userDao;
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public ModelAndView index() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("index");
 
-//        List<Book> booksList = bookDao.findAllRandom();
-//        response.addObject("booksList", booksList);
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
 
-
+        User user = userDao.findByEmail(currentPrincipalName);
+        System.out.println(user);
+        response.addObject("user", user);
         return response;
 
     }

@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -46,6 +48,14 @@ public class AdminController {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/home");
 
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
         return response;
     }
 
@@ -53,6 +63,14 @@ public class AdminController {
     public ModelAndView userList(@RequestParam(required = false) String search) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/userList");
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
 
         // Find user using firstname or lastname case-insensitive
         if(!StringUtils.isEmpty(search)) {
@@ -69,6 +87,15 @@ public class AdminController {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/userList");
 
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
+
             List<User> userList = userDao.findAll();
             response.addObject("userList", userList);
 
@@ -80,6 +107,15 @@ public class AdminController {
     public ModelAndView bookList(@RequestParam(required = false) String booksearch) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/booksList");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
 
         // Find book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(booksearch)) {

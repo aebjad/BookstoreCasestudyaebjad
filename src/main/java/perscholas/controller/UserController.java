@@ -45,7 +45,7 @@ public class UserController {
         String currentPrincipalName = authentication.getName();
 
         User user = userDao.findByEmail(currentPrincipalName);
-         response.addObject("user", user);
+        response.addObject("user", user);
 
         return response;
     }
@@ -60,7 +60,7 @@ public class UserController {
         String currentPrincipalName = authentication.getName();
 
         User user = userDao.findByEmail(currentPrincipalName);
-      //  response.addObject("user", user);
+        response.addObject("user", user);
 
         EditFormBean form = new EditFormBean();
         form.setEmail(user.getEmail());

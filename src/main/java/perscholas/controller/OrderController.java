@@ -154,6 +154,7 @@ public class OrderController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
+        response.addObject("user", user);
 
         if(user != null) {
             Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
@@ -278,6 +279,12 @@ public class OrderController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/orderHistory");
 
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+        response.addObject("user", user);
+
         // query a list of orders from order table joining order_book to get the list of books name
         List<Map<String, Object>> orders = orderDao.findOrdersHistory(userId, "shipped");
         if(!orders.isEmpty()) {
@@ -295,6 +302,7 @@ public class OrderController {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/orderStatus");
 
+
         // when the user request the order status then get the user using security context
         // if userId is not empty then the admin pass it to get the user order status
         if(userId == null) {
@@ -302,6 +310,7 @@ public class OrderController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String currentPrincipalName = authentication.getName();
             User user = userDao.findByEmail(currentPrincipalName);
+            response.addObject("user",user);
             userId = user.getId();
         }
 
@@ -316,6 +325,13 @@ public class OrderController {
     public ModelAndView checkOut(@RequestParam(required = false) Integer orderId) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("user/checkOut");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+        User user = userDao.findByEmail(currentPrincipalName);
+        response.addObject("user", user);
 
         Order order = orderDao.findById(orderId);
         order.setStatus("transit");

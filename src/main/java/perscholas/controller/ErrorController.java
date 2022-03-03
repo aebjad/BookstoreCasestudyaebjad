@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import lombok.extern.slf4j.Slf4j;
+import perscholas.database.dao.UserDAO;
+import perscholas.database.entity.User;
 
 @Slf4j
 @Controller
@@ -25,6 +29,7 @@ public class ErrorController {
 
         String origialUri = (String) request.getAttribute("javax.servlet.forward.request_uri");
         log.error("Requested URL not found : " + request.getMethod() + " " + origialUri);
+
 
         return "error/404";
     }

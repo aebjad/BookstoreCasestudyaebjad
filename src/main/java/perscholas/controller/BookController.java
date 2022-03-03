@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import perscholas.database.dao.BookDAO;
+import perscholas.database.dao.UserDAO;
 import perscholas.database.entity.Book;
+import perscholas.database.entity.User;
 import perscholas.form.BookFormBean;
 
 
@@ -29,11 +33,23 @@ public class BookController {
     @Autowired
     private BookDAO bookDao;
 
+    @Autowired
+    private UserDAO userDao;
 
     @RequestMapping(value ="/searchBookCategory", method = RequestMethod.GET)
     public ModelAndView bookCategory(@RequestParam(required = false) String searchBooklist) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("book/searchBookList");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
+
       //  System.out.println("searchBooklist" + searchBooklist);
         // Find book using book category case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
@@ -57,6 +73,15 @@ public class BookController {
         ModelAndView response = new ModelAndView();
         response.setViewName("book/searchBookList");
 
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
+
         // Find book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
 
@@ -75,6 +100,15 @@ public class BookController {
         ModelAndView response = new ModelAndView();
 
         response.setViewName("book/bookDetails");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
 
         if( id != null){
             // id has been passed to this form/method

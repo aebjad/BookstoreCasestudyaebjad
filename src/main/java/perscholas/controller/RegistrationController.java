@@ -3,6 +3,8 @@ package perscholas.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -115,6 +117,14 @@ public class RegistrationController {
         ModelAndView response = new ModelAndView();
         response.setViewName("contact/aboutUs");
 
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
 
         return response;
     }
@@ -124,6 +134,15 @@ public class RegistrationController {
     public ModelAndView contactUs() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("contact/contactUs");
+
+        // This is a way to ask the security context for the logged-in user.
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        User user = userDao.findByEmail(currentPrincipalName);
+
+        if(user != null){
+            response.addObject("user", user);
+        }
 
         return response;
     }
