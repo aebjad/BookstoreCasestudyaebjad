@@ -57,36 +57,16 @@ public class OrderDAOTests {
     }
 
 
-
-
-
-
 //    @Test
-//  //  @Rollback(value = true)
-//    public void deleteOrderTest() {
-//        Order order = orderDao.findById(13);
-//        orderDao.delete(order);
-//        Optional<Order> optionalRecipe = Optional.ofNullable(orderDao.findById(order.getId()));
+//  //    @Rollback(value = false)
+//    public void addBookTest() {
 //
-//        Order tempRecipe = null;
-//        if (optionalRecipe.isPresent()) {
-//            tempRecipe = optionalRecipe.get();
-//        }
+//        Order order = new Order();
 //
-//        Assertions.assertThat(tempRecipe).isNull();
-//    }
-
-//    @Test
-//    @Order(4)
-////    @Rollback(value = false)
-//    public void saveBookTest() {
+//       order.setUser();
 //
-//        Book book = Book.builder().recipeDescription("Fajitas").prepTime("1").cookTime("10").servings("2")
-//                .directions("Cook It").Image("IMAGE URL").categories(null).difficulty(Difficulty.EASY).ingredient(null)
-//                .build();
+//        orderDao.save(order);
 //
-//        bookDao.save(book);
-//
-//        Assertions.assertThat(book.getId()).isGreaterThan(0);
+//        Assertions.assertThat(order.getId()).isGreaterThan(0);
 //    }
 }

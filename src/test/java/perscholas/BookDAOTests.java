@@ -48,7 +48,7 @@ public class BookDAOTests {
     @Order(4)
    // @Rollback(value = true)
     public void deleteBookTest() {
-        Book book = bookDao.findById(34);
+        Book book = bookDao.findById(37);
         bookDao.delete(book);
         Optional<Book> optionalRecipe = Optional.ofNullable(bookDao.findById(book.getId()));
 
@@ -60,23 +60,21 @@ public class BookDAOTests {
         Assertions.assertThat(tempRecipe).isNull();
     }
 
+    @Test
+    @Order(5)
+    public void addBookTest() {
 
+        Book book = new Book();
 
+        book.setBookName("The Pigeon Will Ride the Roller Coaster!");
+        book.setAuthor("Mo Willems");
+        book.setCategory("kid");
+        book.setQuantityInStock(10);
+        book.setPrice(5.99);
+        book.setUrlImage("/pub/images/pigeon.jpg ");
 
+        bookDao.save(book);
 
-
-
-//    @Test
-//    @Order(4)
-////    @Rollback(value = false)
-//    public void saveBookTest() {
-//
-//        Book book = Book.builder().recipeDescription("Fajitas").prepTime("1").cookTime("10").servings("2")
-//                .directions("Cook It").Image("IMAGE URL").categories(null).difficulty(Difficulty.EASY).ingredient(null)
-//                .build();
-//
-//        bookDao.save(book);
-//
-//        Assertions.assertThat(book.getId()).isGreaterThan(0);
-//    }
+        Assertions.assertThat(book.getId()).isGreaterThan(0);
+    }
 }
