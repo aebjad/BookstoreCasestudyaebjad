@@ -73,6 +73,7 @@
                     <i class="fas fa-user"></i> My Account</a>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
+<%--                    <i class="fas fa-user"></i> <sec:authentication property="principal.username" /></a>--%>
                     <i class="fas fa-user"></i> Hi, ${user.firstName}</a>
                 </sec:authorize>
                 <ul class="dropdown-menu">

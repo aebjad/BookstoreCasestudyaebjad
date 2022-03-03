@@ -55,12 +55,12 @@ public class BookController {
         if(!StringUtils.isEmpty(searchBooklist)) {
 
             List<Book> booksList = bookDao.findByCategoryContainingIgnoreCase(searchBooklist);
-            System.out.println(booksList);
+           // System.out.println(booksList);
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
         }else{ // if no category seleceted, then retrieve all books
             List<Book> booksList = bookDao.findAll();
-            System.out.println(booksList);
+           // System.out.println(booksList);
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
         }

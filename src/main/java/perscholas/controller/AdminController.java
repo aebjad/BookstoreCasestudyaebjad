@@ -126,7 +126,7 @@ public class AdminController {
             List<Book> bookList = bookDao.findAll();
             response.addObject("bookList", bookList);
             response.addObject("booksearch",booksearch);
-            System.out.println(bookList);
+          //  System.out.println(bookList);
         }
 
         return response;

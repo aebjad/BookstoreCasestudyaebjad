@@ -31,7 +31,7 @@ public class IndexController {
         String currentPrincipalName = authentication.getName();
 
         User user = userDao.findByEmail(currentPrincipalName);
-        System.out.println(user);
+       //System.out.println(user);
         response.addObject("user", user);
         return response;
 
