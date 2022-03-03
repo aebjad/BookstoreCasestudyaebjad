@@ -49,21 +49,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         boolean accountNonLocked = true;
 
         // setup user roles
-        // List<Permission> permissions = userDao.getPermissionsByEmail(username);
-        // Collection<? extends GrantedAuthority> springRoles = buildGrantAuthorities(permissions);
         Collection<? extends GrantedAuthority> springRoles = buildGrantAuthorities(userRoles);
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), accountIsEnabled, accountNonExpired, credentialsNonExpired, accountNonLocked, springRoles);
     }
 
-//	private Collection<? extends GrantedAuthority> buildGrantAuthorities(List<Permission> permissions) {
-//		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-//		for (Permission permission : permissions) {
-//			authorities.add(new SimpleGrantedAuthority(permission.getName()));
-//		}
-//
-//		return authorities;
-//	}
 
     private Collection<? extends GrantedAuthority> buildGrantAuthorities(List<UserRole> userRoles) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
@@ -71,9 +61,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         for (UserRole role : userRoles) {
             authorities.add(new SimpleGrantedAuthority(role.getUserRole().toString()));
         }
-
-        // always add the user role
-        //  authorities.add(new SimpleGrantedAuthority(UserRoleEnum.USER.toString()));
 
         return authorities;
     }

@@ -24,32 +24,6 @@
 </header>
 </br><br/>
 
-<%--<div class="container px-4 px-lg-5 h-100">--%>
-
-<%--    <div class="row justify-content-center">--%>
-<%--        <div class="col-sm-4">--%>
-
-<%--            <img src="/pub/images/profile.png" class="img-rounded" alt="Book image" style="width: 200px; height: 200px">--%>
-
-<%--        </div>--%>
-<%--        <div class="col-sm-4">--%>
-
-<%--&lt;%&ndash;    <div class="col-lg-8 align-self-baseline">&ndash;%&gt;--%>
-<%--        <p class="text-white-75 mb-5">--%>
-<%--            <br /><label >Full Name: ${user.firstName}  ${user.lastName}</label>--%>
-<%--            <br /><label >Email: ${user.email}</label>--%>
-<%--            <br /><label >Address: ${user.address} ${user.city}, ${user.state} ${user.zipCode}</label>--%>
-
-<%--        </p>--%>
-<%--        <div>--%>
-<%--            <a class="btn btn-warning" style="width: 200px" href="/editUserProfile">Manage Account Setting</a></div>--%>
-<%--        <div>--%>
-<%--            <br /><a class="btn btn-dark btn-xl" style="width: 200px" href="/orderHistory?userId=${user.id}">Purchases History</a>--%>
-
-<%--    </div>--%>
-<%--</div>--%>
-<%--</div>--%>
-
 
 <div class="container">
     <div class="main-body">
@@ -66,9 +40,6 @@
                                 <h4>${user.firstName}  ${user.lastName}</h4>
                                 <p class="text-secondary mb-1">${user.city}, ${user.state}</p>
                                                                 <br/>
-<%--                                <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>--%>
-<%--                                <button class="btn btn-primary">Follow</button>--%>
-<%--                                <button class="btn btn-outline-primary">Message</button>--%>
                             </div>
                         </div>
                     </div>

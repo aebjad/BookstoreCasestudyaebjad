@@ -7,12 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import perscholas.database.dao.BookDAO;
 import perscholas.database.dao.UserDAO;
-import perscholas.database.entity.Book;
 import perscholas.database.entity.User;
-
-import java.util.List;
 
 
 @Controller
@@ -31,8 +27,9 @@ public class IndexController {
         String currentPrincipalName = authentication.getName();
 
         User user = userDao.findByEmail(currentPrincipalName);
-       //System.out.println(user);
+
         response.addObject("user", user);
+
         return response;
 
     }

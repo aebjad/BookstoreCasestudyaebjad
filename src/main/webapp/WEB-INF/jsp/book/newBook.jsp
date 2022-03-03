@@ -1,8 +1,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <jsp:include page="../include/header.jsp" />
 
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
-
 <div style=" background-color: #21211a;">
     <div class="bg-img2" >
         <form action="/admin/bookSubmit" class="container2" id="bookForm" onsubmit="myFunction2()"  method="POST">
@@ -33,7 +31,6 @@
             <input id="quantityInStock" type="number" name="quantityInStock" min="0" value="${formBeanKey.quantityInStock}" placeholder="Quantity.."  />
 
                 <button type="submit" class="btn btn-warning" id="myBtn"  >Submit</button>
-<%--                <button id="cancel" name="cancel" class="btn btn-default" value="1">Cancel</button>--%>
 
         </form>
     </div>

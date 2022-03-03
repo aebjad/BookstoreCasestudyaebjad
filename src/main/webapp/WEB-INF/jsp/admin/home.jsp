@@ -1,10 +1,8 @@
 <jsp:include page="../include/header.jsp" />
 
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
     <div class="bg-dark py-5 bg-img" ></div>
-<%--    </br>--%>
-    <%--<h2> This is admin manage page</h2>--%>
+
 <h3>Admin Page</h3>
 <br/>
     <form method="GET" action="/admin/userList">

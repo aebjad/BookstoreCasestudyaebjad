@@ -10,14 +10,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import perscholas.database.dao.UserDAO;
 import perscholas.database.entity.User;
 import perscholas.form.EditFormBean;
-import perscholas.form.RegisterFormBean;
 
 import javax.validation.Valid;
 
@@ -97,14 +95,11 @@ public class UserController {
 
                 String encryptedPassword = passwordEncoder.encode(form.getPassword());
                 user.setPassword(encryptedPassword);
-              //  if(passwordEncoder.matches(form.getPassword(), user.getPassword()))
+
                 userDao.save(user);
             }
             response.addObject("user", user);
             response.setViewName("/user/profile");
-
-
-//        }
 
         return response;
     }

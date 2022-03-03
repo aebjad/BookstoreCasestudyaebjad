@@ -2,12 +2,8 @@ package perscholas.form;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 import perscholas.validation.EmailUnique;
 import perscholas.validation.TwoFieldsAreEqual;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
@@ -26,10 +22,8 @@ public class RegisterFormBean {
     @EmailUnique(message = "Email must be unique")
     private String email;
 
-   // @NotEmpty(message = "First Name is required")
     private String firstName;
 
-   // @NotEmpty(message = "Last Name is required")
     private String lastName;
 
     @NotEmpty(message = "password is required")

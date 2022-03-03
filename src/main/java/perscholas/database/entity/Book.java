@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+
 
 @Getter
 @Setter
@@ -43,12 +40,6 @@ public class Book {
     private Integer quantityInStock;
 
 
-//    @ManyToMany(mappedBy = "books")
-//    private List<Order> orders = new ArrayList<Order>();
-
-
-
-
     @Override
     public String toString() {
         return "Book{" +
@@ -61,6 +52,5 @@ public class Book {
                 '}';
     }
 
-    //    @ManyToMany(mappedBy = "books", fetch = FetchType.LAZY)
-//    private Set<Order> orders = new HashSet<>();
+
 }

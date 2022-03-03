@@ -1,6 +1,5 @@
 package perscholas.controller;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +7,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,18 +19,11 @@ import perscholas.database.entity.Book;
 import perscholas.database.entity.Order;
 import perscholas.database.entity.OrderBook;
 import perscholas.database.entity.User;
-import perscholas.form.BookFormBean;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+
 import java.util.*;
 
 @Controller
-//@PreAuthorize("hasAuthority('ADMIN')")
-//@PreAuthorize("hasAuthority('ADMIN', 'USER')")
 public class OrderController {
 
     public static final Logger LOG = LoggerFactory.getLogger(OrderController.class);
@@ -50,22 +40,6 @@ public class OrderController {
     @Autowired
     private OrderBookDAO orderBookDao;
 
-    // for adding an item to an order
-    // 0) on your jsp page when a user adds an item to the cart you will pass the product id
-    // 1) query your product by the productId
-    // 1.1)  get the user record for the logged-in user with getLoggedInUser function
-    // 2) query your oder by the user_id and status cart ( this gets the most recent order for the logged-in user)
-    // 3) if the order does not exist ( id of the query response is null )
-    //      3a) create the order with status cart
-    //      3c) add the user object to the order
-    // 4) query the order_products table to see if the product is already in the order
-    // 5) if the product is not in the order
-    //      5a ) create a new order_product entity
-    //      5b ) set the product id on the order_product
-    //      5c ) set the order id on the order_product
-    // 6) if the product is already in the order
-    //      6a ) increment the quantity on the order_product
-    // 7) persist the order_product
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/addToCart", method = {RequestMethod.POST, RequestMethod.GET})
@@ -73,7 +47,6 @@ public class OrderController {
 
         ModelAndView response = new ModelAndView();
         String referrer = request.getHeader("referer");
-      //  System.out.println(referrer);
 
         if (id != null) {
                 // This is a way to ask the security context for the logged-in user.
@@ -83,6 +56,7 @@ public class OrderController {
 
                 Book book = bookDao.findById(id);
 
+                // Check if we have a book in the inventory
                 if (book.getQuantityInStock() > 0) {
 
                     // User can have more than one order but just one should be cart status
@@ -123,26 +97,24 @@ public class OrderController {
                             }
 
                         }
-//                    }
-                    //response.setViewName("redirect:/bookDetails?id=" + book.getId());
+
                     response.setViewName("redirect:"+referrer);
-//                       setViewName("redirect:/bookDetails?id=1&error="Out of Stock");
+
 
                 }
-                else{
+                else{ // quantity in stock is zero
                     response.addObject("error","Sorry Out of Stock");
-                //    response.setViewName("redirect:/bookDetails?id="+id);
                     response.setViewName("redirect:"+referrer);
-                //    response.setViewName("redirect:/bookDetails?id="+id+"&error= \"Sorry Out of Stock\"");
+
                 }
             } else
-             //   response.addObject("formError", "Sorry Book not found");
-             //   response.setViewName("redirect:/bookDetails?error= \"Sorry Book not found\"");
+
             response.setViewName("redirect:"+referrer);
 
 
         return response;
     }
+
 
     @PreAuthorize("hasAuthority('USER')")
     @RequestMapping(value = "/userBag", method = {RequestMethod.POST, RequestMethod.GET})
@@ -158,7 +130,6 @@ public class OrderController {
 
         if(user != null) {
             Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
-           // System.out.println("bag order = "+orders);
             if (order != null) {
 
                 response.addObject("orderId", order.getId());
@@ -166,7 +137,7 @@ public class OrderController {
                 List<OrderBook> bookList = orderBookDao.findByOrder(order);
                 response.addObject("bookList", bookList);
 
-                // lambda
+                // lambda, get how many book in the cart/bag
                 final int[] quantity = {0};
                 bookList.forEach( (n) -> {
                     quantity[0] = quantity[0] +  n.getQuantity();
@@ -289,8 +260,6 @@ public class OrderController {
         List<Map<String, Object>> orders = orderDao.findOrdersHistory(userId, "shipped");
         if(!orders.isEmpty()) {
             response.addObject("orders", orders);
-//            response.addObject("status", "shipped");
-
         }
         return response;
     }
@@ -316,7 +285,6 @@ public class OrderController {
 
         List<Map<String, Object>> orders = orderDao.findOrderStatus(userId, "transit");
         response.addObject("orders", orders);
-//        response.addObject("status", "transit");
 
         return response;
     }
@@ -337,14 +305,6 @@ public class OrderController {
         order.setStatus("transit");
         Date now = new Date();
         order.setOrderDate(now);
-//        LocalDate now = LocalDate.now();
-//                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//                    now = formatter.parse(String.valueOf(now));
-
-        // setting the shipped date after 3 days,
-//        Date date = DateUtil.addDays(now, 3);
-
-       // order.setShippedDate(LocalDate.now().plusDays(3));
 
         orderDao.save(order);
 

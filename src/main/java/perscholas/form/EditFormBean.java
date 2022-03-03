@@ -2,11 +2,8 @@ package perscholas.form;
 
 import lombok.Getter;
 import lombok.Setter;
-import perscholas.validation.EmailUnique;
 import perscholas.validation.TwoFieldsAreEqual;
-
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,15 +15,10 @@ public class EditFormBean {
     // this is a hidden data value and is only needed to distinguish an edit
     private Integer id;
 
-//    @NotEmpty(message = "Email is required.")
-//    @Pattern(regexp = "^.+@.+$", message = "Invalid email format")
-//    @EmailUnique(message = "Email must be unique")
     private String email;
 
-   // @NotEmpty(message = "First Name is required")
     private String firstName;
 
-   // @NotEmpty(message = "Last Name is required")
     private String lastName;
 
     @NotEmpty(message = "password is required")

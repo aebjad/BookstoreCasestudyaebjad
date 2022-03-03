@@ -1,7 +1,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <jsp:include page="../include/header.jsp" />
 
-<%--<div class="bg-dark py-5 bg-img" ></div>--%>
+
 <!-- Header-->
 <header class="bg-dark py-5 bg-img" >
     <div class="container px-4 px-lg-5 my-5" >
@@ -22,12 +22,9 @@
 </header>
 </br><br/>
 
-<%--    <div class="row justify-content-center" style="padding-bottom: 20px; padding-left: 30px" >--%>
-<%--&lt;%&ndash;        <br/><h3 >Book Details:</h3>&ndash;%&gt; --%>
-<%--    </div>--%>
     <div class="row justify-content-center">
         <div class="col-sm-4">
-<%--            <br/><h2 >Book Details:</h2>--%>
+
             <img src="${formBeanKey.urlImage}" class="img-rounded" alt="Book image" style="width: 300px; height: 350px">
 
         </div>

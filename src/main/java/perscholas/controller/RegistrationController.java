@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import perscholas.database.dao.UserDAO;
 import perscholas.database.dao.UserRoleDAO;
@@ -19,7 +18,6 @@ import perscholas.database.entity.User;
 import perscholas.database.entity.UserRole;
 import perscholas.form.RegisterFormBean;
 
-//import marked from "marked";
 
 import javax.validation.Valid;
 
@@ -38,10 +36,6 @@ public class RegistrationController {
     private UserRoleDAO userRoleDao;
 
 
-    // this method is responsible for populating the jsp page with the correct data so the page can render
-    // if this method is called without the id parameter it will be a create and no database will be loaded
-    // if it is called with an id it will be an edit and we need to load the user from the databse and
-    // populate the form bean.
     @RequestMapping(value ="/register", method = RequestMethod.GET)
     public ModelAndView register() throws Exception {
         ModelAndView response = new ModelAndView();
@@ -68,13 +62,11 @@ public class RegistrationController {
                 LOG.debug("error field = " + error.getField() + " message = " + error.getDefaultMessage());
 
             }
-            //   response.addObject("formError", errors);
+
             response.addObject("formBeanKey", form);
             response.setViewName("registration/register");
         }else{
-            //  // there are no errors on the form submission lets redirect to the login page
-            //    right here that you would save the new user registration to the database
-
+            //   save the new user registration to the database
             User user = new User();;
 
             user.setEmail(form.getEmail());
@@ -88,29 +80,21 @@ public class RegistrationController {
             String encryptedPassword = passwordEncoder.encode(form.getPassword());
             user.setPassword(encryptedPassword);
 
-            // if you are saving a new user without an id.  The return value of save will
-            // create a new autoincremented ID record and return the user object with the new id populated
-            //        System.out.println(user);
             userDao.save(user);
 
-               // this is a creation because the incoming id variable on the form is null
-                // so ... lets create a user role record for this user also
-                UserRole ur = new UserRole();
+            // create a user role record for this user also
+            UserRole ur = new UserRole();
+            ur.setUser(user);
+            ur.setUserRole("USER");
+            userRoleDao.save(ur);
 
-                ur.setUser(user);
-                ur.setUserRole("USER");
-
-                userRoleDao.save(ur);
-
-
-      //             response.setViewName("redirect:/login/login");
             response.setViewName("registration/register");
-          //  response.setViewName("/login/loginSecurityPost");
 
         }
 
         return response;
     }
+
 
     @RequestMapping(value ="/aboutUs", method =  RequestMethod.GET)
     public ModelAndView aboutUs() throws Exception {

@@ -1,9 +1,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-
 <jsp:include page="../include/header.jsp" />
 
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 <div class="bg-dark py-5 bg-img" ></div>
 </br><br/>

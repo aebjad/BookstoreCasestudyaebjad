@@ -4,12 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +18,9 @@ import perscholas.database.entity.User;
 import perscholas.form.BookFormBean;
 
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-//@PreAuthorize("hasAuthority('ADMIN')")
 public class BookController {
 
     public static final Logger LOG = LoggerFactory.getLogger(BookController.class);
@@ -50,8 +45,7 @@ public class BookController {
             response.addObject("user", user);
         }
 
-      //  System.out.println("searchBooklist" + searchBooklist);
-        // Find book using book category case-insensitive
+       // Find book using book category case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
 
             List<Book> booksList = bookDao.findByCategoryContainingIgnoreCase(searchBooklist);
@@ -86,7 +80,6 @@ public class BookController {
         if(!StringUtils.isEmpty(searchBooklist)) {
 
             List<Book> booksList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(searchBooklist, searchBooklist);
-            //      System.out.println(booksList);
 
             response.addObject("booksList", booksList);
             response.addObject("searchBooklist",searchBooklist);
@@ -113,7 +106,6 @@ public class BookController {
         if( id != null){
             // id has been passed to this form/method
             Book book = bookDao.findById(id);
-            //    System.out.println("edit method :"+ book);
 
             if(book != null) {
                 // populate the form bean with the data loaded from the database

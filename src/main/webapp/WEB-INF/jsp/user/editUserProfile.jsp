@@ -22,7 +22,7 @@
 
         <br /><label for="pass">Password</label>
         <input id="pass" type="password" name="password"  placeholder="Confirm Your password.."  required/>
-<%--        value="${formBeanKey.password}"--%>
+
         <br /><label for="confirmPassword">Confirm Password</label>
         <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm your password.." required />
 
@@ -32,9 +32,8 @@
         <br /><label for="city">City</label>
         <input id="city" type="text" name="city"  value="${formBeanKey.city}" placeholder="Your city.."  />
 
-        <!--            //<div class="form-group">-->
         <br /><label for="state" class=" control-label">State</label>
-        <!--               <label for="state" class="col-sm-2 control-label">State</label> <div class="col-sm-10">  class="form-control-->
+
         <div>
             <select style="background-color: #f1f1f1" id="state" name="state" value="${formBeanKey.state}">
                 <option value="${formBeanKey.state}">${formBeanKey.state}</option>
@@ -92,8 +91,6 @@
                 <option value="WY">Wyoming</option>
             </select>
         </div>
-        <!--            </div>-->
-
 
         <br /><label for="zipCode">Zip code</label>
         <input id="zipCode" type="text" name="zipCode" value="${formBeanKey.zipCode}"  pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
@@ -112,7 +109,7 @@
 
     </c:forEach>
 </div>
-<%--</div>--%>
+
 <script>
     document.getElementById("peForm").addEventListener("onsubmit", myFunction);
 

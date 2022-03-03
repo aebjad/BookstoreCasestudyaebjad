@@ -3,8 +3,6 @@
 <jsp:include page="../include/header.jsp" />
 
 
-<%--<div class="bg-dark py-5 bg-img" ></div>--%>
-
 <span style="color: red">${error}</span><br>
 
 <section class="h-100 h-custom" style="background-color: white;">
@@ -98,8 +96,6 @@
 
                                     <a href="/checkOut?orderId=${orderId}" class="btn btn-dark btn-block btn-lg"
                                        data-mdb-ripple-color="dark"  role="button">CHECKOUT</a>
-<%--                                    <button type="button" class="btn btn-dark btn-block btn-lg"--%>
-<%--                                            data-mdb-ripple-color="dark">CHECKOUT</button>--%>
 
                                 </div>
                             </div>
@@ -115,33 +111,4 @@
 <jsp:include page="../include/footer.jsp" />
 
 
-
-<%--<div class="subtotal cf">--%>
-<%--    <ul>--%>
-<%--        <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>--%>
-
-<%--        <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>--%>
-
-<%--        <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>--%>
-<%--        <li class="totalRow final"><span class="label">Total</span><span class="value">$44.00</span></li>--%>
-<%--        <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>--%>
-<%--    </ul>--%>
-<%--</div>--%>
-<%--</div>--%>
-
-<%--<script>--%>
-<%--    // Remove Items From Cart--%>
-<%--    $('a.remove').click(function(){--%>
-<%--        event.preventDefault();--%>
-<%--        $( this ).parent().parent().parent().hide( 400 );--%>
-
-<%--    })--%>
-
-<%--    // Just for testing, show all items--%>
-<%--    $('a.btn.continue').click(function(){--%>
-<%--        $('li.items').show(400);--%>
-<%--    })--%>
-<%--</script>--%>
-
-<%--<h1>My Shopping Bag</h1>--%>
 

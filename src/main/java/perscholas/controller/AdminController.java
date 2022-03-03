@@ -42,7 +42,6 @@ public class AdminController {
     private UserDAO userDao;
 
 
-    //@PreAuthorize("hasAuthority('ADMIN', 'USER')")
     @RequestMapping(value = "/home", method = RequestMethod.GET)
     public ModelAndView home() throws Exception {
         ModelAndView response = new ModelAndView();
@@ -63,6 +62,7 @@ public class AdminController {
     public ModelAndView userList(@RequestParam(required = false) String search) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/userList");
+
         // This is a way to ask the security context for the logged-in user.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
@@ -72,7 +72,7 @@ public class AdminController {
             response.addObject("user", user);
         }
 
-        // Find user using firstname or lastname case-insensitive
+        // Find a user using firstname or lastname case-insensitive
         if(!StringUtils.isEmpty(search)) {
             List<User> userList = userDao.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(search, search);
             response.addObject("userList", userList);
@@ -117,16 +117,16 @@ public class AdminController {
             response.addObject("user", user);
         }
 
-        // Find book using book name, author name or any key case-insensitive
+        // Find a book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(booksearch)) {
             List<Book> bookList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(booksearch, booksearch);
             response.addObject("bookList", bookList);
             response.addObject("booksearch",booksearch);
+
         }else {
             List<Book> bookList = bookDao.findAll();
             response.addObject("bookList", bookList);
             response.addObject("booksearch",booksearch);
-          //  System.out.println(bookList);
         }
 
         return response;
@@ -150,27 +150,7 @@ public class AdminController {
         return response;
     }
 
-//    @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
-//    public ModelAndView deleteUser(@RequestParam Integer userId, HttpServletRequest request) throws Exception {
-//        ModelAndView response = new ModelAndView();
-////        System.out.println("User Id: "+userId);
-//        //get the address of the page that makes the request.
-//        String referrer = request.getHeader("referer");
-//        response.setViewName("redirect:"+ referrer);
-//
-//        if(userId != null) {
-//            User user = userDao.findById(userId);
-//            UserRole ur = UserRoleDAO.findByUser(user);
-//
-//            if (user != null) {
-//                userDao.delete(user);
-//            }
-//        }
-//
-//        return response;
-//    }
 
-    //    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/newBook", method = RequestMethod.GET)
     public ModelAndView newBook() throws Exception {
         ModelAndView response = new ModelAndView();
@@ -182,12 +162,10 @@ public class AdminController {
         return response;
     }
 
-//    @PreAuthorize("hasAuthority('ADMIN')")
+    // Save the new book to the database
     @RequestMapping(value = "/bookSubmit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView bookSubmit(@Valid BookFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
-
-//        System.out.println(form);
 
         if(errors.hasErrors()) {
             for (FieldError error : errors.getFieldErrors()) {
@@ -197,16 +175,11 @@ public class AdminController {
                 LOG.debug("error field = " + error.getField() + " message = " + error.getDefaultMessage());
 
             }
-            //   response.addObject("formError", errors);
             response.addObject("formBeanKey", form);
             response.setViewName("book/newBook");
         }else{
-            //  // there are no errors on the form submission lets redirect to the add new book page
-            //    right here that you would save the new book to the database
-
-            //  if( form.getId() == null) {
-            // the id is not present in the form been, so we know it's adding a new book
-
+            // There are no errors on the form submission so redirect to the add new book page
+           // save the new book to the database
             Book book = new Book();
 
             book.setBookName(form.getBookName());
@@ -218,13 +191,14 @@ public class AdminController {
             book.setDescription(form.getDescription());
 
             bookDao.save(book);
-            // }
+
             response.setViewName("book/newBook");
 
         }
 
         return response;
     }
+
 
 //    Load book details and send them to the edit form
     @RequestMapping(value ="/edit", method = RequestMethod.GET)
@@ -235,7 +209,6 @@ public class AdminController {
         if( id != null){
             // id has been passed to this form
             Book book = bookDao.findById(id);
-            //    System.out.println("edit method :"+ book);
 
             // populate the form bean with the data loaded from the database
             BookFormBean form = new BookFormBean();
@@ -255,7 +228,7 @@ public class AdminController {
         return response;
     }
 
-    // this method describes what happens when an admin submits the form to the back end
+    // This method describes what happens when an admin submits the form to the back end
     // it handles update logic for saving the book input to the database
     // This is update book method
     @RequestMapping(value ="/editBook", method = {RequestMethod.POST, RequestMethod.GET})
@@ -274,7 +247,7 @@ public class AdminController {
             response.setViewName("book/editBook");
         } else {
             //  // there are no errors on the form submission lets
-            // update book details so we need to load the book from the database first
+            // update book details, we need to load the book from the database first
             Book book = bookDao.findById(form.getId());
             //     System.out.println("editBook method: " + book);
 

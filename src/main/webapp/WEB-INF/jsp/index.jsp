@@ -27,27 +27,6 @@
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-<%--                <span style="color: red">${error}</span><br>--%>
-
-<%--                <c:forEach  var="book" items="${booksList}">--%>
-
-<%--                    <div class="col-3 py-3">--%>
-<%--                        <div class="card" style="width: 18rem;">--%>
-<%--                            <a href="/bookDetails?id=${book.id}">--%>
-<%--                                    &lt;%&ndash;                 <c:if test="${not empty product.imageUrl}">    &ndash;%&gt;--%>
-<%--                                <img class="card-img-top" src="${book.urlImage}" alt="Book image" >--%>
-<%--                                    &lt;%&ndash;                 </c:if>&ndash;%&gt;--%>
-<%--                            </a>--%>
-<%--                            <div class="card-body">--%>
-<%--                                <h5 class="card-title">${book.bookName}</h5>--%>
-<%--                                <h5 class="card-price">${book.price}</h5>--%>
-<%--                                <a href="/addToCart?id=${book.id}" class="btn btn-primary">Add to cart</a>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </c:forEach>--%>
-
-
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Book image-->
@@ -171,8 +150,6 @@
                 </div>
                 <div class="col mb-5">
                     <div class="card h-100">
-                        <!-- Sale badge-->
-<%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
                         <!-- Product image-->
                         <a href="/bookDetails?id=6">
                             <img class="card-img-top" src="/pub/images/animals.jpg" alt="Book..." /></a>
@@ -195,8 +172,6 @@
                 </div>
                 <div class="col mb-5">
                     <div class="card h-100">
-                        <!-- Sale badge-->
-<%--                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>--%>
                         <!-- Product image-->
                         <a href="/bookDetails?id=13">
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Out Of Stock</div>

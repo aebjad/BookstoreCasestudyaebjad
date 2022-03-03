@@ -4,9 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import perscholas.database.dao.OrderDAO;
-import perscholas.database.entity.Book;
 import perscholas.database.entity.Order;
 
 
@@ -57,16 +55,4 @@ public class OrderDAOTests {
     }
 
 
-//    @Test
-//  //    @Rollback(value = false)
-//    public void addBookTest() {
-//
-//        Order order = new Order();
-//
-//       order.setUser();
-//
-//        orderDao.save(order);
-//
-//        Assertions.assertThat(order.getId()).isGreaterThan(0);
-//    }
 }

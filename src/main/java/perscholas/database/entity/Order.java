@@ -18,9 +18,6 @@ public class Order {
     @Column(name = "id")
     private Integer id;
 
-//    @Column(name = "user_id")
-//    private Integer userId;
-
     @Column(name = "status")
     private String status;
 
@@ -36,34 +33,6 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-
-//    @ManyToMany
-//    @JoinTable(name = "orders_books",
-//            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id")) // Add this constraint so that a student can only sign up for a class once.
-//    private List<Book> books = new ArrayList<Book>();
-
-
-
-
-
-
-
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "user_id", nullable = false)
-//    private User user;
-
-//    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-//    @JoinTable(name = "orders_books",
-//            joinColumns = {
-//                    @JoinColumn(name = "order_id", referencedColumnName = "id",
-//                            nullable = false, updatable = false)},
-//            inverseJoinColumns = {
-//                    @JoinColumn(name = "book_id", referencedColumnName = "id",
-//                            nullable = false, updatable = false)})
-//    private Set<Book> books = new HashSet<>();
-
 
 
 

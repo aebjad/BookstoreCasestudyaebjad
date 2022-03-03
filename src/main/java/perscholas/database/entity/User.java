@@ -2,13 +2,11 @@ package perscholas.database.entity;
 
 
 import javax.persistence.*;
-
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 
 
 @Getter
@@ -48,38 +46,9 @@ public class User {
     @Column(name = "state")
     private String state;
 
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
-//            cascade = CascadeType.ALL)
-//    private Set<Order> orders;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<Order>();
 
-//    @Override
-//    public String toString() {
-//        return "User{" +
-//                "id=" + id +
-//                ", email='" + email + '\'' +
-//                ", password='" + password + '\'' +
-//                ", firstName='" + firstName + '\'' +
-//                ", lastName='" + lastName + '\'' +
-//                ", address='" + address + '\'' +
-//                ", city='" + city + '\'' +
-//                ", zipCode='" + zipCode + '\'' +
-//                ", state='" + state + '\'' +
-//                '}';
-//    }
 
-//	@OneToMany(mappedBy = "user")
-//	private List<UserRole> userRoles = new ArrayList<UserRole>();
-//
-
-
-//	public List<UserRole> getUserRoles() {
-//		return userRoles;
-//	}
-//
-//	public void setUserRoles(List<UserRole> userRoles) {
-//		this.userRoles = userRoles;
-//	}
 }

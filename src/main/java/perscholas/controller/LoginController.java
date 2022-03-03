@@ -9,9 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-//@RequestMapping("/user")
 public class LoginController {
-
 
 
     @RequestMapping(value =  "/login/login", method = RequestMethod.GET)
