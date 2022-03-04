@@ -126,7 +126,8 @@ public class OrderController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-        response.addObject("user", user);
+        // To add a user name instead of using  a session
+//        response.addObject("user", user);
 
         if(user != null) {
             Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
@@ -254,7 +255,8 @@ public class OrderController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-        response.addObject("user", user);
+        // To add a user name instead of using  a session
+//        response.addObject("user", user);
 
         // query a list of orders from order table joining order_book to get the list of books name
         List<Map<String, Object>> orders = orderDao.findOrdersHistory(userId, "shipped");
@@ -279,7 +281,8 @@ public class OrderController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String currentPrincipalName = authentication.getName();
             User user = userDao.findByEmail(currentPrincipalName);
-            response.addObject("user",user);
+            // To add a user name instead of using  a session
+//            response.addObject("user",user);
             userId = user.getId();
         }
 
@@ -299,7 +302,8 @@ public class OrderController {
         String currentPrincipalName = authentication.getName();
 
         User user = userDao.findByEmail(currentPrincipalName);
-        response.addObject("user", user);
+        // To add a user name instead of using  a session
+//        response.addObject("user", user);
 
         Order order = orderDao.findById(orderId);
         order.setStatus("transit");

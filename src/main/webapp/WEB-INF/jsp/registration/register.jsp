@@ -5,7 +5,8 @@
 <jsp:include page="../include/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<div style=" background-color: #21211a;">
+<%--<div style=" background-color: #21211a;">--%>
+<div>
 <div class="bg-img2" >
     <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
 

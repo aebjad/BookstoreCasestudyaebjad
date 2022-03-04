@@ -88,7 +88,8 @@ public class RegistrationController {
             ur.setUserRole("USER");
             userRoleDao.save(ur);
 
-            response.setViewName("registration/register");
+            //response.setViewName("registration/register");
+            response.setViewName("redirect:/index");
 
         }
 
@@ -105,10 +106,10 @@ public class RegistrationController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-
-        if(user != null){
-            response.addObject("user", user);
-        }
+// To add a user name instead of using  a session
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
         return response;
     }

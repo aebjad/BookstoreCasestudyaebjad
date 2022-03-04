@@ -28,6 +28,23 @@
 
 
     <title>Charlotte Bookstore</title>
+
+    <style>
+        .dot {
+            height: 14px;
+            width: 14px;
+            background-color: orangered;
+            border-radius: 50%;
+            position: absolute;
+            left: 27%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 8px;
+            color: #fff;
+            opacity: 0
+        }
+    </style>
 </head>
 
 <body>
@@ -100,7 +117,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/userBag"><i class="fas fa-shopping-bag"></i> Bag</a>
+                <a class="nav-link" href="/userBag"><i class="fas fa-shopping-cart">${quantity}</i>  Bag</a>
             </li>
         </ul>
 

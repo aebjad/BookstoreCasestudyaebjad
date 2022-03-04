@@ -132,6 +132,21 @@
         line-height: 22px;
         margin: 0 0 35px;
     }
+
+    .dot {
+        height: 14px;
+        width: 14px;
+        background-color: orangered;
+        border-radius: 50%;
+        position: absolute;
+        left: 27%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8px;
+        color: #fff;
+        opacity: 0
+    }
 /*.footer{*/
 /*    !*position: fixed;*!*/
 /*    position: relative;*/

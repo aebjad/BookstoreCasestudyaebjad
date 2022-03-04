@@ -21,7 +21,6 @@ public class Order {
     @Column(name = "status")
     private String status;
 
-
     @Column(name = "order_date")
     @Temporal(TemporalType.DATE)
     private Date orderDate;

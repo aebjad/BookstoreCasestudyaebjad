@@ -40,10 +40,10 @@ public class BookController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-
-        if(user != null){
-            response.addObject("user", user);
-        }
+// To add a user name instead of using  a session
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
        // Find book using book category case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
@@ -71,10 +71,10 @@ public class BookController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-
-        if(user != null){
-            response.addObject("user", user);
-        }
+// To add a user name instead of using  a session
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
         // Find book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(searchBooklist)) {
@@ -93,15 +93,15 @@ public class BookController {
         ModelAndView response = new ModelAndView();
 
         response.setViewName("book/bookDetails");
-
+// To add a user name instead of using  a session
         // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String currentPrincipalName = authentication.getName();
+//        User user = userDao.findByEmail(currentPrincipalName);
 
-        if(user != null){
-            response.addObject("user", user);
-        }
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
         if( id != null){
             // id has been passed to this form/method

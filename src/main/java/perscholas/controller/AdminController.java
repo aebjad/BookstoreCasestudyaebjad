@@ -50,11 +50,11 @@ public class AdminController {
         // This is a way to ask the security context for the logged-in user.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
+//        User user = userDao.findByEmail(currentPrincipalName);
 
-        if(user != null){
-            response.addObject("user", user);
-        }
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
         return response;
     }
 
@@ -68,9 +68,9 @@ public class AdminController {
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
 
-        if(user != null){
-            response.addObject("user", user);
-        }
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
         // Find a user using firstname or lastname case-insensitive
         if(!StringUtils.isEmpty(search)) {
@@ -91,10 +91,10 @@ public class AdminController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-
-        if(user != null){
-            response.addObject("user", user);
-        }
+// To add a user name instead of using  a session
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
             List<User> userList = userDao.findAll();
             response.addObject("userList", userList);
@@ -112,10 +112,10 @@ public class AdminController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-
-        if(user != null){
-            response.addObject("user", user);
-        }
+// To add a user name instead of using  a session
+//        if(user != null){
+//            response.addObject("user", user);
+//        }
 
         // Find a book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(booksearch)) {
