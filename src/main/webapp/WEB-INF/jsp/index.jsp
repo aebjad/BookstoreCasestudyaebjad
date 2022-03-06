@@ -22,6 +22,8 @@
         </div>
     </header>
 
+
+
     <!-- Section-->
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
@@ -225,14 +227,27 @@
     function outOfStuck() {
         alert("Sorry, out of stuck");
     }
-</script>
+<%--</script>--%>
 
-<script>
+<%--<script>--%>
     document.getElementsByClassName("active").addEventListener("onclick", addToCart);
 
     function addToCart() {
         alert("The book has been added to your bag");
     }
+
+    // const bookList =  [...document.querySelectorAll('.book-list')];
+    // const nextBtn = [...document.querySelectorAll('.nxt-btn')];
+    // const prevBtn = [...document.querySelectorAll(".pre-btn")];
+    //
+    // bookList.forEach(item i : )=>{
+    //     let containerDimensions = item.getBoundingClientRect();
+    //     let containerWidth = containerDimensions.width;
+    //
+    //     nextBtn[i].addEventListener("click", () =>{
+    //         item.sc
+    //     })
+    // }
 </script>
 
 

@@ -5,16 +5,16 @@
 <jsp:include page="../include/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+<div style="min-height: 1300px">
 <div class="bg-img2" >
     <form action="/updateUser" class="container2" id="peForm" onsubmit="myFunction()" method="POST">
         <input type="hidden" name="id" value="${formBeanKey.id}">
         <h1>Account Settings</h1>
         <hr>
-        <br /><label for="fName">First Name</label>
+        <label for="fName">First Name</label>
         <input id="fName" type="text" name="firstName" value="${formBeanKey.firstName}" placeholder="Your name.."  />
 
-        <br /><label for="lname">Last Name</label>
+        <label for="lname">Last Name</label>
         <input id="lname" type="text" name="lastName"  value="${formBeanKey.lastName}" placeholder="Your Last name.." />
 
         <br /><label for="email">Email</label>
@@ -101,6 +101,7 @@
         <br /><button type="reset" class="btn btn-warning" value="Reset" onclick="location.href ='/profile'">Cancel</button>
 
     </form>
+</div>
 </div>
 
 <div style="color: red">

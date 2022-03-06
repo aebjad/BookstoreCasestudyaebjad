@@ -126,7 +126,7 @@ public class OrderController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-        // To add a user name instead of using  a session
+        // To add a user first name instead of using  a session
 //        response.addObject("user", user);
 
         if(user != null) {

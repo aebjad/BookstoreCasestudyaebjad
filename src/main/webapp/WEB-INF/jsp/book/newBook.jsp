@@ -1,14 +1,14 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <jsp:include page="../include/header.jsp" />
 
-<div style=" background-color: #21211a;">
+<div style="min-height: 1000px">
     <div class="bg-img2" >
         <form action="/admin/bookSubmit" class="container2" id="bookForm" onsubmit="myFunction2()"  method="POST">
             <%--        <input type="hidden" name="id" value="${formBeanKey.id}">--%>
             <h1>Add New Book</h1>
             <p>Please fill in this form to add new book</p>
             <hr>
-            <br /><label for="bookName">Book Name</label>
+            <label for="bookName">Book Name</label>
             <input id="bookName" type="text" name="bookName" value="${formBeanKey.bookName}" placeholder="book name.."  required/>
 
 
@@ -41,12 +41,12 @@
 
         </c:forEach>
     </div>
-</div>
+
 <div class="pt-5">
     <h6 class="mb-0"><a  href="/admin/home" class="text-body"><i
             class="fas fa-long-arrow-alt-left me-2"></i>Back to admin page</a></h6>
 </div>
-
+</div>
 <script>
     document.getElementById("bookForm").addEventListener("onsubmit", myFunction2);
 

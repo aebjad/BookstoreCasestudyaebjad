@@ -5,9 +5,10 @@
 <jsp:include page="../include/header.jsp" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<%--<div style=" background-color: #21211a;">--%>
-<div>
+
+<div style="min-height: 1000px">
 <div class="bg-img2" >
+
     <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
 
         <h1>Sign Up</h1>
@@ -87,7 +88,7 @@
 
         <input id="zipCode" type="text" name="zipCode" value="${formBeanKey.zipCode}" placeholder="Zip Code" pattern="^[0-9]{5}(?:-[0-9]{4})?$" />
 
-        <div class="container signin">
+        <div class="container signin" style="max-width: 500px;">
             <p>Already have an account? <a href="/login/login">Sign in</a>.</p>
         </div>
 
@@ -95,14 +96,15 @@
         border: none; cursor: pointer; width: 100%; opacity: 0.9;" >Register</button>
     </form>
 </div>
-
+</div>
 <div style="color: red">
     <c:forEach  var="message" items="${formBeanKey.errorMessages}" varStatus="status">
         <span style="color: red">${message}</span><br>
 
     </c:forEach>
 </div>
-</div>
+
+
 <script>
     document.getElementById("suForm").addEventListener("onsubmit", myFunction);
 

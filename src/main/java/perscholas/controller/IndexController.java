@@ -44,18 +44,7 @@ public class IndexController {
             // set the user session
             session.setAttribute("user", user);
 
-            Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
-            if (order != null) {
 
-                List<OrderBook> bookList = orderBookDao.findByOrder(order);
-
-                // lambda, get how many book in the cart/bag
-                final int[] quantity = {0};
-                bookList.forEach((n) -> {
-                    quantity[0] = quantity[0] + n.getQuantity();
-                });
-                session.setAttribute("quantity", quantity[0]);
-            }
         }
         return response;
 

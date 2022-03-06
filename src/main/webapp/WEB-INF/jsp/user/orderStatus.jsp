@@ -3,7 +3,7 @@
 
 <jsp:include page="../include/header.jsp" />
 
-
+<div style="min-height: 500px">
     <!-- Header-->
     <header class="bg-dark py-5 bg-img" >
         <div class="container px-4 px-lg-5 my-5" >
@@ -22,7 +22,7 @@
             </div>
         </div>
     </header>
-    </br><br/>
+    </br>
 
     <h2>Order Status</h2>
 
@@ -49,6 +49,6 @@
             </tr>
         </c:forEach>
     </table>
-
+</div>
 
 <jsp:include page="../include/footer.jsp" />

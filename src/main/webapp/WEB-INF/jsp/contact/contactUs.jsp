@@ -1,7 +1,7 @@
 <jsp:include page="../include/header.jsp" />
 
-
-    <div class="bg-img2">
+<div style="  min-height: 700px">
+    <div class="bg-img2" >
         <div class="row">
 
             <div class="column" >
@@ -10,7 +10,7 @@
                     <h1>Contact US</h1>
                     <hr>
                     <label for="fname">Your Name</label>
-                    <input type="text" id="fname" name="fullName" value="${user.firstName} ${user.lastName}" placeholder="Your full name.."  required>
+                    <input type="text" id="fname" name="fname" value="${user.firstName} ${user.lastName}" placeholder="Your full name.."  required>
 
                     <br /><label for="email">Email</label>
                     <input id="email" type="email" name="email" value="${user.email}" placeholder="Your Email.." pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" required/>
@@ -26,7 +26,7 @@
 
         </div>
     </div>
-
+</div>
     <script>
         document.getElementById("myBtn2").addEventListener("onclick", contactUs);
 

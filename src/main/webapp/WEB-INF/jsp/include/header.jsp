@@ -49,7 +49,7 @@
 
 <body>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<div class="container">
+<div class="container" >
 
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light"  style="margin-bottom:0px; margin-top: 0px">
@@ -117,7 +117,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/userBag"><i class="fas fa-shopping-cart">${quantity}</i>  Bag</a>
+                <a class="nav-link" href="/userBag"> | <i class="fas fa-shopping-cart"> </i> </a>
             </li>
         </ul>
 

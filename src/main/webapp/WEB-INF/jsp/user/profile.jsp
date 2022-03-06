@@ -3,7 +3,7 @@
 <%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
 
 
-<%--<div class="bg-dark py-5 bg-img" ></div>--%>
+<div style="min-height: 600px">
 <!-- Header-->
 <header class="bg-dark py-5 bg-img" >
     <div class="container px-4 px-lg-5 my-5" >
@@ -93,6 +93,8 @@
         </div>
 
     </div>
+</div>
+</div>
 </div>
 
 <jsp:include page="../include/footer.jsp" />
