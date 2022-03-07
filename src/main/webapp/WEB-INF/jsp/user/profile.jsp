@@ -1,7 +1,5 @@
 <jsp:include page="../include/header.jsp" />
 
-<%--<link rel="stylesheet" type="text/css" href="/pub/css/style.css">--%>
-
 
 <div style="min-height: 600px">
 <!-- Header-->

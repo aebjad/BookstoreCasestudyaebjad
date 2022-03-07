@@ -18,7 +18,7 @@ public interface BookDAO extends JpaRepository<Book, Long> {
 
     public List<Book> findByCategoryContainingIgnoreCase(@Param("category") String category);
 
-    public List<Book> findAll();
+    public List<Book> findAllByOrderByBookNameAsc();
 
     public List<Book> findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(String bookName, String author);
 

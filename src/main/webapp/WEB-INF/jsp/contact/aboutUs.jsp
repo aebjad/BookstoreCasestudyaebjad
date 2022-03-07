@@ -35,7 +35,7 @@
 
         <div><p class="aboutus-text"> Charlotte Bookstore Makes Shopping Easy</p></div>
 
-        <div><p>Barnes & Noble.com Physical Address</p></div>
+        <div><p>Charlotte Bookstore Physical Address</p></div>
 
         <div><p> 33 East Seattle Street,</p></div>
         <div><p> Charlotte, NC 28277</p>

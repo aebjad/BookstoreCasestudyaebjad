@@ -9,26 +9,26 @@
             <p>Please fill in this form to add new book</p>
             <hr>
             <label for="bookName">Book Name</label>
-            <input id="bookName" type="text" name="bookName" value="${formBeanKey.bookName}" placeholder="book name.."  required/>
+            <input id="bookName" type="text" name="bookName" placeholder="book name.."  required/>
 
 
                 <br /><label for="author">author Name</label>
-                <input id="author" type="text" name="author" value="${formBeanKey.author}" placeholder="Author name.."  />
+                <input id="author" type="text" name="author"  placeholder="Author name.."  />
 
                 <br /><label for="category">Category</label>
-                <input id="category" type="text" name="category" value="${formBeanKey.category}" placeholder="Category.."  />
+                <input id="category" type="text" name="category"  placeholder="Category.."  />
 
                 <br /><label for="description">Description</label>
-                <input id="description" type="text" name="description" value="${formBeanKey.description}" placeholder="description.."  />
+                <input id="description" type="text" name="description"  placeholder="description.."  />
 
                 <br /><label for="urlImage">Image URL</label>
-            <input id="urlImage" type="text" name="urlImage" value="${formBeanKey.urlImage}" placeholder="image url.." />
+            <input id="urlImage" type="text" name="urlImage"  placeholder="image url.." />
 
             <br /><label for="price">Price</label>
-            <input id="price" type="number"  step="any" name="price" min="0.00" value="${formBeanKey.price}" placeholder="Price.."  />
+            <input id="price" type="number"  step="any" name="price" min="0.00" placeholder="Price.."  />
 
             <br /><label for="quantityInStock">Quantity In Stock</label>
-            <input id="quantityInStock" type="number" name="quantityInStock" min="0" value="${formBeanKey.quantityInStock}" placeholder="Quantity.."  />
+            <input id="quantityInStock" type="number" name="quantityInStock" min="0"  placeholder="Quantity.."  />
 
                 <button type="submit" class="btn btn-warning" id="myBtn"  >Submit</button>
 

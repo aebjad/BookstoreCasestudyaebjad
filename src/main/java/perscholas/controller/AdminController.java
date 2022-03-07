@@ -5,8 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -14,12 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import perscholas.database.dao.BookDAO;
-import perscholas.database.dao.UserDAO;
-import perscholas.database.dao.UserRoleDAO;
-import perscholas.database.entity.Book;
-import perscholas.database.entity.User;
-import perscholas.database.entity.UserRole;
+import perscholas.database.dao.*;
+import perscholas.database.entity.*;
 import perscholas.form.BookFormBean;
 
 
@@ -47,14 +41,6 @@ public class AdminController {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/home");
 
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-//        User user = userDao.findByEmail(currentPrincipalName);
-
-//        if(user != null){
-//            response.addObject("user", user);
-//        }
         return response;
     }
 
@@ -62,15 +48,6 @@ public class AdminController {
     public ModelAndView userList(@RequestParam(required = false) String search) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/userList");
-
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
-
-//        if(user != null){
-//            response.addObject("user", user);
-//        }
 
         // Find a user using firstname or lastname case-insensitive
         if(!StringUtils.isEmpty(search)) {
@@ -82,21 +59,13 @@ public class AdminController {
         return response;
     }
 
+
     @RequestMapping(value ="/usersList", method = RequestMethod.GET)
     public ModelAndView usersList() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/userList");
 
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
-// To add a user name instead of using  a session
-//        if(user != null){
-//            response.addObject("user", user);
-//        }
-
-            List<User> userList = userDao.findAll();
+            List<User> userList = userDao.findAllByOrderByFirstNameAsc();
             response.addObject("userList", userList);
 
 
@@ -108,15 +77,6 @@ public class AdminController {
         ModelAndView response = new ModelAndView();
         response.setViewName("admin/booksList");
 
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
-// To add a user name instead of using  a session
-//        if(user != null){
-//            response.addObject("user", user);
-//        }
-
         // Find a book using book name, author name or any key case-insensitive
         if(!StringUtils.isEmpty(booksearch)) {
             List<Book> bookList = bookDao.findByBookNameContainingIgnoreCaseOrAuthorContainsIgnoreCase(booksearch, booksearch);
@@ -124,9 +84,8 @@ public class AdminController {
             response.addObject("booksearch",booksearch);
 
         }else {
-            List<Book> bookList = bookDao.findAll();
+            List<Book> bookList = bookDao.findAllByOrderByBookNameAsc();
             response.addObject("bookList", bookList);
-            response.addObject("booksearch",booksearch);
         }
 
         return response;

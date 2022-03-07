@@ -5,7 +5,7 @@
     <div class="bg-img2" >
 
         <form action="/login/loginSecurityPost" method="POST" class="container2" >
-<%--                <h1 style="color:red">${errorMessage}</h1>--%>
+                <h1 style="color:red">${errorMessage}</h1>
 
                 <h1>Sign In</h1>
                 <hr>

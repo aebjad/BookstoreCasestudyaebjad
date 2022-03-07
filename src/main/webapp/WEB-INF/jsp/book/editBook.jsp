@@ -2,7 +2,7 @@
 <jsp:include page="../include/header.jsp" />
 
 
-<div style=" background-color: #21211a;">
+<div style="min-height: 1000px">
     <div class="bg-img2" >
         <form action="/admin/editBook" class="container2" id="editForm" onsubmit="myFunction3()"  method="POST">
                     <input type="hidden" name="id" value="${formBeanKey.id}">

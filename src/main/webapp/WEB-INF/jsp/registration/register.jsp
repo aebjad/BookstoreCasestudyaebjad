@@ -8,8 +8,10 @@
 
 <div style="min-height: 1000px">
 <div class="bg-img2" >
+<%--//onsubmit="myFunction()"--%>
 
-    <form action="/registerSubmit" class="container2" id="suForm" onsubmit="myFunction()" method="POST">
+
+    <form action="/registerSubmit" class="container2" id="suForm"  method="POST">
 
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
@@ -96,13 +98,14 @@
         border: none; cursor: pointer; width: 100%; opacity: 0.9;" >Register</button>
     </form>
 </div>
-</div>
-<div style="color: red">
-    <c:forEach  var="message" items="${formBeanKey.errorMessages}" varStatus="status">
-        <span style="color: red">${message}</span><br>
+    <div style="color: red">
+        <c:forEach  var="message" items="${formBeanKey.errorMessages}" varStatus="status">
+            <span style="color: red">${message}</span><br>
 
-    </c:forEach>
+        </c:forEach>
+    </div>
 </div>
+
 
 
 <script>

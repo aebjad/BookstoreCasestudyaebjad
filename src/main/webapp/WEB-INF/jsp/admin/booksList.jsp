@@ -24,7 +24,6 @@
             <td><b> Quantity  </b></td>
             <td><b> Category </b></td>
 
-
             <td><b> Edit </b></td>
             <td><b> Delete</b></td>
 
@@ -42,7 +41,7 @@
 
 
             <td><a href="/admin/edit?id=${book.id}">Edit</a></td>
-            <td><a href="/admin/deleteBook?id=${book.id}">Delete</a></td>
+            <td><a href="/admin/deleteBook?id=${book.id}" id="delete" onclick="myFunction3()">Delete</a></td>
 
         </tr>
         </c:forEach>
@@ -53,5 +52,13 @@
             class="fas fa-long-arrow-alt-left me-2"></i>Back to admin page</a></h6>
 </div>
     <hr>
+
+<script>
+    document.getElementById("delete").addEventListener("onclick", myFunction3);
+
+    function myFunction3() {
+        alert("The book has been deleted successfully");
+    }
+</script>
 
 <jsp:include page="../include/footer.jsp" />

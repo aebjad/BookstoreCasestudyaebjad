@@ -1,9 +1,6 @@
-<%-- to include jstl libraries, to do loop, if statment, etc.. inside jsp page--%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-
 <jsp:include page="../include/header.jsp" />
 
-<!-- Header-->
+    <!-- Header-->
     <header class="bg-dark py-5 bg-img" >
         <div class="container px-4 px-lg-5 my-5" >
             <div class="text-center text-white">
@@ -23,31 +20,24 @@
     </header>
     </br><br/>
 
-    <h2>Order History</h2>
-    <table  class="table table-striped" >
-        <tr>
+<div  style="justify-content: center">
+<%--    <div class="col-md-4 mb-3">--%>
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                    <img src="/pub/images/giphy.webp" class="img-rounded" alt="Admin" class="rounded-circle" width="350">
+                    <div class="mt-3">
+                        <h4>Thank you for signing up</h4>
+                        <p class="text-secondary mb-1"><a href="/login/login">Sign in</a></p>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <td><b> Order # </b> </td>
-            <td><b> Status </b> </td>
-            <td><b> Shipped Date </b></td>
-            <td><b> Book Name</b></td>
-            <td><b> Quantity </b> </td>
+    </div>
 
-        </tr>
-    <c:forEach  var="order" items="${orders}">
 
-        <tr>
 
-            <td>  ${order.order_id}  </td>
-            <td>  ${order.status}  </td>
-            <td>  ${order.shipped_date}  </td>
-            <td>  ${order.book_name}  </td>
-            <td>  ${order.quantity}  </td>
-
-        </tr>
-    </c:forEach>
-</table>
-
-   <hr>
 
 <jsp:include page="../include/footer.jsp" />

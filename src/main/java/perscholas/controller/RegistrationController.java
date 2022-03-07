@@ -3,8 +3,6 @@ package perscholas.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -47,12 +45,10 @@ public class RegistrationController {
         return response;
     }
 
-    // this method describes what happens when a user submits the form to the back end
-    // it handles the creation logic for saving the user input to the database
+    //  submits the form to the back end to register a user
     @RequestMapping(value ="/registerSubmit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView registerSubmit(@Valid RegisterFormBean form, BindingResult errors) throws Exception {
         ModelAndView response = new ModelAndView();
-
 
         if(errors.hasErrors()) {
             for (FieldError error : errors.getFieldErrors()) {
@@ -88,28 +84,27 @@ public class RegistrationController {
             ur.setUserRole("USER");
             userRoleDao.save(ur);
 
-            //response.setViewName("registration/register");
-            response.setViewName("redirect:/index");
+            response.setViewName("redirect:/registerSuccess");
 
         }
 
         return response;
     }
 
+    @RequestMapping(value ="/registerSuccess", method = RequestMethod.GET)
+    public ModelAndView registerSuccess() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("registration/registerSuccess");
+
+        RegisterFormBean form = new RegisterFormBean();
+
+        return response;
+    }
 
     @RequestMapping(value ="/aboutUs", method =  RequestMethod.GET)
     public ModelAndView aboutUs() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("contact/aboutUs");
-
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
-// To add a user name instead of using  a session
-//        if(user != null){
-//            response.addObject("user", user);
-//        }
 
         return response;
     }
@@ -120,14 +115,6 @@ public class RegistrationController {
         ModelAndView response = new ModelAndView();
         response.setViewName("contact/contactUs");
 
-        // This is a way to ask the security context for the logged-in user.
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userDao.findByEmail(currentPrincipalName);
-
-        if(user != null){
-            response.addObject("user", user);
-        }
 
         return response;
     }

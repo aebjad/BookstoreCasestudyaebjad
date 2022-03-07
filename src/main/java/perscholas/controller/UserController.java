@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import perscholas.database.dao.OrderBookDAO;
+import perscholas.database.dao.OrderDAO;
 import perscholas.database.dao.UserDAO;
 import perscholas.database.entity.User;
 import perscholas.form.EditFormBean;
@@ -32,6 +34,12 @@ public class UserController {
 
     @Autowired
     private UserDAO userDao;
+
+    @Autowired
+    private OrderDAO orderDao;
+
+    @Autowired
+    private OrderBookDAO orderBookDao;
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView profile() throws Exception {
@@ -58,8 +66,7 @@ public class UserController {
         String currentPrincipalName = authentication.getName();
 
         User user = userDao.findByEmail(currentPrincipalName);
-        response.addObject("user", user);
-
+//        response.addObject("user", user);
         EditFormBean form = new EditFormBean();
         form.setEmail(user.getEmail());
         form.setPassword(user.getPassword());

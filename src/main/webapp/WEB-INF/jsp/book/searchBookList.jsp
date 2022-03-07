@@ -33,7 +33,7 @@
                 <img class="card-img-top" src="${book.urlImage}" alt="Book image" >
                  </a>
                 <div class="card-body">
-                    <h5 class="card-title">${book.bookName}</h5>
+                    <h5 class="card-title"><b>${book.bookName}</b></h5>
                     <h5 class="card-title">${book.author}</h5>
                     <h5 class="card-price">$${book.price}</h5>
                     <a id="cart2" href="/addToCart?id=${book.id}" class="btn btn-dark" onclick="addToCart()">Add to cart</a>
