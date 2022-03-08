@@ -35,7 +35,7 @@
             <td>  ${book.bookName}  </td>
             <td>  ${book.author}  </td>
             <td>  ${book.urlImage}  </td>
-            <td>   ${book.price}  </td>
+            <td>  $${book.price}  </td>
             <td>   ${book.quantityInStock} </td>
             <td>   ${book.category}  </td>
 
