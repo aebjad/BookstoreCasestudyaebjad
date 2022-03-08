@@ -115,7 +115,8 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/userBag"> | <i class="fas fa-shopping-cart"></i> ${quantity} </a>
+                <a class="nav-link" href="/userBag" > |
+                    <i class="fas fa-shopping-cart"></i><span style="color: red"> ${quantity}</span> </a>
             </li>
         </ul>
 
