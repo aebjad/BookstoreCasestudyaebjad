@@ -1,4 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="../include/header.jsp" />
 
@@ -35,7 +36,10 @@
                 <div class="card-body">
                     <h5 class="card-title"><b>${book.bookName}</b></h5>
                     <h5 class="card-title">${book.author}</h5>
-                    <h5 class="card-price">$${book.price}</h5>
+<%--                    <h5 class="card-price">$${book.price}</h5>--%>
+                    <h5 class="card-price">$
+                            <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${book.price}" />
+                    </h5>
                     <a id="cart2" href="/addToCart?id=${book.id}" class="btn btn-dark" onclick="addToCart()">Add to cart</a>
                 </div>
              </div>

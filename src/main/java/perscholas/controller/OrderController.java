@@ -126,8 +126,6 @@ public class OrderController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
         User user = userDao.findByEmail(currentPrincipalName);
-        // To add a user name instead of using  a session
-        response.addObject("user", user);
 
         if(user != null) {
             Order order = orderDao.findByUserIdAndStatus(user.getId(), "cart");
@@ -156,7 +154,8 @@ public class OrderController {
                 totalprice = Math.floor(totalprice * 100) / (100);
 
                 response.addObject("total", total);
-                response.addObject("totalprice", totalprice);
+                if(total > 0)
+                     response.addObject("totalprice", totalprice);
             }
         }
            response.setViewName("user/userBag");
