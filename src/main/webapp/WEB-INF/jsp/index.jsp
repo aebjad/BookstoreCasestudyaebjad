@@ -151,22 +151,22 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- Product image-->
-                        <a href="/bookDetails?id=6">
-                            <img class="card-img-top" src="/pub/images/animals.jpg" alt="Book..." /></a>
+                        <a href="/bookDetails?id=51">
+                            <img class="card-img-top" src="/pub/images/aranimals.jpg" alt="Book..." /></a>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">If Animals Kissed Goodnight</h5>
-                                <h6 >By Ann Whitford Paul, David Walker</h6>
+                                <h5 class="fw-bolder">My First Bilingual Book-Animals</h5>
+                                <h6 >By Milet Publishing</h6>
                                 <!-- Product price-->
-                                $7.99
+                                $8.99
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a class="btn btn-dark active" href="/addToCart?id=6" onclick="addToCart()">Add to cart</a></div>
+                                <a class="btn btn-dark active" href="/addToCart?id=51" onclick="addToCart()">Add to cart</a></div>
                         </div>
                     </div>
                 </div>
